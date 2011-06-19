@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @trackkr_module.name %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @trackkr_module.image_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_trackkr_module_path(@trackkr_module) %> |
+<%= link_to 'Back', trackkr_modules_path %>

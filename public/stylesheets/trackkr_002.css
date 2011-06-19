@@ -1,0 +1,238 @@
+.notice {
+	font-size: 14px;
+	color: #008000;
+	left: 50px;
+}
+
+
+#user_nav {
+	float: left;
+	font-size: 12px;
+}
+
+#logInBox {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 601px;
+}
+
+#logInBox input[type=text] {
+	width: 100px;
+}
+
+#logInBox input[type=submit] {
+	width: 60px;
+}
+
+.marketingPanelPosition1 {
+	position: absolute;
+	margin-left: 250px;
+	width: 300px;
+}
+.marketingPanelPosition2 {
+	margin-left: 550px;
+	width: 300px;
+}
+
+.productPanelPosition {
+	position:absolute;
+	top: 375px;
+	left: 275px;
+}
+
+.welcome {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+}
+.toplinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #0361B7;
+	text-decoration: none;
+}
+.tabbgline {
+	background-image: url(images/TabBGline.gif);
+	background-repeat: repeat-x;
+}
+.selectedTab {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	background-image: url(images/TabBG-Left-Selected.gif);
+}
+.UnselectedTab {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	background-image: url(images/TabBG-Left-UnSelected.gif);
+}
+.tabborder {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #8CAC00;
+	border-bottom-color: #8CAC00;
+	border-left-color: #8CAC00;
+	border-top-style: none;
+}
+.regionhdr {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	background-image: url(images/region-hdr-BG.gif);
+	height: 20px;
+	border: 1px solid #EBF0D0;
+}
+.unslctdtab-text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+.regionBody {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+	background-color: #F8FAEF;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #EAEFCF;
+	border-bottom-color: #EAEFCF;
+	border-left-color: #EAEFCF;
+}
+.marketingpanels {
+	background-color: #FFFFFF;
+	border: 1px solid #9CCFFE;
+}
+
+.Reminders {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #003366;
+	text-decoration: none;
+}
+.Reminderlines {
+	border-bottom-width: 1px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-bottom-color: #C5CDA9;
+}
+.Butts {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #646426;
+	text-decoration: none;
+	background-image: url(images/buttonBG.gif);
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #C6C7C2;
+	border-right-color: #ABABA9;
+	border-bottom-color: #ABABA9;
+	border-left-color: #C6C7C2;
+	height: 17px;
+	text-align: center;
+	vertical-align: middle;
+}
+.Droplist {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+	height: 16px;
+}
+.TabContHdr {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	background-color: #FFFFFF;
+}
+
+.IFborder {
+	border: 1px solid #999900;
+	background-repeat: repeat-x;
+}
+.performance {
+	border: 1px solid #DFE3CC;
+}
+.PerformaCont {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #DFE3CC;
+	border-bottom-color: #DFE3CC#DFE3CC;
+	border-left-color: #DFE3CC;
+}
+.textfields {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	height: 18px;
+	border: 1px solid #86AC00;
+}
+
+
+.tabContHdrLIne {
+	background-image: url(images/ContHdrLine.gif);
+	background-repeat: repeat-x;
+}
+.Label {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #646323;
+	text-decoration: none;
+}
+.Value {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+}
+
+#user_chart {
+	width: 500px;
+	height: 300px
+}
+

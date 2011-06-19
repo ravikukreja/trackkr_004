@@ -1,0 +1,29 @@
+<%= form_for(@graph) do |f| %>
+  <% if @graph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@graph.errors.count, "error") %> prohibited this graph from being saved:</h2>
+
+      <ul>
+      <% @graph.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :training_date %><br />
+    <%= f.date_select :training_date %>
+  </div>
+  <div class="field">
+    <%= f.label :planned_distance %><br />
+    <%= f.text_field :planned_distance %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_distance %><br />
+    <%= f.text_field :actual_distance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

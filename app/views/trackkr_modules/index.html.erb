@@ -1,0 +1,8 @@
+<%= render @trackkr_modules %>
+	
+
+<% if current_user %>
+	<% if current_user.username == 'admin' %>
+<%= link_to 'New Trackkr module', new_trackkr_module_path %>
+	<% end %>
+<% end %>

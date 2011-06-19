@@ -1,0 +1,9 @@
+.bundle
+db/*.sql
+log/*.log
+tmp/**/*
+config/database.yml
+*~
+*.project
+*.lock
+nbproject/**/*

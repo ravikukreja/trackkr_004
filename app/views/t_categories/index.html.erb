@@ -1,0 +1,24 @@
+<br>
+<b>CATEGORIES in <%= @trackkr_module.name %> </b><br>
+
+
+<% @t_categories.each do |category| %>
+<div class="<%= cycle('marketingPanelPosition1', 'marketingPanelPosition2') %>">
+	<%= category.name %>
+	<%= link_to(image_tag(category.image_url), t_category_products_path(category.id)) %><br>
+	<% if current_user %>
+		<% if current_user.username == 'admin' %>
+			<%= link_to 'Edit', edit_trackkr_module_t_category_path(category.trackkr_module_id, category.id) %>
+			<%= link_to 'Delete', trackkr_module_t_category_path(category.trackkr_module_id, category.id),
+		:confirm => 'Are you sure', :method => :delete %>
+		<% end %>
+	<% end %>
+	<%= link_to 'View Products', t_category_products_path(category.id) %><br>
+</div>
+<% end %>
+<% if current_user %>
+	<% if current_user.username == 'admin' %>
+		<td><%= link_to 'Add Categories', new_trackkr_module_t_category_path(@trackkr_module) %></td><br><br>
+	<% end %>
+<% end %>
+<%= link_to 'Back to Modules', trackkr_modules_path %>

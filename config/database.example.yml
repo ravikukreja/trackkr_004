@@ -1,0 +1,8 @@
+development:
+  adapter: mysql
+  database: trackkr_002_dev
+  username: root
+  password: 
+  pool: 5
+  timeout: 5000
+

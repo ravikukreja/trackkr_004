@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Training date:</b>
+  <%= @graph.training_date %>
+</p>
+
+<p>
+  <b>Planned distance:</b>
+  <%= @graph.planned_distance %>
+</p>
+
+<p>
+  <b>Actual distance:</b>
+  <%= @graph.actual_distance %>
+</p>
+
+
+<%= link_to 'Edit', edit_graph_path(@graph) %> |
+<%= link_to 'Back', graphs_path %>

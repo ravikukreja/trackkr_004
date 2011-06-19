@@ -1,0 +1,22 @@
+<div class="<%= cycle('marketingPanelPosition1', 'marketingPanelPosition2') %>">
+	
+  <table>
+  	<tr>
+  		<b><%= trackkr_module.name %> </b>
+	</tr>
+	<tr>
+	    <td><%= link_to(image_tag(trackkr_module.image_url), trackkr_module_t_categories_path(trackkr_module)) %></td>
+	</tr>
+	<tr>
+		<% if current_user %>
+			<% if current_user.username == 'admin' %>
+			    <td><%= link_to 'Show', trackkr_module %> | 
+			   <%= link_to 'Edit', edit_trackkr_module_path(trackkr_module) %> | 
+			   <%= button_to 'Delete', trackkr_module, :confirm => 'Are you sure?', :method => :delete %> |
+			  	<%= link_to 'Add Categories', new_trackkr_module_t_category_path(trackkr_module) %> |
+			<% end %>
+		<% end %>
+		<%= link_to 'View Categories', trackkr_module_t_categories_path(trackkr_module) %> </td>
+   </tr>
+   </table>
+   </div>

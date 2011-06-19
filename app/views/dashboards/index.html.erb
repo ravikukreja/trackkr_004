@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>trackkr-track your key results</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #0361B7;
+	background-image: url(images/PageBG.gif);
+}
+-->
+</style>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "user_chart",
+		defaultSeriesType: 'line'
+      },
+      title: {
+        text: "Distance by Day"
+      },
+      xAxis: {
+        type: "datetime"
+      },
+      yAxis: {
+        title: {
+          text: "Dollars"
+        }
+      },
+      series: [{
+	  	pointInterval: <%= 1.day * 1000 %>,
+		pointStart: <%= 3.weeks.ago.to_i * 1000 %>,  
+	  	data: <%= (3.weeks.ago.to_date..Date.today).map {|date| Graph.total_on(date).to_f}.inspect%>
+		}]
+       });
+  });
+</script>	
+</style></head>
+
+<body>
+
+
+<div id="user_chart"> This is where the chart will go</div>
+<div id="common">
+<div class="regionhdr"> Calendar
+<div id="calendar">
+<% calendar_for @graphs do |calendar| %>
+<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
+<% calendar.day(:day_method => :training_date) do |date, graphs|%>
+<%= link_to (date.day), new_graph_path %>
+<ul>
+<% for graph in graphs %>
+<%= link_to h(graph.planned_distance), graph %>
+<% end %>
+</ul>
+<% end %>
+<% end %>
+</div>
+
+</div>
+	
+</body>
+</html>

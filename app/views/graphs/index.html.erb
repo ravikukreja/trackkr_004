@@ -1,0 +1,27 @@
+<h1>Listing graphs</h1>
+
+<table>
+  <tr>
+    <th>Training date</th>
+    <th>Planned distance</th>
+    <th>Actual distance</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @graphs.each do |graph| %>
+  <tr>
+    <td><%= graph.training_date %></td>
+    <td><%= graph.planned_distance %></td>
+    <td><%= graph.actual_distance %></td>
+    <td><%= link_to 'Show', graph %></td>
+    <td><%= link_to 'Edit', edit_graph_path(graph) %></td>
+    <td><%= link_to 'Destroy', graph, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Graph', new_graph_path %>
