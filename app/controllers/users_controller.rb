@@ -45,17 +45,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @trackkr_modules = TrackkrModule.all
-    if @user.product1 = nil
-      put in the valud from checkbox
-      elsif
-      ....
-      elsif
-      ...
-      elsif
-      ...
-      elsif
-      ...
-    end
+    
 
     respond_to do |format|
       if @user.save
