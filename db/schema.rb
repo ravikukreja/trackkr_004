@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110619010653) do
+ActiveRecord::Schema.define(:version => 20110620052735) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -44,11 +44,6 @@ ActiveRecord::Schema.define(:version => 20110619010653) do
   create_table "trackkr_modules", :force => true do |t|
     t.string   "name"
     t.string   "image_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "trackkrhomes", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
