@@ -52,7 +52,7 @@ body {
 <div id="common">
 <div class="regionhdr"> Calendar
 <div id="calendar">
-<% calendar_for @graphs do |calendar| %>
+<%= calendar_for @graphs do |calendar| %>
 <%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 <% calendar.day(:day_method => :training_date) do |date, graphs|%>
 <%= link_to (date.day), new_graph_path %>

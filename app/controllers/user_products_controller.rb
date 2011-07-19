@@ -26,6 +26,7 @@ class UserProductsController < ApplicationController
   # GET /user_products/new.xml
   def new
     @user_product = UserProduct.new
+    @trackkr_modules = TrackkrModule.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +43,7 @@ class UserProductsController < ApplicationController
   # POST /user_products.xml
   def create
     current_user
-    product = Product.find(params[:product_id])
+    product = Product.find(params[:product_ids] || params[:product_id])
     @user_product = current_user.user_products.build(:product => product)
 
     respond_to do |format|

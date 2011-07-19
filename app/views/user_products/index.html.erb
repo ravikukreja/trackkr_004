@@ -9,13 +9,14 @@
     <th></th>
   </tr>
 
+
 <% @user_products.each do |user_product| %>
   <tr>
     <td><%= user_product.user_id %></td>
     <td><%= user_product.product_id %></td>
     <td><%= link_to 'Show', user_product %></td>
     <td><%= link_to 'Edit', edit_user_product_path(user_product) %></td>
-    <td><%= link_to 'Destroy', user_product, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Destroy', user_product, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

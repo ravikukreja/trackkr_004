@@ -1,4 +1,6 @@
 Trackkr002::Application.routes.draw do
+  resources :friends
+
   root :to => "trackkr_modules#index"
  
   resources :graphs
@@ -8,7 +10,9 @@ Trackkr002::Application.routes.draw do
   resources :dashboards 
 
 resources :t_categories do
-  resources :products
+  resources :products do
+    put 'select', :on => :collection
+  end
 end
 
   resources :trackkr_modules do

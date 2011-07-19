@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
-    @trackkr_modules = TrackkrModule.all
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,12 +44,11 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    @trackkr_modules = TrackkrModule.all
     
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(root_url, :notice => 'Registration successful') }
+        format.html { redirect_to(new_user_product_path, :notice => 'Registration successful')}
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -65,7 +64,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(new_user_product_path, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

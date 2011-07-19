@@ -2,19 +2,4 @@
 
 <%= render 'form' %>
 
-<h1>2. Product Information </h1>
- <% @trackkr_modules.each do |tmodule| %>
- 	<h1><%= tmodule.name %></h1>
-		<% tmodule.t_categories.each do |category| %>
-			<h2> <%=category.name %>  </h2>
-				<% category.products.each do |product| %>
-					<%= radio_button_tag product.name, product.id %>
-					<%= product.name %>
-				<% end %>
-		<% end %>
- <% end %>
-
-<h1>3. Account Preferences </h1>
-
-
 <%= link_to 'Back', users_path %>
