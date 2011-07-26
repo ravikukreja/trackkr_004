@@ -23,6 +23,8 @@ end
   
   get "login" => "user_sessions#new", :as => "login"
   get "logout" => "user_sessions#destroy", :as => "logout"
+  
+  get "add_to_cart/:product_id" => "user_products#add_to_cart",:as=>"add_to_cart"
 
   resources :users
 

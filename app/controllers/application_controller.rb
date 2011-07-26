@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 filter_parameter_logging :password
 
 helper_method :current_user
+before_filter :store_location
 
 private
 
@@ -28,7 +29,7 @@ def require_user
       unless current_user
         store_location
         flash[:notice] = "You must be logged in to access this page"
-        redirect_to new_user_session_url
+        redirect_to new_user_session_url 
         return false
       end
 end
@@ -43,7 +44,7 @@ def require_no_user
 end
     
 def store_location
-  session[:return_to] = request.request_uri
+  session[:return_to] = request.url unless params[:controller] == "user_sessions" 
 end
     
 def redirect_back_or_default(default)

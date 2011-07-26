@@ -41,7 +41,7 @@ class UserProductsController < ApplicationController
 
   # POST /user_products
   # POST /user_products.xml
-  def create
+  def add_to_cart
     current_user
     product = Product.find(params[:product_ids] || params[:product_id])
     @user_product = current_user.user_products.build(:product => product)
