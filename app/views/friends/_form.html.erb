@@ -1,0 +1,26 @@
+<%= form_tag "/user_search",:method=>"get",:remote=>true do |f| %>
+  <% if @friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+      <% @friend.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    User Name<br />
+    <%= text_field_tag :username %>
+  </div>
+    <div class="field">
+    Email<br />
+    <%= text_field_tag :email %>
+  </div>
+  <%=hidden_field_tag :product_id,params[:product_id]%>
+  <div class="actions">
+    <%=submit_tag 'Search' %>
+  </div>
+<% end %>

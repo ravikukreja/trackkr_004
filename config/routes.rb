@@ -25,7 +25,7 @@ end
   get "logout" => "user_sessions#destroy", :as => "logout"
   
   get "add_to_cart/:product_id" => "user_products#add_to_cart",:as=>"add_to_cart"
-
+  get "user_search" => "friends#search", :as => "user_search"
   resources :users
 
 end
