@@ -83,11 +83,13 @@ class FriendsController < ApplicationController
   end
   
   def search
-    @users = User.search(params,"email")
+
+    @users = User.search(params,"user")
   end
   
   def send_invite
     flash[:status] = "Invitatation successfully"
     redirect_to :controller=>'dashboards',:action=>"index"
+
   end
 end
