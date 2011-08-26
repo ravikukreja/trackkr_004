@@ -87,7 +87,7 @@ class FriendsController < ApplicationController
   end
   
   def send_invite
-    flash[:status] = "Invitatation successfully"
+    flash[:status] = "Invitatation successfully sent"
     redirect_to :controller=>'dashboards',:action=>"index"
   end
 end
