@@ -5,7 +5,8 @@
 			<div>
 		  	   <%=user.username%>
 			     <%current_user.user_products.each do |u_p|%>
-				     <%=check_box 'friend','product_id'	%> 
+				     <%=check_box 'friend','product_id',:value=>u_p.product_id	%>
+					 <%=hidden_field 'user','id',:value=>user.id%> 
 					 <%=u_p.product.name%>
 				  <%end%>
 			</div> 
