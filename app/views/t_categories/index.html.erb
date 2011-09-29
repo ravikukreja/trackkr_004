@@ -1,5 +1,8 @@
 <br>
 <b>CATEGORIES in <%= @trackkr_module.name %> </b><br>
+<%= form_tag  trackkr_module_t_categories_path, :method => "get" do %>
+		<%= render 'shared/search_box' %>
+<% end %>
 
 
 <% @t_categories.each do |category| %>

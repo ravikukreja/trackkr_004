@@ -24,7 +24,7 @@ class GraphsController < ApplicationController
   # GET /graphs/new
   # GET /graphs/new.xml
   def new
-    @graph = Graph.new
+    @graph = Graph.new(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb

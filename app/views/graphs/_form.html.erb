@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :training_date %><br />
-    <%= f.date_select :training_date %>
+    <%= f.date_select :training_date, :default => params[:current_date] %>
   </div>
   <div class="field">
     <%= f.label :planned_distance %><br />

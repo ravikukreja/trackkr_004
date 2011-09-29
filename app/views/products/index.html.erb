@@ -1,6 +1,9 @@
 <br>
 <b> PRODUCTS IN <%= @t_category.name %></b>
 <br>
+<%= form_tag  t_category_products_path, :method => "get" do %>
+		<%= render 'shared/search_box' %>
+<% end %>
 <% @products.each do |product| %>
 <div class="<%= cycle('marketingPanelPosition1', 'marketingPanelPosition2') %>">
 	<%= product.name %>
