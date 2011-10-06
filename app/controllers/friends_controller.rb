@@ -89,6 +89,10 @@ class FriendsController < ApplicationController
   
   def send_invite
     flash[:status] = "Invitatation successfully sent"
+    #need to Configure Mail Details
+    @product = Product.find(params[:friend][:product_id])
+    @friend_user = User.find(params[:user][:id])
+    UserMailer.invite_to_product(@friend_user,@product,params[:user][:content]).deliver
     redirect_to :controller=>'dashboards',:action=>"index"
 
   end
