@@ -12,8 +12,6 @@ body {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
-	background-color: #0361B7;
-	background-image: url(images/PageBG.gif);
 }
 -->
 </style>
@@ -43,29 +41,30 @@ body {
        });
   });
 </script>	
-</style></head>
+</head>
 
 <body>
 
 <div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path,{:rel=>"facebox[.bolder]"}%></div>
+	
+<div id="user_chart"></div>
 
-<div id="user_chart"> This is where the chart will go</div>
 <div id="common">
-<div class="regionhdr"> Calendar
-<div id="calendar">
-<%= calendar_for @graphs do |calendar| %>
-<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
-<% calendar.day(:day_method => :training_date) do |date, graphs|%>
-<%= link_to (date.day), new_graph_path(:current_date => to_date(date.day)) %>
-<ul>
-<% for graph in graphs %>
-<%= link_to h(graph.planned_distance), graph %>
-<% end %>
-</ul>
-<% end %>
-<% end %>
-</div>
-
+	<div class="regionhdr"> Calendar
+		<div id="calendar">
+			<%= calendar_for @graphs do |calendar| %>
+				<%= calendar.head('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun') %>
+				<%= calendar.day(:day_method => :training_date) do |date, graphs|%>
+					<%= link_to (date.day), new_graph_path %>
+						<ul>
+							<% for graph in graphs %>
+							<%= link_to h(graph.planned_distance), graph %>
+							<% end %>
+						</ul>
+					<% end %>
+			<% end %>
+		</div>
+	</div>
 </div>
 	
 </body>

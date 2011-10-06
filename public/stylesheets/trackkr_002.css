@@ -5,24 +5,11 @@
 }
 
 
-#user_nav {
-	float: left;
-	font-size: 12px;
-}
-
 #logInBox {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	width: 601px;
-}
-
-#logInBox input[type=text] {
-	width: 100px;
-}
-
-#logInBox input[type=submit] {
-	width: 60px;
+	float: right;
+	font-size: 12px;
+	border: 1px solid #EBF0D0;
+	padding: 20px 20px 20px 20px;
 }
 
 .marketingPanelPosition1 {
@@ -232,6 +219,7 @@
 }
 
 #user_chart {
+	margin-left: 250px;
 	width: 500px;
 	height: 300px
 }

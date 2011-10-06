@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  layout 'blank'
   
   def new
     @user_session = UserSession.new
