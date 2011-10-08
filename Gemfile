@@ -1,3 +1,5 @@
+# this is test for pull and push
+
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
