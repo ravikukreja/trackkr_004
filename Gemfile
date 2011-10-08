@@ -1,4 +1,4 @@
-# this is test for pull and push
+# this is test for pull and push bittu
 
 source 'http://rubygems.org'
 
