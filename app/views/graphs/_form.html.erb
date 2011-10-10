@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :training_date %><br />
-    <%= f.date_select :training_date %>
+    <%= f.date_select :training_date,{:default=>{:day=>params[:day],:month=>params[:month],:year => params[:year].to_i} } %>
   </div>
   <div class="field">
     <%= f.label :planned_distance %><br />
