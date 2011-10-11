@@ -1,4 +1,5 @@
 class GraphsController < ApplicationController
+  layout nil
   # GET /graphs
   # GET /graphs.xml
   def index
@@ -41,16 +42,21 @@ class GraphsController < ApplicationController
   # POST /graphs.xml
   def create
     @graph = Graph.new(params[:graph])
-
-    respond_to do |format|
-      if @graph.save
-        format.html { redirect_to(@graph, :notice => 'Graph was successfully created.') }
-        format.xml  { render :xml => @graph, :status => :created, :location => @graph }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @graph.errors, :status => :unprocessable_entity }
-      end
+    if @graph.save
+      redirect_to :controller=>'dashboards',:action=>"index"
+    else
+      render :action => "new"
     end
+#    respond_to do |format|
+#      if @graph.save
+#         redirect_to :controller=>'dashboards',:action=>"index"
+##        format.html { redirect_to(@graph, :notice => 'Graph was successfully created.') }
+##        format.xml  { render :xml => @graph, :status => :created, :location => @graph }
+#      else
+#        format.html { render :action => "new" }
+#        format.xml  { render :xml => @graph.errors, :status => :unprocessable_entity }
+#      end
+#    end
   end
 
   # PUT /graphs/1

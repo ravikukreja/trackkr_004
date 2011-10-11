@@ -50,21 +50,22 @@ body {
 <div id="user_chart"></div>
 
 <div id="common">
-	<div class="regionhdr"> Calendar
-		<div id="calendar">
-			<%= calendar_for @graphs do |calendar| %>
-				<%= calendar.head('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun') %>
-				<%= calendar.day(:day_method => :training_date) do |date, graphs|%>
-					<%= link_to (date.day), new_graph_path %>
-						<ul>
-							<% for graph in graphs %>
-							<%= link_to h(graph.planned_distance), graph %>
-							<% end %>
-						</ul>
-					<% end %>
-			<% end %>
-		</div>
-	</div>
+
+<div class="regionhdr"> Calendar
+<div id="calendar">
+<%= calendar_for @graphs do |calendar| %>
+<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
+<% calendar.day(:day_method => :training_date) do |date, graphs|%>
+<%= link_to (date.day), new_graph_path( :day => date.day, :month => date.month, :year => date.year),:rel => "facebox[.bolder]" %>
+<ul>
+<%# for graph in graphs %>
+<%#= link_to h(graph.planned_distance), graph %>
+<%# end %>
+</ul>
+<% end %>
+<% end %>
+</div>
+
 </div>
 
 </body>
