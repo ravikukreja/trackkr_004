@@ -46,7 +46,7 @@ body {
 <body>
 
 <div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path,{:rel=>"facebox[.bolder]"}%></div>
-	
+<%= button_to "Home", trackkr_modules_path, :method => :get %>		
 <div id="user_chart"></div>
 
 <div id="common">
@@ -66,6 +66,8 @@ body {
 		</div>
 	</div>
 </div>
-	
+
 </body>
 </html>
+
+
