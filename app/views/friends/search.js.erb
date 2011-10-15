@@ -1,1 +1,5 @@
-$("#search").html("<%= escape_javascript(render('user_list')) %>"); 
+<%if @users.blank?%>
+$("#search").html("The Person you are looking for is not available. Please enter another Email");
+<%else%>
+$("#search").html("<%= escape_javascript(render('user_list')) %>");
+<%end%> 

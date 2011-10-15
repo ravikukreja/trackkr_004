@@ -47,7 +47,7 @@ body {
 
 <body>
 
-<div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path,{:rel=>"facebox[.bolder]"}%></div>
+<div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path(:product_id=>Product.first.id),{:rel=>"facebox[.bolder]"}%></div>
 
 <div id="user_chart"> This is where the chart will go</div>
 <div id="common">
