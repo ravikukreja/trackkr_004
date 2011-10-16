@@ -46,6 +46,11 @@ class UserProductsController < ApplicationController
     product = Product.find(params[:product_ids] || params[:product_id])
     @user_product = current_user.user_products.build(:product => product)
 
+    if params[:friend_id]
+      @frd = Friend.find(params[:friend_id])
+      @frd.status = "Approved"
+      @frd.save
+    end
     respond_to do |format|
       if @user_product.save
         format.html { redirect_to(dashboards_path, :notice => 'User product was successfully created.') }

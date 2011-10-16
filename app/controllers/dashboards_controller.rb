@@ -6,7 +6,11 @@ class DashboardsController < ApplicationController
   def index
     @dashboards = Dashboard.all
     @graphs = Graph.all
-
+    # Active Friend Identification Functionalities & logic is here
+    active_users = Friend.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Approved").select("friend_id,user_id")
+    active_friend_ids = (active_users.collect(&:friend_id) + active_users.collect(&:user_id)).uniq
+    active_friend_ids.delete(current_user.id)
+    @active_friends = User.find(active_friend_ids)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @dashboards }
