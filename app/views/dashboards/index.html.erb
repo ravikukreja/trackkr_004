@@ -56,7 +56,7 @@ body {
 <%= calendar_for @graphs do |calendar| %>
 <%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 <% calendar.day(:day_method => :training_date) do |date, graphs|%>
-<%= link_to (date.day), new_graph_path %>
+<%= link_to (date.day), new_graph_path(:current_date => to_date(date.day)) %>
 <ul>
 <% for graph in graphs %>
 <%= link_to h(graph.planned_distance), graph %>

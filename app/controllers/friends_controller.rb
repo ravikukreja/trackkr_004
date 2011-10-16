@@ -84,7 +84,7 @@ class FriendsController < ApplicationController
   
   def search
 
-    @users = User.search(params,"user")
+    @users = User.search(params,"username")
   end
   
   def send_invite

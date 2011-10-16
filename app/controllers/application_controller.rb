@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   # application_controller.rb
-filter_parameter_logging :password
 
 helper_method :current_user
 before_filter :store_location
