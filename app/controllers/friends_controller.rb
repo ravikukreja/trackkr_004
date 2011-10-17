@@ -82,7 +82,6 @@ class FriendsController < ApplicationController
   end
   
   def search
-
     @users = params[:email].blank? ? [] : User.search(params,"email")
     render :layout => false
   end
