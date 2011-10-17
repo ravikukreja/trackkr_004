@@ -4,7 +4,7 @@ class TCategoriesController < ApplicationController
   respond_to :html
   
   def index
-    @t_categories = trackkr_module.t_categories.all
+    @t_categories = trackkr_module.t_categories.search(params[:search])
     
     respond_with [@t_categories, @trackkr_module]
   end

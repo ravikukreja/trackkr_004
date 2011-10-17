@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   respond_to :html
   
   def index
-    @products = t_category.products.all
+    @products = t_category.products.search(params[:search])
   end
   
   def new

@@ -12,8 +12,6 @@ body {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
-	background-color: #0361B7;
-	background-image: url(images/PageBG.gif);
 }
 -->
 </style>
@@ -43,7 +41,7 @@ body {
        });
   });
 </script>	
-</style></head>
+</head>
 
 <body>
 
@@ -57,9 +55,11 @@ body {
 		</li>
 	<%end%>
 </ul>
+<%= button_to "Home", trackkr_modules_path, :method => :get %>		
+<div id="user_chart"></div>
 
-<div id="user_chart"> This is where the chart will go</div>
 <div id="common">
+
 <div class="regionhdr"> Calendar
 <div id="calendar">
 <%= calendar_for @graphs do |calendar| %>
@@ -77,6 +77,8 @@ body {
 </div>
 
 </div>
-	
+
 </body>
 </html>
+
+

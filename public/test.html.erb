@@ -1,0 +1,16 @@
+@front_men = [FrontMan.new(1, 'David St. Hubbins'), FrontMan.new(2, 'David Lee Roth')]
+
+<% table_for(@front_men) do |t| %>
+  <% t.head do %>
+    <% t.r do %>
+      <%= t.h('Id') %>
+      <%= t.h('Name') %>
+    <% end %>
+  <% end %>
+  <% t.body do |front_man| %>
+    <% t.r do %>
+      <%= t.d(h(front_man.id)) %>
+      <%= t.d(h(front_man.name)) %>
+    <% end %>
+  <% end %>
+<% end %>

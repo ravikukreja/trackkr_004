@@ -1,3 +1,8 @@
+
+
+<%= form_tag trackkr_modules_path, :method => "get" do %>
+	<%= render 'shared/search_box' %>
+<% end %>
 <%= render @trackkr_modules %>
 	
 
@@ -6,3 +11,5 @@
 <%= link_to 'New Trackkr module', new_trackkr_module_path %>
 	<% end %>
 <% end %>
+
+<%= button_to "My Trackkr", dashboards_path, :method => :get %>  

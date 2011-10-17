@@ -1,4 +1,20 @@
 <h1>Listing graphs</h1>
+<% table_for(@graphs) do |t| %>
+  <% t.head do %>
+    <% t.r do %>
+      <%= t.h('Training Date') %>
+      <%= t.h('Planned Distance') %>
+	   <%= t.h('Actual Distance') %>
+    <% end %>
+  <% end %>
+  <% t.body do |graph| %>
+    <% t.r do %>
+      <%= t.d(h(graph.training_date)) %>
+      <%= t.d(h(graph.planned_distance)) %>
+	  <%= t.d(h(graph.actual_distance)) %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <table>
   <tr>

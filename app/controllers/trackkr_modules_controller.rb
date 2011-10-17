@@ -5,7 +5,7 @@ class TrackkrModulesController < ApplicationController
   respond_to :html
   
   def index
-    @trackkr_modules = TrackkrModule.all
+    @trackkr_modules = TrackkrModule.search(params[:search])
 
     respond_with [@trackkr_modules]
   end
