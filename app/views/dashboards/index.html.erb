@@ -47,7 +47,16 @@ body {
 
 <body>
 
-<div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path,{:rel=>"facebox[.bolder]"}%></div>
+<div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path(:product_id=>Product.first.id),{:rel=>"facebox[.bolder]"}%></div>
+
+<div> Approved Friends List on this product:</div>
+<ul>
+	<%@active_friends.each do |frd|%>
+		<li>
+			<%=frd.username%>
+		</li>
+	<%end%>
+</ul>
 
 <div id="user_chart"> This is where the chart will go</div>
 <div id="common">
@@ -56,11 +65,12 @@ body {
 <%= calendar_for @graphs do |calendar| %>
 <%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 <% calendar.day(:day_method => :training_date) do |date, graphs|%>
-<%= link_to (date.day), new_graph_path(:current_date => to_date(date.day)) %>
+
+<%= link_to (date.day), new_graph_path( :day => date.day, :month => date.month, :year => date.year),:rel => "facebox[.bolder]" %>
 <ul>
-<% for graph in graphs %>
-<%= link_to h(graph.planned_distance), graph %>
-<% end %>
+<%# for graph in graphs %>
+<%#= link_to h(graph.planned_distance), graph %>
+<%# end %>
 </ul>
 <% end %>
 <% end %>

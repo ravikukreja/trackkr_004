@@ -1,7 +1,6 @@
 class FriendsController < ApplicationController
   # GET /friends
   # GET /friends.xml
-  layout nil
   def index
     @friends = Friend.all
 
@@ -14,7 +13,7 @@ class FriendsController < ApplicationController
   # GET /friends/1
   # GET /friends/1.xml
   def show
-    @friend = Friend.find(params[:id])
+    @friend = Friend.find_by_authenticity_token(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +27,7 @@ class FriendsController < ApplicationController
     @friend = Friend.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :layout => false}
       format.xml  { render :xml => @friend }
     end
   end
@@ -84,12 +83,29 @@ class FriendsController < ApplicationController
   
   def search
 
-    @users = User.search(params,"username")
+    @users = params[:email].blank? ? [] : User.search(params,"email")
+    render :layout => false
   end
   
   def send_invite
     flash[:status] = "Invitatation successfully sent"
+    #need to Configure Mail Details
+    if not params[:user][:id].blank? 
+      @products = Product.find(params[:product_id])
+      @friend_user = User.find(params[:user][:id])
+      @products.each do |product|
+        status = Friend.create(:user_id=>current_user.id,:product_id=>product.id,:friend_id => @friend_user.id,:authenticity_token => random_string)
+        UserMailer.invite_to_product(status,params[:user][:content]).deliver if status
+      end
+    else
+      @product = Product.find(params[:single_product_id])
+      UserMailer.invite_to_trackkr(params[:user][:email],@product,params[:user][:invite_content]).deliver 
+    end
     redirect_to :controller=>'dashboards',:action=>"index"
 
+  end
+  
+  def random_string
+    (0...50).map{ ('a'..'z').to_a[rand(26)] }.join    
   end
 end
