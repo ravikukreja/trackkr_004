@@ -1,0 +1,29 @@
+<%= form_for(@product_plan) do |f| %>
+  <% if @product_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_plan.errors.count, "error") %> prohibited this product_plan from being saved:</h2>
+
+      <ul>
+      <% @product_plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= f.collection_select :product_id, Product.find(:all), :id, :name, :prompt => 'Select a Product' %>
+  </div>
+  <div class="field">
+    <%= f.label :product_plan_name %><br />
+    <%= f.text_field :product_plan_name %>
+  </div>
+  <div class="field">
+    <%= f.label :product_plan_desc %><br />
+    <%= f.text_area :product_plan_desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

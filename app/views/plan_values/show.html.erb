@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product plan:</b>
+  <%= @plan_value.product_plan_id %>
+</p>
+
+<p>
+  <b>Day:</b>
+  <%= @plan_value.day %>
+</p>
+
+<p>
+  <b>Distance:</b>
+  <%= @plan_value.distance %>
+</p>
+
+<p>
+  <b>Speed:</b>
+  <%= @plan_value.speed %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @plan_value.time %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @plan_value.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_plan_value_path(@plan_value) %> |
+<%= link_to 'Back', plan_values_path %>

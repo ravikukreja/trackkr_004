@@ -15,7 +15,10 @@
 				:confirm => 'Are you sure', :method => :delete %>
 		<% end %>
 	<% end %>
-	<%= button_to 'Add to trackkr', add_to_cart_path(:product_id => product), :method => :get %>
+	<p>
+	<div style="float: left; width: auto;">
+	<%= button_to 'Get started', add_to_cart_path(:product_id => product), :method => :get %> </div>
+	<%= link_to 'More Info', plan_values_path(:product_id => product.id), :method => :get %>
 	<br>
 </div>
 <% end %>

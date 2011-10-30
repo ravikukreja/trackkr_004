@@ -1,4 +1,8 @@
 Trackkr002::Application.routes.draw do
+  resources :product_plans
+
+  resources :plan_values
+
   resources :friends
 
   root :to => "trackkr_modules#index"

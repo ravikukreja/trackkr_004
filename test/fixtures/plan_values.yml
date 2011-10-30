@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  product_plan_id: 1
+  day: 1
+  distance: 1.5
+  speed: 1.5
+  time: 1.5
+  notes: MyString
+
+two:
+  product_plan_id: 1
+  day: 1
+  distance: 1.5
+  speed: 1.5
+  time: 1.5
+  notes: MyString

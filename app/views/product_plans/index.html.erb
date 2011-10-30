@@ -1,0 +1,27 @@
+<h1>Listing product_plans</h1>
+
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Product plan name</th>
+    <th>Product plan desc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product_plans.each do |product_plan| %>
+  <tr>
+    <td><%= product_plan.product_id %></td>
+    <td><%= product_plan.product_plan_name %></td>
+    <td><%= product_plan.product_plan_desc %></td>
+    <td><%= link_to 'Show', product_plan %></td>
+    <td><%= link_to 'Edit', edit_product_plan_path(product_plan) %></td>
+    <td><%= link_to 'Destroy', product_plan, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product plan', new_product_plan_path %>

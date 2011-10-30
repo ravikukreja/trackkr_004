@@ -10,7 +10,21 @@
       </ul>
     </div>
   <% end %>
-<h1>Choose a Product </h1>
+  <h1>Choose a Product </h1>
+  <div class="field">
+  	<%= f.label :product_plan_id %>
+  	<%= f.text_field :product_plan_id %>
+  </div>
+  <div class="field">
+  	<%= f.label :start_date %>
+  	<%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+  	<%= f.label :end_date %>
+  	<%= f.date_select :end_date %>
+  </div>
+
+
 <%= form_tag 'user_products_path' %>
  <% @trackkr_modules.each do |tmodule| %>
  	<h1><%= tmodule.name %></h1>

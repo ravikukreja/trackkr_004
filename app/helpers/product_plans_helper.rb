@@ -1,0 +1,2 @@
+module ProductPlansHelper
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015164450) do
+ActiveRecord::Schema.define(:version => 20111027105807) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -31,6 +31,25 @@ ActiveRecord::Schema.define(:version => 20111015164450) do
     t.date     "training_date"
     t.integer  "planned_distance"
     t.integer  "actual_distance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plan_values", :force => true do |t|
+    t.integer  "product_plan_id"
+    t.integer  "day"
+    t.float    "distance"
+    t.float    "speed"
+    t.float    "time"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_plans", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "product_plan_name"
+    t.text     "product_plan_desc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,10 +78,13 @@ ActiveRecord::Schema.define(:version => 20111015164450) do
   end
 
   create_table "user_products", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "product_id", :null => false
+    t.integer  "user_id",         :null => false
+    t.integer  "product_id",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_plan_id"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "user_sessions", :force => true do |t|

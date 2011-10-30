@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @product_plan.product_id %>
+</p>
+
+<p>
+  <b>Product plan name:</b>
+  <%= @product_plan.product_plan_name %>
+</p>
+
+<p>
+  <b>Product plan desc:</b>
+  <%= @product_plan.product_plan_desc %>
+</p>
+
+
+<%= link_to 'Edit', edit_product_plan_path(@product_plan) %> |
+<%= link_to 'Back', product_plans_path %>

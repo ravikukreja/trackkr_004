@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   
   belongs_to :t_category
   has_many :user_products
+  has_many :product_plans
   
   def self.search(search)
    if search
