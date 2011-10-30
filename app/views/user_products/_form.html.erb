@@ -13,7 +13,7 @@
   <h1>Choose a Product </h1>
   <div class="field">
   	<%= f.label :product_plan_id %>
-  	<%= f.text_field :product_plan_id %>
+  	<%= f.collection_select :product_plan_id, Product.find(:all), :id, :name, :prompt => 'Select a Product' %>
   </div>
   <div class="field">
   	<%= f.label :start_date %>
