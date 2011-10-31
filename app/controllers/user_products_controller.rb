@@ -39,6 +39,7 @@ class UserProductsController < ApplicationController
   def edit
     @user_product = UserProduct.find(params[:id])
   end
+ 
 
   # POST /user_products
   # POST /user_products.xml

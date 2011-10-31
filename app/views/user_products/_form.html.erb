@@ -1,4 +1,4 @@
-<%= form_for(@user_product), :method => :add_to_cart do |f| %>
+<%= form_for(add_to_cart_path(:product_id => params[:product_id])) do |f| %>
   <% if @user_product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_product.errors.count, "error") %> prohibited this user_product from being saved:</h2>
