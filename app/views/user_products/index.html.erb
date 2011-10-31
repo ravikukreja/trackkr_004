@@ -4,6 +4,7 @@
   <tr>
     <th>User</th>
     <th>Product</th>
+    <th>Product Plan</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
   <tr>
     <td><%= user_product.user_id %></td>
     <td><%= user_product.product_id %></td>
+    <td><%= user_product.product_plan_id %></td>
     <td><%= link_to 'Show', user_product %></td>
     <td><%= link_to 'Edit', edit_user_product_path(user_product) %></td>
     <td><%= button_to 'Destroy', user_product, :confirm => 'Are you sure?', :method => :delete %></td>

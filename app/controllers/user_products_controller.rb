@@ -27,6 +27,7 @@ class UserProductsController < ApplicationController
   def new
     @user_product = UserProduct.new
     @trackkr_modules = TrackkrModule.all
+    @product = Product.find(params[:product_id])
 
     respond_to do |format|
       format.html # new.html.erb
