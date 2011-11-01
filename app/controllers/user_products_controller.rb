@@ -46,11 +46,12 @@ class UserProductsController < ApplicationController
   def create
     current_user
     product = Product.find(params[:product_ids] || params[:user_product][:product_id])
-    @user_product = current_user.user_products.build(params[:user_product])
+    @user_product = current_user.user_products.new(params[:user_product])
+    date = "#{params['plan']['date(1i)']}/#{params['plan']['date(2i)']}/#{params['plan']['date(3i)']}"
     if params[:start_end] == "start"
-      @user_product.start_date = params["plan"]["date"]
+      @user_product.start_date = date
     elsif params[:start_end] == "end"
-      @user_product.end_date = params["plan"]["date"]
+      @user_product.end_date = date
     end
     if params[:friend_id]
       @frd = Friend.find(params[:friend_id])
