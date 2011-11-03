@@ -1,4 +1,6 @@
 Trackkr002::Application.routes.draw do
+  resources :user_product_actual_datas
+
   resources :product_plans
 
   resources :plan_values
