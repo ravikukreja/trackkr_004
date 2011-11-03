@@ -38,14 +38,20 @@ class UserProductsController < ApplicationController
   def edit
     @user_product = UserProduct.find(params[:id])
   end
+ 
 
   # POST /user_products
   # POST /user_products.xml
-  def add_to_cart
+  def create
     current_user
-    product = Product.find(params[:product_ids] || params[:product_id])
-    @user_product = current_user.user_products.build(:product => product)
-
+    product = Product.find(params[:product_ids] || params[:user_product][:product_id])
+    @user_product = current_user.user_products.new(params[:user_product])
+    date = "#{params['plan']['date(1i)']}/#{params['plan']['date(2i)']}/#{params['plan']['date(3i)']}"
+    if params[:start_end] == "start"
+      @user_product.start_date = date
+    elsif params[:start_end] == "end"
+      @user_product.end_date = date
+    end
     if params[:friend_id]
       @frd = Friend.find(params[:friend_id])
       @frd.status = "Approved"

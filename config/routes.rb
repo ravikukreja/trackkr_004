@@ -1,4 +1,6 @@
 Trackkr002::Application.routes.draw do
+  resources :user_product_actual_datas
+
   resources :product_plans
 
   resources :plan_values
@@ -11,6 +13,9 @@ Trackkr002::Application.routes.draw do
 
   resources :user_products
 
+  get 'user_products/product/:product_id' => 'user_products#new', :as => "add_new_user_product"
+  get 'plan_values/product/:product_id' => 'plan_values#index', :as => "plan_value_product_info"
+  
   resources :dashboards 
 
 resources :t_categories do

@@ -12,9 +12,17 @@
   <% end %>
   <h1>Choose a Product </h1>
   <div class="field">
+  	<%=f.hidden_field :product_id , :value => params[:product_id]%>
   	<%= f.label :product_plan_id %>
   	<%= f.collection_select :product_plan_id, Product.find(:all), :id, :name, :prompt => 'Select a Product' %>
   </div>
+  <div><%=radio_button_tag :start_end, "start",:checked => true%> Start Date <%=radio_button_tag :start_end, "end"%> End Date</div>
+  <div class="field">
+  	<%= date_select :plan, :date %>
+  </div>
+  
+  
+  <%if false%>
   <div class="field">
   	<%= f.label :start_date %>
   	<%= f.date_select :start_date %>
@@ -23,7 +31,7 @@
   	<%= f.label :end_date %>
   	<%= f.date_select :end_date %>
   </div>
-
+<%end%>
 
 <%= form_tag 'user_products_path' %>
  <% @trackkr_modules.each do |tmodule| %>

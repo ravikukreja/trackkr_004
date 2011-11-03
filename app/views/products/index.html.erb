@@ -6,7 +6,7 @@
 <% end %>
 <% @products.each do |product| %>
 <div class="<%= cycle('marketingPanelPosition1', 'marketingPanelPosition2') %>">
-	<%= product.name %>
+	<p><%= product.name %>
 	<%= image_tag(product.image_url)  %>
 	<% if current_user %>
 		<% if current_user.username == 'admin' %>
@@ -15,10 +15,15 @@
 				:confirm => 'Are you sure', :method => :delete %>
 		<% end %>
 	<% end %>
-	<p>
+	</p>
 	<div style="float: left; width: auto;">
-	<%= button_to 'Get started', add_to_cart_path(:product_id => product), :method => :get %> </div>
-	<%= link_to 'More Info', plan_values_path(:product_id => product.id), :method => :get %>
+
+    	<%= button_to 'Get started', add_new_user_product_path(:product_id => product.id), :method => :get %> 
+	</div>
+    <div style="float: left; width: auto;">
+	  <%= button_to 'More Info', plan_value_product_info_path(:product_id => product.id), :method => :get %>
+	</div>
+
 	<br>
 </div>
 <% end %>
