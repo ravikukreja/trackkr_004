@@ -80,4 +80,12 @@ class UserProductActualDatasController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+  def update_individual
+    UserProductActualData.update(params[:actual_datas].keys, params[:actual_datas].values)
+    flash[:notice] = "Actual Data Updated"
+    redirect_to dashboards_path
+  end
+  
 end

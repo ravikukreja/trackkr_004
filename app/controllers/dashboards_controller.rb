@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards.xml
   def index
     @dashboards = Dashboard.all
-    @user_product_actual_data = UserProductActualData.new
+    @user_product_actual_datas = UserProductActualData.all
     @graphs = Graph.all
     # Active Friend Identification Functionalities & logic is here
     active_users = Friend.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Approved").select("friend_id,user_id")
