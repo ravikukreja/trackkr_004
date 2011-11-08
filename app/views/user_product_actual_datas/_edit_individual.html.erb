@@ -1,0 +1,10 @@
+
+
+<%= form_tag update_individual_user_product_actual_datas_path, :method => :put do %>
+	<%for user_product_actual_data in @user_product_actual_datas %>
+		<%= fields_for "actual_datas[]",user_product_actual_data do |f|%>
+		<%= render 'user_product_actual_datas/fields', :f => f %>
+		<%end%>	
+	<%end%>
+ <%= submit_tag 'Edit'%>
+<%end%>
