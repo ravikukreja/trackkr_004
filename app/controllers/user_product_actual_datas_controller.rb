@@ -24,7 +24,8 @@ class UserProductActualDatasController < ApplicationController
   # GET /user_product_actual_datas/new
   # GET /user_product_actual_datas/new.xml
   def new
-    @user_product_actual_data = UserProductActualData.new
+    @user_product_actual_data = current_user.user_product_actual_datas(session[:product_id],params[:date])
+    @user_product_actual_data ||= UserProductActualData.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,7 +33,7 @@ class UserProductActualDatasController < ApplicationController
     end
   end
 
-  # GET /user_product_actual_datas/1/edit
+#   GET /user_product_actual_datas/1/edit
   def edit
     @user_product_actual_data = UserProductActualData.find(params[:id])
   end

@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
     end
     results.order(sort)
   end
+  
+  def user_product_actual_datas(product_id,date)
+    user_product = UserProduct.find_by_user_id_and_product_id(self.id,product_id)
+    UserProductActualData.find_by_user_product_id_and_actual_training_date(user_product.id,date)
+  end
 end
