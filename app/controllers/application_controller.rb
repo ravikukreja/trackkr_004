@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # application_controller.rb
-
+helper_method :check_if_record_exists
 helper_method :current_user
 before_filter :store_location
 

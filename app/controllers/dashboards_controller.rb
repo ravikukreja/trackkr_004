@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
- 
+ helper_method :check_if_record_exists
   before_filter :require_user
   # GET /dashboards
   # GET /dashboards.xml

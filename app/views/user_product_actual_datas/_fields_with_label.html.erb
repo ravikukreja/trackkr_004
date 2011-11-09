@@ -1,25 +1,33 @@
+
 <tr>
 	<div class="field">  
-   	<td><%= f.text_field :user_product_id, :size => 3 %></td>
- 	</div>
+			<%= f.label :user_product_id%>	  
+    	<td><%= f.text_field :user_product_id, :size => 3 %></td>
+
+  	</div>
 	
   	<div class="field">  
+			<%= f.label :actual_training_date%>
   		<td><%= f.date_select :actual_training_date, :use_month_numbers => true,:discard_year => true %></td>
     </div>
 	
   	<div class="field">  
+			<%= f.label :actual_distance%>
 		<td> <%= f.text_field :actual_distance, :size => 3 %></td>
    	</div>
 	
   	<div class="field">  
-   		<td><%= f.text_field :actual_speed,:size => 3 %></td>
+			<%= f.label :actual_speed%> 
+    	<td><%= f.text_field :actual_speed,:size => 3 %></td>
   	</div>
 	
   	<div class="field">
-     	<td><%= f.text_field :actual_time,:size => 3 %></td>
+  			<%= f.label :actual_time%> 	
+    	<td><%= f.text_field :actual_time,:size => 3 %></td>
     </div>
 
   	<div class="field">
+  			<%= f.label :actual_notes%>
   		<td><%= f.text_area :actual_notes, :rows => 1, :cols => 10 %></td>
     </div>
 	

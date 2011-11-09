@@ -55,8 +55,11 @@ body {
 		</li>
 	<%end%>
 </ul>
-<%= button_to "Home", trackkr_modules_path, :method => :get %>	
+
+
+
 <%= render 'user_product_actual_datas/edit_individual'%>	
+<%= button_to "Home", trackkr_modules_path, :method => :get %>	
 <div id="user_chart"></div>
 
 <div id="common">
@@ -67,7 +70,11 @@ body {
 <%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 <% calendar.day(:day_method => :training_date) do |date, graphs|%>
 
-<%= link_to (date.day), new_graph_path( :day => date.day, :month => date.month, :year => date.year),:rel => "facebox[.bolder]" %>
+
+<%= link_to (date), new_or_edit_path(date),:rel => "facebox[.bolder]" %>
+
+
+
 <ul>
 <%# for graph in graphs %>
 <%#= link_to h(graph.planned_distance), graph %>

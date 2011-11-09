@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
+  
 
-<%= render 'fields', :f => f %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= render 'fields_with_label', :f => f %>
+  	<div class="actions">
+  		<%= f.submit %>
+  	</div>
 <% end %>

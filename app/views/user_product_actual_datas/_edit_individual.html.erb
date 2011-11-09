@@ -1,14 +1,26 @@
 
+<table border = "1">
+<tr>
+<th colspan="6">Edit Individual Training </th>
+</tr>
 
-Edit Individual Training
-
+  <tr>
+    <th>User product</th>
+    <th>Actul training date</th>
+    <th>Actual distance</th>
+    <th>Actual speed</th>
+    <th>Actual time</th>
+    <th>Actual notes</th>
+	</tr>
+	
 <%= form_tag update_individual_user_product_actual_datas_path, :method => :put do %>
 	<% for actual_data in @user_product_actual_datas %>
 		<%= fields_for "actual_datas[]", actual_data do |f| %>
-			<h2><%= actual_data.actual_training_date %></h2>
 			<%= render 'user_product_actual_datas/fields', :f => f %>
 		<% end %>
+		
 	<% end %>
-	<%= submit_tag 'Submit'%>
+	</table>
+  <%= submit_tag 'Submit'%>
 <% end %>
 
