@@ -11,9 +11,33 @@
     </div>
   <% end %>
   
+  
+<table border = "1">
+<tr>
+<th colspan="10">Enter user details </th>
+</tr>
 
-<%= render 'fields_with_label', :f => f %>
-  	<div class="actions">
-  		<%= f.submit %>
-  	</div>
+  <tr>
+    <th>User product</th>
+    <th>Actul training date</th>
+    <th>Actual distance</th>
+    <th>Actual speed</th>
+    <th>Actual time</th>
+    <th>Actual notes</th>
+    <th>Plan distance</th>
+    <th>Plan speed</th>
+    <th>Plan time</th>
+	<th>Plan notes</th>
+	</tr>  
+
+<tr>
+<%= render 'fields', :f => f %>
+  	
+</tr>
+		<div class="actions">
+  			<%= f.submit %>
+  		</div>
+
+</table>
+
 <% end %>

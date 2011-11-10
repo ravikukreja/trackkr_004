@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111103035707) do
+ActiveRecord::Schema.define(:version => 20111110140155) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -86,6 +86,10 @@ ActiveRecord::Schema.define(:version => 20111103035707) do
     t.text     "actual_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "plan_distance"
+    t.float    "plan_speed"
+    t.float    "plan_time"
+    t.string   "plan_notes"
   end
 
   create_table "user_products", :force => true do |t|
