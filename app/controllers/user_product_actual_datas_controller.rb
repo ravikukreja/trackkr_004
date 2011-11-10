@@ -28,7 +28,7 @@ class UserProductActualDatasController < ApplicationController
     @user_product_actual_data ||= UserProductActualData.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html{ render :layout=>nil}
       format.xml  { render :xml => @user_product_actual_data }
     end
   end
