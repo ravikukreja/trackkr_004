@@ -14,37 +14,12 @@
   <div class="field">
   	<%=f.hidden_field :product_id , :value => params[:product_id]%>
   	<%= f.label :product_plan_id %>
-  	<%= f.collection_select :product_plan_id, Product.find(:all), :id, :name, :prompt => 'Select a Product' %>
+  	<%= f.collection_select :product_plan_id, ProductPlan.find(:all, :conditions => ['product_id=?', params[:product_id]]), :id, :product_plan_name, :prompt => 'Select a Product' %>
   </div>
   <div><%=radio_button_tag :start_end, "start",:checked => true%> Start Date <%=radio_button_tag :start_end, "end"%> End Date</div>
   <div class="field">
   	<%= date_select :plan, :date %>
   </div>
-  
-  
-  <%if false%>
-  <div class="field">
-  	<%= f.label :start_date %>
-  	<%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-  	<%= f.label :end_date %>
-  	<%= f.date_select :end_date %>
-  </div>
-<%end%>
 
-<%= form_tag 'user_products_path' %>
- <% @trackkr_modules.each do |tmodule| %>
- 	<h1><%= tmodule.name %></h1>
-		<% tmodule.t_categories.each do |category| %>
-			<h2> <%=category.name %>  </h2>
-					<% category.products.each do |product| %>
-					<%= radio_button_tag "product_ids", product.id %>
-					<%= product.name %>
-					
-					
-				<% end %>
-		<% end %>
- <% end %>
  <%= submit_tag "Add to Trackkr" %>
 <% end %>
