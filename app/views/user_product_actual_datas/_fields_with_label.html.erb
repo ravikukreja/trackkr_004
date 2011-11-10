@@ -8,7 +8,11 @@
 	
   	<div class="field">  
 			<%= f.label :actual_training_date%>
+<!--
+<<<<<<< HEAD
   		<td><%= f.date_select :actual_training_date, :use_month_numbers => true,:discard_year => true, {:default=>{:day=>params[:day],:month=>params[:month],:year => params[:year].to_i} } %></td>
+======= -->
+  		<td><%= f.date_select :actual_training_date, :use_month_numbers => true,:default=> {:year => params[:date].split('-').first.to_i, :day=>params[:date].split('-').last.to_i,:month=>params[:date].split('-')[1].to_i} %></td>
     </div>
 	
   	<div class="field">  

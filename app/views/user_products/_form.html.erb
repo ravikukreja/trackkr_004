@@ -10,11 +10,11 @@
       </ul>
     </div>
   <% end %>
-  <h1>Choose a Product in <%= @product.name %> </h1>
+  <h1>Choose a Product </h1>
   <div class="field">
   	<%=f.hidden_field :product_id , :value => params[:product_id]%>
   	<%= f.label :product_plan_id %>
-  	<%= f.collection_select :product_plan_id, ProductPlan.find_all_by_product_id(params[:product_id]), :id, :product_plan_name, :prompt => 'Select a Plan' %>
+  	<%= f.collection_select :product_plan_id, Product.find(:all), :id, :name, :prompt => 'Select a Product' %>
   </div>
   <div><%=radio_button_tag :start_end, "start",:checked => true%> Start Date <%=radio_button_tag :start_end, "end"%> End Date</div>
   <div class="field">
@@ -33,5 +33,18 @@
   </div>
 <%end%>
 
- <%= f.submit "Add to Trackkr" %>
+<%= form_tag 'user_products_path' %>
+ <% @trackkr_modules.each do |tmodule| %>
+ 	<h1><%= tmodule.name %></h1>
+		<% tmodule.t_categories.each do |category| %>
+			<h2> <%=category.name %>  </h2>
+					<% category.products.each do |product| %>
+					<%= radio_button_tag "product_ids", product.id %>
+					<%= product.name %>
+					
+					
+				<% end %>
+		<% end %>
+ <% end %>
+ <%= submit_tag "Add to Trackkr" %>
 <% end %>

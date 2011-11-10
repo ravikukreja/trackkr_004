@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
- 
+ helper_method :check_if_record_exists
   before_filter :require_user
   # GET /dashboards
   # GET /dashboards.xml
@@ -7,6 +7,7 @@ class DashboardsController < ApplicationController
     @dashboards = Dashboard.all
     @user_product_actual_datas = UserProductActualData.all
     @graphs = Graph.all
+    session[:product_id] ||= params[:product_id] || current_user.user_products.first.product.id
     # Active Friend Identification Functionalities & logic is here
     active_users = Friend.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Approved").select("friend_id,user_id")
     active_friend_ids = (active_users.collect(&:friend_id) + active_users.collect(&:user_id)).uniq
