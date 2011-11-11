@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110140155) do
+ActiveRecord::Schema.define(:version => 20111110183030) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(:version => 20111110140155) do
     t.datetime "updated_at"
   end
 
-  create_table "user_product_actual_datas", :force => true do |t|
+  create_table "user_product_plan_datas", :force => true do |t|
     t.integer  "user_product_id"
-    t.date     "actual_training_date"
+    t.date     "training_date"
     t.float    "actual_distance"
     t.float    "actual_speed"
     t.float    "actual_time"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20111110140155) do
     t.string   "plan_notes"
   end
 
-  create_table "user_products", :force => true do |t|
+  create_table "user_product_plans", :force => true do |t|
     t.integer  "user_id",         :null => false
     t.integer  "product_id",      :null => false
     t.datetime "created_at"

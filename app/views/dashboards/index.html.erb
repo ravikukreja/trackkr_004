@@ -58,7 +58,7 @@ body {
 
 
 
-<%= render 'user_product_actual_datas/edit_individual'%>	
+<%= render 'user_product_plan_datas/edit_individual'%>	
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
 <div id="user_chart"></div>
 
@@ -71,7 +71,7 @@ body {
 <%= calendar.day(:day_method => :training_date) do |date, graphs|%>
 
 
-<%= link_to (date.day), "#{new_user_product_actual_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
+<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
 
 
 

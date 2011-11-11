@@ -1,0 +1,25 @@
+<%= form_for(@user_product_plan) do |f| %>
+  <% if @user_product_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_product_plan.errors.count, "error") %> prohibited this user_product_plan from being saved:</h2>
+
+      <ul>
+      <% @user_product_plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1>Choose a Product </h1>
+  <div class="field">
+  	<%=f.hidden_field :product_id , :value => params[:product_id]%>
+  	<%= f.label :product_plan_id %>
+  	<%= f.collection_select :product_plan_id, ProductPlan.find(:all, :conditions => ['product_id=?', params[:product_id]]), :id, :product_plan_name, :prompt => 'Select a Product' %>
+  </div>
+  <div><%=radio_button_tag :start_end, "start",:checked => true%> Start Date <%=radio_button_tag :start_end, "end"%> End Date</div>
+  <div class="field">
+  	<%= date_select :plan, :date %>
+  </div>
+
+ <%= submit_tag "Add to Trackkr" %>
+<% end %>

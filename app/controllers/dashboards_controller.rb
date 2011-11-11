@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards.xml
   def index
     @dashboards = Dashboard.all
-    @user_product_actual_datas = UserProductActualData.all
+    @user_product_plan_datas = UserProductPlanData.all
     @graphs = Graph.all
     session[:product_id] ||= params[:product_id] || current_user.user_products.first.product.id
     # Active Friend Identification Functionalities & logic is here

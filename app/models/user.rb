@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_authentic
-  has_many :user_products
+  has_many :user_product_plans
   has_many :friends
   
   scope :by_email, lambda{ |arg|
