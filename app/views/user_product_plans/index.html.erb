@@ -11,13 +11,13 @@
   </tr>
 
 
-<% @user_products.each do |user_product| %>
+<% @user_product_plans.each do |user_product_plan| %>
   <tr>
     <td><%= user_product_plan.user_id %></td>
     <td><%= user_product_plan.product_id %></td>
     <td><%= user_product_plan.product_plan_id %></td>
-    <td><%= link_to 'Show', user_product %></td>
-    <td><%= link_to 'Edit', edit_uuser_product_plan_path(user_product) %></td>
+    <td><%= link_to 'Show', user_product_plan %></td>
+    <td><%= link_to 'Edit', edit_user_product_plan_path(user_product_plan) %></td>
     <td><%= button_to 'Destroy', user_product_plan, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

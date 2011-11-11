@@ -24,7 +24,7 @@ class UserProductPlanDatasController < ApplicationController
   # GET /user_product_plan_datas/new
   # GET /user_product_plan_datas/new.xml
   def new
-    @user_product_plan_data = current_user.user_product_plan_datas(session[:product_id],params[:date])
+    @user_product_plan_data = current_user.user_product_plan_datas(session[:product_plan_id],params[:date])
     @user_product_plan_data ||= UserProductPlanData.new
 
     respond_to do |format|
@@ -84,7 +84,7 @@ class UserProductPlanDatasController < ApplicationController
   
   
   def update_individual
-    UserProductPlanData.update(params[:actual_datas].keys, params[:actual_datas].values)
+    UserProductPlanData.update(params[:plan_datas].keys, params[:plan_datas].values)
     flash[:notice] = "Plan Data Updated"
     redirect_to dashboards_path
   end

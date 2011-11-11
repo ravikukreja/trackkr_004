@@ -1,9 +1,9 @@
-<h1>Listing user product plan datas</h1>
+<h1>Listing user product plan </h1>
 
 <table>
   <tr>
-    <th>User product</th>
-    <th>Actul training date</th>
+    <th>User product Plan</th>
+    <th>Training date</th>
     <th>Actual distance</th>
     <th>Actual speed</th>
     <th>Actual time</th>
@@ -16,8 +16,8 @@
 
 <% @user_product_plan_datas.each do |user_product_plan_data| %>
   <tr>
-    <td><%= user_product_plan_data.user_product_id %></td>
-    <td><%= user_product_plan_data.actual_training_date %></td>
+    <td><%= user_product_plan_data.user_product_plan_id %></td>
+    <td><%= user_product_plan_data.training_date %></td>
     <td><%= user_product_plan_data.actual_distance %></td>
     <td><%= user_product_plan_data.actual_speed %></td>
     <td><%= user_product_plan_data.actual_time %></td>

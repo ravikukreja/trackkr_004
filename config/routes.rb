@@ -1,5 +1,5 @@
 Trackkr002::Application.routes.draw do
-  resources :user_product_actual_datas do
+  resources :user_product_plan_datas do
    post 'edit_individual', :on => :collection
    put 'update_individual', :on => :collection
   end
@@ -14,9 +14,9 @@ Trackkr002::Application.routes.draw do
  
   resources :graphs
 
-  resources :user_products
+  resources :user_product_plans
 
-  get 'user_products/product/:product_id' => 'user_products#new', :as => "add_new_user_product"
+  get 'user_product_plans/product/:product_id' => 'user_product_plans#new', :as => "add_new_user_product_plan"
   get 'plan_values/product/:product_id' => 'plan_values#index', :as => "plan_value_product_info"
   
   resources :dashboards 

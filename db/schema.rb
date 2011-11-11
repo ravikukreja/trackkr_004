@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110183030) do
+ActiveRecord::Schema.define(:version => 20111111090103) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20111110183030) do
   end
 
   create_table "user_product_plan_datas", :force => true do |t|
-    t.integer  "user_product_id"
+    t.integer  "user_product_plan_id"
     t.date     "training_date"
     t.float    "actual_distance"
     t.float    "actual_speed"

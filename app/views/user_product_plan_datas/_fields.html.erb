@@ -1,12 +1,16 @@
 <tr>
 	<div class="field">  
-   	<td><%= f.text_field :user_product_id, :size => 3 %></td>
+   	<td><%= f.text_field :user_product_plan_id, :size => 3 %></td>
  	</div>
-	
+	<% if params[:date] %>
   	<div class="field">  
-  		<td><%= f.date_select :actual_training_date, :use_month_numbers => true %></td>
+  		<td><%= f.date_select :training_date, :use_month_numbers => true, :default=> {:year => params[:date].split('-').first.to_i, :day=>params[:date].split('-').last.to_i,:month=>params[:date].split('-')[1].to_i} %></td>
     </div>
-	
+	<% else %>
+		<div class="field">  
+  		<td><%= f.date_select :training_date, :use_month_numbers => true %></td>
+    </div>
+	<% end %>
   	<div class="field">  
 		<td> <%= f.text_field :actual_distance, :size => 3 %></td>
    	</div>
