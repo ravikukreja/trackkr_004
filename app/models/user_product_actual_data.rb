@@ -1,8 +1,8 @@
 class UserProductActualData < ActiveRecord::Base
   belongs_to :user_product
   
-  
-  def check_if_record_exists
-    false
-  end
+ def input_plan_data_into_user_table
+   return true
+ end
+ 
 end
