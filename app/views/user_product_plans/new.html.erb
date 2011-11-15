@@ -1,3 +1,6 @@
 <%= render 'form' %>
 
-<%= link_to 'Back', user_product_plans_path %>
+<% if params[:product_id]%>
+ <%= button_to 'More Info', plan_value_product_info_path, :method => :get %>
+<%end%>
+ <%= link_to 'Back', user_product_plans_path %>

@@ -1,6 +1,8 @@
 class UserProductPlanDatasController < ApplicationController
   # GET /user_product_plan_datas
   # GET /user_product_plan_datas.xml
+  layout "blank"
+  
   def index
     @user_product_plan_datas = UserProductPlanData.all
 
