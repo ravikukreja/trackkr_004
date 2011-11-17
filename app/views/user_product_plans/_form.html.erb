@@ -14,7 +14,8 @@
   <div class="field">
   	<%=f.hidden_field :product_id , :value => params[:product_id]%>
   	<%= f.label :product_plan_id %>
-  	<%= f.collection_select :product_plan_id, ProductPlan.find(:all, :conditions => ['product_id=?', params[:product_id]]), :id, :product_plan_name, :prompt => 'Select a Plan' %>
+	<%product_plans = Product.find(params[:product_id]).product_plans%>
+  	<%= f.collection_select :product_plan_id, product_plans, :id, :product_plan_name, :prompt => 'Select a Plan' %>
   </div>
   <div><%=radio_button_tag :start_end, "start",:checked => true%> Start Date <%=radio_button_tag :start_end, "end"%> End Date</div>
   <div class="field">

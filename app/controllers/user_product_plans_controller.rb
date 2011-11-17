@@ -45,7 +45,6 @@ class UserProductPlansController < ApplicationController
   def create
     current_user
     #@plan_values = PlanValue.find_by_product_plan_id(params[:product_plan_id])
-    product = Product.find(params[:product_ids] || params[:user_product_plan][:product_id])
     @user_product_plan = current_user.user_product_plans.new(params[:user_product_plan])
     date = "#{params['plan']['date(1i)']}/#{params['plan']['date(2i)']}/#{params['plan']['date(3i)']}"
     if params[:start_end] == "start"
@@ -53,13 +52,27 @@ class UserProductPlansController < ApplicationController
     elsif params[:start_end] == "end"
       @user_product_plan.end_date = date
     end
+    
+    if @user_product_plan.save
+      plan_days = @user_product_plan.product_plan.plan_values
+      status = false
+      plan_days.each do |plan_day|
+        user_product_plan_data = @user_product_plan.user_product_plan_datas.new
+        user_product_plan_data.training_date = @user_product_plan.start_date.nil? ? (@user_product_plan.end_date - plan_day.day.days) : (@user_product_plan.start_date + plan_day.day.days)
+        user_product_plan_data.plan_distance = plan_day.distance
+        user_product_plan_data.plan_speed = plan_day.speed
+        user_product_plan_data.plan_time = plan_day.distance
+        user_product_plan_data.plan_notes = plan_day.notes
+        status = user_product_plan_data.save
+      end  
+    end
     if params[:friend_id]
       @frd = Friend.find(params[:friend_id])
       @frd.status = "Approved"
       @frd.save
     end
     respond_to do |format|
-      if @user_product_plan.save
+      if status
         format.html { redirect_to(dashboards_path, :notice => 'User product plan was successfully created.') }
         format.xml  { render :xml => @user_product_plan, :status => :created, :location => @user_product_plan }
       else
