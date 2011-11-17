@@ -62,7 +62,7 @@ body {
 <ul>
 	<% @user_product_plans.each do | user_product|%>
 		<li>
-			<%= link_to user_product.product_plan.product_plan_name %>
+			<%= link_to user_product.product_plan.product_plan_name, dashboards_path(:product_plan_id => user_product.product_plan_id) %>
 			<%= user_product.id%>
 			
 		</li>

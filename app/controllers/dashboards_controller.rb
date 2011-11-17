@@ -7,16 +7,10 @@ class DashboardsController < ApplicationController
     current_user
     @dashboards = Dashboard.all
     @user_product_plans = current_user.user_product_plans.all
-    #@user_product_plan_id = @user_product_plans.first.id
-    #@user_product_plan_datas = UserProductPlanData.find(:all, :conditions => {:user_product_plan_id  => @user_product_plans.id}) 
-    # @user_product_plan_datas = @user_product_plans.user_product_plan_datas.find_all_by_user_product_plan_id([user_product_plans.id])
-    
     @graphs = Graph.all
     session[:product_plan_id] = params[:product_plan_id] || current_user.user_product_plans.first.product_plan_id
-     #@user_product_plan_id = UserProductPlan.find_by_user_id_and_product_plan_id(@current_user.id, session[:product_plan_id])
-     @user_product_plan_id = current_user.user_product_plans.find_by_product_plan_id(session[:product_plan_id])
-     #@user_product_plan_id = current_user.user_product_plans.first.id
-     @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(@user_product_plan_id)
+    @user_product_plan_id = current_user.user_product_plans.find_by_product_plan_id(session[:product_plan_id])
+    @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(@user_product_plan_id)
     
     # Active Friend Identification Functionalities & logic is here
     active_users = Friend.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Approved").select("friend_id,user_id")
