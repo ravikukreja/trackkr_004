@@ -5,8 +5,8 @@
     <th>User</th>
     <th>Product</th>
     <th>Product Plan</th>
-    <th></th>
-    <th></th>
+    <th>Start Date</th>
+    <th>End Date</th>
     <th></th>
   </tr>
 
@@ -16,6 +16,8 @@
     <td><%= user_product_plan.user_id %></td>
     <td><%= user_product_plan.product_id %></td>
     <td><%= user_product_plan.product_plan_id %></td>
+    <td><%= user_product_plan.start_date %></td>
+    <td><%= user_product_plan.end_date %></td>
     <td><%= link_to 'Show', user_product_plan %></td>
     <td><%= link_to 'Edit', edit_user_product_plan_path(user_product_plan) %></td>
     <td><%= button_to 'Destroy', user_product_plan, :confirm => 'Are you sure?', :method => :delete %></td>
