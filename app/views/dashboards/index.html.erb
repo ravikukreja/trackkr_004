@@ -58,6 +58,18 @@ body {
 
 
 
+<div>  List of Plans on this product:</div>
+<ul>
+	<% @user_product_plans.each do | user_product|%>
+		<li>
+			<%= link_to user_product.product_plan.product_plan_name %>
+			<%= user_product.id%>
+			
+		</li>
+	<%end%>
+</ul>
+
+
 <%= render 'user_product_plan_datas/edit_individual'%>	
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
 <div id="user_chart"></div>
