@@ -15,42 +15,10 @@ body {
 }
 -->
 </style>
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    new Highcharts.Chart({
-      chart: {
-        renderTo: "user_chart",
-defaultSeriesType: 'line'
-      },
-      title: {
-        text: "Distance by Day"
-      },
-	  credits: {
-		text: "trackkr ",
-		href: "www.trackkr.com"
-	   },
-      xAxis: {
-        type: "datetime"
-      },
-      yAxis: {
-        title: {
-          text: "Distance"
-        }
-      },
-      series: [{
-	  	name: "Actual",
-		pointInterval: <%= 1.day * 1000 %>,
-		pointStart: <%= 2.weeks.ago.to_i * 1000 %>,  
-	  	data: <%= (2.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, @user_product_plan_id)}.inspect%>
-		}, {
-	  	name: "Planned",
-		pointInterval: <%= 1.day * 1000 %>,
-		pointStart: <%= 2.weeks.ago.to_i * 1000 %>,  
-		data: <%= (2.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, @user_product_plan_id)}.inspect%>
-		}]
-       });
-  });
-</script> 
+
+
+<%= render 'dashboards/highchart'%>
+
 </head>
 
 <body>
@@ -82,13 +50,14 @@ defaultSeriesType: 'line'
 
 <%= render 'user_product_plan_datas/edit_individual'%>	
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
+<%= button_to "Edit Chart Setting", new_user_product_plan_graph_path, :method => :get%>
 <div id="user_chart"></div>
 
 <div id="common">
 
 <div class="regionhdr"> Calendar
 <div id="calendar">
-<%= calendar_for @graphs do |calendar| %>
+<%= calendar_for @user_product_plan_data do |calendar| %>
 <%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 <%= calendar.day(:day_method => :training_date) do |date, graphs|%>
 

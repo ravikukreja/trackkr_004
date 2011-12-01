@@ -1,0 +1,2 @@
+module UserProductPlanGraphsHelper
+end
