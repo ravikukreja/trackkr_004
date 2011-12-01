@@ -12,18 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :training_date %><br />
-
-    <%= f.date_select :training_date,{:default=>{:day=>params[:day],:month=>params[:month],:year => params[:year].to_i} } %>
+    <%= f.label :t_category_id %><br />
+    <%= f.collection_select :t_category_id ,TCategory.all, :id, :name, :prompt => 'Select a Category'%>
 
   </div>
   <div class="field">
-    <%= f.label :planned_distance %><br />
-    <%= f.text_field :planned_distance %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :actual_distance %><br />
-    <%= f.text_field :actual_distance %>
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+    <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
   </div>
   <div class="actions">
     <%= f.submit %>

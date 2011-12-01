@@ -1,6 +1,7 @@
 class TCategory < ActiveRecord::Base
   validates :name, :image_url, :presence => true
   belongs_to :trackkr_module
+  has_many :graphs
   has_many :products, :dependent => :destroy
   
   def self.search(search)

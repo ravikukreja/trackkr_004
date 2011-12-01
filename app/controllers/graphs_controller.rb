@@ -43,7 +43,7 @@ class GraphsController < ApplicationController
   def create
     @graph = Graph.new(params[:graph])
     if @graph.save
-      redirect_to :controller=>'dashboards',:action=>"index"
+      redirect_to graphs_path
     else
       render :action => "new"
     end
