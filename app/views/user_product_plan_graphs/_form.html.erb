@@ -17,16 +17,22 @@
   </div>
   <div class="field">
     <%= f.label :graph_id %><br />
-    <%= f.text_field :graph_id %>
-  </div>
-  <div class="field">
-    <%= f.label :graph_select_type %><br />
-    <%= f.text_field :graph_select_type %>
-  </div>
-  <div class="field">
-    <%= f.label :graph_select_range %><br />
-    <%= f.text_field :graph_select_range %>
-  </div>
+    
+	<div>
+		<div>  List of Graph for selected category </div>
+			<ul>
+				<%@graphs.each do |g|%>
+					<li>
+						<%= g.name%>
+						<%= f.check_box :graph_id%>
+						<%= f.select :graph_select_type,["Bar","Line","Pie"],:prompt=>"Select the type" %>
+						<%= f.label :graph_select_range %>
+ 						<%= f.select :graph_select_range, ["1 week", "1 month", "3 months"] %>
+					</li>
+					<%end%>
+			</ul>
+		</div> 
+  	</div>
   <div class="actions">
     <%= f.submit %>
   </div>
