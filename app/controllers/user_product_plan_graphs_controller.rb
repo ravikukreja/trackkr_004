@@ -25,7 +25,7 @@ class UserProductPlanGraphsController < ApplicationController
   # GET /user_product_plan_graphs/new.xml
   def new
     @user_product_plan_graph = UserProductPlanGraph.new
-
+    @graphs = Graph.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user_product_plan_graph }

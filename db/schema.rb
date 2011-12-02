@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111201085548) do
+ActiveRecord::Schema.define(:version => 20111202081102) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20111201085548) do
 
   create_table "user_product_plan_graphs", :force => true do |t|
     t.integer  "user_product_plan_id"
-    t.string   "graph_select"
+    t.integer  "graph_id",             :limit => 255
     t.string   "graph_select_type"
     t.string   "graph_select_range"
     t.datetime "created_at"
