@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>User product plan</th>
-    <th>Graph select</th>
+    <th>Graph ID</th>
     <th>Graph select type</th>
     <th>Graph select range</th>
     <th></th>
@@ -14,7 +14,7 @@
 <% @user_product_plan_graphs.each do |user_product_plan_graph| %>
   <tr>
     <td><%= user_product_plan_graph.user_product_plan_id %></td>
-    <td><%= user_product_plan_graph.graph_select %></td>
+    <td><%= user_product_plan_graph.graph_id %></td>
     <td><%= user_product_plan_graph.graph_select_type %></td>
     <td><%= user_product_plan_graph.graph_select_range %></td>
     <td><%= link_to 'Show', user_product_plan_graph %></td>
