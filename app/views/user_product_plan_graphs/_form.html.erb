@@ -15,18 +15,23 @@
     <%= f.label :user_product_plan_id %><br />
     <%= f.text_field :user_product_plan_id %>
   </div>
+
   <div class="field">
-    <%= f.label :graph_id %><br />
-    <%= f.text_field :graph_id %>
-  </div>
-  <div class="field">
-    <%= f.label :graph_select_type %><br />
-    <%= f.text_field :graph_select_type %>
-  </div>
-  <div class="field">
+    <%= f.label :graph_id %><br>
+    <% for graph in @graphs %>
+		<%= f.check_box :graph_id %>
+		<%= f.label graph.name %>
+			  
+			    <%= f.label :graph_select_type %>
+			    <%= f.select :graph_select_type, ["line", "bar", "solid"] %>
+  
+ 
     <%= f.label :graph_select_range %><br />
-    <%= f.text_field :graph_select_range %>
+    <%= f.select :graph_select_range, ["1 week", "1 month", "3 months"] %><br>
+	<% end %>
   </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
