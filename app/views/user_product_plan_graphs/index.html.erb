@@ -1,0 +1,29 @@
+<h1>Listing user_product_plan_graphs</h1>
+
+<table>
+  <tr>
+    <th>User product plan</th>
+    <th>Graph select</th>
+    <th>Graph select type</th>
+    <th>Graph select range</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_product_plan_graphs.each do |user_product_plan_graph| %>
+  <tr>
+    <td><%= user_product_plan_graph.user_product_plan_id %></td>
+    <td><%= user_product_plan_graph.graph_select %></td>
+    <td><%= user_product_plan_graph.graph_select_type %></td>
+    <td><%= user_product_plan_graph.graph_select_range %></td>
+    <td><%= link_to 'Show', user_product_plan_graph %></td>
+    <td><%= link_to 'Edit', edit_user_product_plan_graph_path(user_product_plan_graph) %></td>
+    <td><%= link_to 'Destroy', user_product_plan_graph, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User product plan graph', new_user_product_plan_graph_path %>

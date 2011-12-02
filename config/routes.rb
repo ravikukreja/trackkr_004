@@ -1,4 +1,6 @@
 Trackkr002::Application.routes.draw do
+  resources :user_product_plan_graphs
+
   resources :user_product_plan_datas do
    post 'edit_individual', :on => :collection
    put 'update_individual', :on => :collection

@@ -1,0 +1,33 @@
+<%= form_for(@user_product_plan_graph) do |f| %>
+  <% if @user_product_plan_graph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_product_plan_graph.errors.count, "error") %> prohibited this user_product_plan_graph from being saved:</h2>
+
+      <ul>
+      <% @user_product_plan_graph.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_product_plan_id %><br />
+    <%= f.text_field :user_product_plan_id %>
+  </div>
+  <div class="field">
+    <%= f.label :graph_select %><br />
+    <%= f.text_field :graph_select %>
+  </div>
+  <div class="field">
+    <%= f.label :graph_select_type %><br />
+    <%= f.text_field :graph_select_type %>
+  </div>
+  <div class="field">
+    <%= f.label :graph_select_range %><br />
+    <%= f.text_field :graph_select_range %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
