@@ -271,7 +271,7 @@
 }
 
 #calendar .today {
-  background-color: #D7F2FF;
+  background-color: #8B8378;
 }
 
 #calendar ul {
@@ -288,4 +288,7 @@
   text-align: center;
 }
 
+#calendar .green{
+	background-color: #008000;
+}
 

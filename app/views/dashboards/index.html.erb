@@ -60,7 +60,7 @@ body {
   <p><strong>GOAL:</strong></p>
 	<ul>
 		<% @user_product_plans.each do |plan_detail|%>
-		 <p> Product Plan ID: <%= plan_detail.product_plan_id %></p> 	
+		 <p> Product Plan ID: <%= plan_detail.id %></p> 	
 		 <p> Start Date:      <%= plan_detail.start_date      %></p>
 		 <p> End Date:        <%= plan_detail.end_date        %></p>
 		<%end%> 	
@@ -81,8 +81,17 @@ body {
 		<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
 			<ul>
 				<% for user_product_plan_data in user_product_plan_datas%>
-					<%= user_product_plan_data.plan_distance %>
-					<%= user_product_plan_data.actual_distance %>
+					
+						<div class="green">
+						   <p id="id_1">Plan:<%= user_product_plan_data.plan_distance %></p>
+						   <p id="id_1">Actual: <%= user_product_plan_data.actual_distance %></p> 
+						</div>
+					
+						
+						   
+						</div>
+					
+					
 				<% end %>
 			</ul>
 	<% end %>
