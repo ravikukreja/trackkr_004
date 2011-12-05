@@ -36,7 +36,7 @@ body {
 
 
 
-<div>  List of Plans on this product:</div>
+<div>  <strong>List of Plans on this product:</strong></div>
 <ul>
 	<% @user_product_plans.each do | user_product|%>
 		<li>
@@ -45,14 +45,27 @@ body {
 			
 		</li>
 	<%end%>
+	
+	<%= button_to "Add new Plan", trackkr_modules_path, :method => :get%>
+	
 </ul>
 
-
+<div style="height:300px;width:950px;font:12px; overflow:auto;">
 <%= render 'user_product_plan_datas/edit_individual'%>	
+</div>
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
 <%= button_to "Edit Chart Setting", new_user_product_plan_graph_path, :method => :get%>
 <div id="user_chart"></div>
-
+<div style="height:100px;width:300px; overflow:auto;">	
+  <p><strong>GOAL:</strong></p>
+	<ul>
+		<% @user_product_plans.each do |plan_detail|%>
+		 <p> Product Plan ID: <%= plan_detail.product_plan_id %></p> 	
+		 <p> Start Date:      <%= plan_detail.start_date      %></p>
+		 <p> End Date:        <%= plan_detail.end_date        %></p>
+		<%end%> 	
+	</ul> 			
+</div> 		
 <div id="common">
 
 <div class="regionhdr"> Calendar

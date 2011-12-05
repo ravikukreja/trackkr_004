@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111202081102) do
+ActiveRecord::Schema.define(:version => 20111205070007) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -113,6 +113,9 @@ ActiveRecord::Schema.define(:version => 20111202081102) do
     t.string   "calendar_view_by"
     t.string   "distance_unit"
     t.string   "date_format"
+    t.float    "goal_distance"
+    t.float    "goal_speed"
+    t.float    "goal_time"
   end
 
   create_table "user_sessions", :force => true do |t|
@@ -130,6 +133,8 @@ ActiveRecord::Schema.define(:version => 20111202081102) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contact_number"
+    t.string   "reminder_option"
   end
 
 end
