@@ -3,8 +3,13 @@
 <table>
   <tr>
     <th>Username</th>
+	<th></th>
     <th>Email</th>
     <th>Password</th>
+	<th></th>
+	<th>Contact number</th>
+	<th></th>
+	<th>Reminder option</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +18,15 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.username %></td>
+	<th></th>
     <td><%= user.email %></td>
+	<th></th>
     <td><%= user.password %></td>
+	
+	<td><%= user.contact_number %></td>
+	<th></th>
+	<td><%= user.reminder_option %></td>
+	<th></th>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>

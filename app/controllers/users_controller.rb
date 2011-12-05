@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(new_user_product_plan_path, :notice => 'Registration successful')}
+        format.html { redirect_to(trackkr_modules_path, :notice => 'Registration successful')}
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

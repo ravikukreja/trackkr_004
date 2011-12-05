@@ -28,6 +28,15 @@
   	<%= f.label :password_confirmation %><br/>
 	<%= f.password_field :password_confirmation %>
   	</div>
+	<div>
+  	<%= f.label :contact_number %><br/>
+	<%= f.text_field :contact_number %>
+  	</div>
+	<div>
+	<%= f.label :reminder_option %><br/>
+	<%= f.select :reminder_option,["email","sms"],:prompt=>"Please select" %>
+	</div>
+	<br/>
   <div class="actions">
     <%= f.submit %>
   </div>

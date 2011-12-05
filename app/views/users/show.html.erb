@@ -15,6 +15,16 @@
   <%= @user.password %>
 </p>
 
+<p>
+  <b>Contact number:</b>
+  <%= @user.contact_number %>
+</p>
+
+<p>
+  <b>Reminder option:</b>
+  <%= @user.reminder_option %>
+</p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
