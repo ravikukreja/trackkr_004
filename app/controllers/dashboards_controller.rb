@@ -5,6 +5,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards.xml
   def index
     current_user
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @dashboards = Dashboard.all
     @user_product_plans = current_user.user_product_plans.all
     @graphs = Graph.all

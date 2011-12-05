@@ -57,21 +57,22 @@ body {
 
 <div class="regionhdr"> Calendar
 <div id="calendar">
-<%= calendar_for @user_product_plan_data do |calendar| %>
-<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
-<%= calendar.day(:day_method => :training_date) do |date, graphs|%>
-
-
-<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
-
-
-
-<ul>
-<%# for graph in graphs %>
-<%#= link_to h(graph.planned_distance), graph %>
-<%# end %>
-</ul>
-<% end %>
+	<h2 id="month">
+		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m")%>
+		<%= h @date.strftime("%B %Y")%>
+		<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m")%>
+	</h2> 
+<%= calendar_for @user_product_plan_datas, :year => @date.year, :month => @date.month do |calendar| %>
+	<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
+	<%= calendar.day(:day_method => :training_date) do |date, user_product_plan_datas|%>
+		<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
+			<ul>
+				<% for user_product_plan_data in user_product_plan_datas%>
+					<%= user_product_plan_data.plan_distance %>
+					<%= user_product_plan_data.actual_distance %>
+				<% end %>
+			</ul>
+	<% end %>
 <% end %>
 </div>
 
