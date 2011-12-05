@@ -12,25 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_product_plan_id %><br />
-    <%= f.text_field :user_product_plan_id %>
-  </div>
-
-  <div class="field">
+  	<%=hidden_field_tag :user_product_plan_id, @user_product_plan.id%>
     <%= f.label :graph_id %><br />
     
 	<div>
 		<div>  List of Graph for selected category </div>
-			<ul>
-				<%@graphs.each do |g|%>
+			<ul>	
+				<%@graphs.each_with_index do |g,i|%>
 					<li>
-						<%= g.name%>
-						<%= f.check_box :graph_id%>
-						<%= f.select :graph_select_type,["Bar","Line","Pie"],:prompt=>"Select the type" %>
-						<%= f.label :graph_select_range %>
- 						<%= f.select :graph_select_range, ["1 week", "1 month", "3 months"] %>
+						<%@selected_graph=UserProductPlanGraph.find_by_user_product_plan_id_and_graph_id(@user_product_plan.id,g.id)%>
+						<%if @selected_graph%>
+							<%= g.name%>
+							<%= check_box "new[p_#{i}]","graph_id",{:checked=>true},g.id%>
+							<%= select "new[p_#{i}]","graph_select_type",["Bar","Line","Pie"],{:selected=>@selected_graph.graph_select_type}%>
+	 						<%= select "new[p_#{i}]", "graph_select_range", ["1 week", "1 month", "3 months"],{:selected=>@selected_graph.graph_select_range}%>
+						<%else%>
+							<%= g.name%>
+							<%= check_box "new[p_#{i}]","graph_id",{},g.id%>
+							<%= select "new[p_#{i}]","graph_select_type",["Bar","Line","Pie"],:prompt=>"Select the type" %>
+	 						<%= select "new[p_#{i}]", "graph_select_range", ["1 week", "1 month", "3 months"] %>
+						<%end%>
 					</li>
-					<%end%>
+				<%end%>
 			</ul>
 		</div> 
   	</div>

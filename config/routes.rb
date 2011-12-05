@@ -17,7 +17,7 @@ Trackkr002::Application.routes.draw do
   resources :graphs
 
   resources :user_product_plans
-
+  get 'user_product_plan_graphs/new/:user_product_plan_id' => 'user_product_plan_graphs#new', :as => :new_graph_plan
   get 'user_product_plans/product/:product_id' => 'user_product_plans#new', :as => "add_new_user_product_plan"
   get 'plan_values/product/:product_id' => 'plan_values#index', :as => "plan_value_product_info"
   

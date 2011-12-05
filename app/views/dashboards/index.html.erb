@@ -54,7 +54,7 @@ body {
 <%= render 'user_product_plan_datas/edit_individual'%>	
 </div>
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
-<%= button_to "Edit Chart Setting", new_user_product_plan_graph_path, :method => :get%>
+<%= button_to "Edit Chart Setting", new_graph_plan_path(:user_product_plan_id=>@user_product_plan_id.id), :method => :get%>
 <div id="user_chart"></div>
 <div style="height:100px;width:300px; overflow:auto;">	
   <p><strong>GOAL:</strong></p>

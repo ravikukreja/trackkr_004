@@ -25,6 +25,7 @@ class UserProductPlanGraphsController < ApplicationController
   # GET /user_product_plan_graphs/new.xml
   def new
     @user_product_plan_graph = UserProductPlanGraph.new
+    @user_product_plan = UserProductPlan.find(params[:user_product_plan_id])
     @graphs = Graph.all
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +41,23 @@ class UserProductPlanGraphsController < ApplicationController
   # POST /user_product_plan_graphs
   # POST /user_product_plan_graphs.xml
   def create
-    @user_product_plan_graph = UserProductPlanGraph.new(params[:user_product_plan_graph])
-
+    status = false
+    params[:new].each do |key,value|
+      if Graph.exists?(value[:graph_id])
+        value.merge!(:user_product_plan_id=>params[:user_product_plan_id].to_i)
+        if (exist_data = UserProductPlanGraph.find_by_user_product_plan_id_and_graph_id(params[:user_product_plan_id].to_i,value[:graph_id]))
+          status = exist_data.update_attributes(value)
+        else
+          user_product_plan_graph = UserProductPlanGraph.new(value)
+          status = user_product_plan_graph.save
+        end
+      end
+    end
+    
+    
     respond_to do |format|
-      if @user_product_plan_graph.save
-        format.html { redirect_to(@user_product_plan_graph, :notice => 'User product plan graph was successfully created.') }
+      if status
+        format.html { redirect_to("/dashboards", :notice => 'User product plan graph was successfully created.') }
         format.xml  { render :xml => @user_product_plan_graph, :status => :created, :location => @user_product_plan_graph }
       else
         format.html { render :action => "new" }
@@ -57,7 +70,7 @@ class UserProductPlanGraphsController < ApplicationController
   # PUT /user_product_plan_graphs/1.xml
   def update
     @user_product_plan_graph = UserProductPlanGraph.find(params[:id])
-
+    
     respond_to do |format|
       if @user_product_plan_graph.update_attributes(params[:user_product_plan_graph])
         format.html { redirect_to(@user_product_plan_graph, :notice => 'User product plan graph was successfully updated.') }
