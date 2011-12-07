@@ -1,0 +1,16 @@
+
+<div>
+	<h1>
+		Calendar
+	</h1>
+	<div id="calendar">
+		<%= calendar_for @uppd do |calendar|%>
+		<%= calendar.day(:day_method => :training_date) do |date, uppd|%>
+		<%= date.day%>
+		<%end%>
+		<%end%>
+		
+	</div>
+	
+	
+</div>

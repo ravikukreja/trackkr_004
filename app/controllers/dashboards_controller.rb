@@ -11,6 +11,7 @@ class DashboardsController < ApplicationController
     @graphs = Graph.all
     session[:product_plan_id] = params[:product_plan_id] || current_user.user_product_plans.first.product_plan_id
     @user_product_plan_id = current_user.user_product_plans.find_by_product_plan_id(session[:product_plan_id])
+    @user_product_plan_ids = current_user.user_product_plans.find_all_by_product_plan_id(session[:product_plan_id])
     @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(@user_product_plan_id)
     #@user_p  aining_date>?' @user_product_plan_id, 2.weeks.ago])
     @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)

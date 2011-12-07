@@ -59,11 +59,13 @@ body {
 <div style="height:100px;width:300px; overflow:auto;">	
   <p><strong>GOAL:</strong></p>
 	<ul>
-		<% @user_product_plans.each do |plan_detail|%>
-		 <p> Product Plan ID: <%= plan_detail.product_plan_id %></p> 	
-		 <p> Start Date:      <%= plan_detail.start_date      %></p>
-		 <p> End Date:        <%= plan_detail.end_date        %></p>
-		<%end%> 	
+		
+		<% @user_product_plan_ids.each do |plan_detail|%>
+		 <p> Product Plan ID: <%= plan_detail.id %></p> 
+		 <p> Start Date: 	  <%= plan_detail.start_date%></p>	
+		 <p> End Date: 	  	  <%= plan_detail.end_date%></p>	
+		<%end%>
+		 	
 	</ul> 			
 </div> 		
 <div id="common">
@@ -78,17 +80,25 @@ body {
 <%= calendar_for @user_product_plan_datas, :year => @date.year, :month => @date.month do |calendar| %>
 	<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 	<%= calendar.day(:day_method => :training_date) do |date, user_product_plan_datas|%>
-		<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
-			<ul>
-				<% for user_product_plan_data in user_product_plan_datas%>
-					<%= user_product_plan_data.plan_distance %>
-					<%= user_product_plan_data.actual_distance %>
-				<% end %>
-			</ul>
+	<div id="id_2">
+			<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>	
+					<% for user_product_plan_data in user_product_plan_datas%>
+					<% if user_product_plan_data.actual_distance?%>
+								<div> Red</div>
+								<%else user_product_plan_data.plan_distance?%>
+								<div> Blue</div>
+					<%end%>		
+		</div>
+				
+	
+				
+				
 	<% end %>
+	
 <% end %>
 </div>
-
+ <%= button_to "Big Calendar", user_product_plan_datas_path, :method => :get  %>
+	<%end%>
 </div>
 
 </body>
