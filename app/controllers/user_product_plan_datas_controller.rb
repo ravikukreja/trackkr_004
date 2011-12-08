@@ -8,7 +8,7 @@
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     session[:product_plan_id] = params[:product_plan_id] || current_user.user_product_plans.first.product_plan_id
     @user_product_plan_id = current_user.user_product_plans.find_by_product_plan_id(session[:product_plan_id])
-    @uppd = UserProductPlanData.find_all_by_user_product_plan_id(@user_product_plan_id)
+    @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(@user_product_plan_id)
     
     respond_to do |format|
       format.html # index.html.erb

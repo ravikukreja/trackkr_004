@@ -24,12 +24,18 @@ body {
 <body>
 
 <div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path(:product_id=>Product.first.id),{:rel=>"facebox[.bolder]"}%></div>
-
+<div style="height:100px;width:150px;font:12px; overflow:auto;">
+	<% @friends.each do |friend|%>
+	<p> User ID: <%= friend.user_id%></p>
+	<p> Friend ID: <%= friend.friend_id%></p>
+	<p> Status: <%= friend.status%></p>
+	<%end%>
+</div>	
 <div> Approved Friends List on this product:</div>
 <ul>
-	<%@active_friends.each do |frd|%>
+	<% @active_friends.each do |frd|%>
 		<li>
-			<%=frd.username%>
+		<%=frd.username%>
 		</li>
 	<%end%>
 </ul>
