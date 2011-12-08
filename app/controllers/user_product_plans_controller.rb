@@ -45,9 +45,6 @@ class UserProductPlansController < ApplicationController
   # POST /user_product_plans.xml
   def create
     @existing_user_product_plan = current_user.user_product_plans.find_by_product_id(params[:product_id])
-    if @existing_user_product_plan
-      @existing_user_product_plan.destroy
-    end
     #@plan_values = PlanValue.find_by_product_plan_id(params[:product_plan_id])
     @user_product_plan = current_user.user_product_plans.new(params[:user_product_plan])
     date = "#{params['plan']['date(1i)']}/#{params['plan']['date(2i)']}/#{params['plan']['date(3i)']}"
