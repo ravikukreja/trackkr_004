@@ -13,6 +13,15 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
+.white{
+	background-color:#fff;
+}
+.red{
+	background-color:red
+}
+.green{
+	background-color:008000;
+}
 -->
 </style>
 
@@ -86,21 +95,10 @@ body {
 <%= calendar_for @user_product_plan_datas, :year => @date.year, :month => @date.month do |calendar| %>
 	<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 	<%= calendar.day(:day_method => :training_date) do |date, user_product_plan_datas|%>
-	<div id="id_2">
-			<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>	
-					<% for user_product_plan_data in user_product_plan_datas%>
-					<% if user_product_plan_data.actual_distance?%>
-								<div> Red</div>
-								<%else user_product_plan_data.plan_distance?%>
-								<div> Blue</div>
-					<%end%>		
-		</div>
-				
-	
-				
-				
-	<% end %>
-	
+	<%data = current_user.user_product_plan_datas(session[:product_plan_id],date)%>
+    <div class="<%=get_color(data)%>">
+    	<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
+	</div>
 <% end %>
 </div>
  <%= button_to "Big Calendar", user_product_plan_datas_path, :method => :get  %>
