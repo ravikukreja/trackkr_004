@@ -3,4 +3,15 @@ module ApplicationHelper
      return true
   end
   
+  def get_color(data)
+    if data and data.actual_distance and data.plan_distance
+      "green"
+    elsif data and data.actual_distance
+      "red"
+    elsif data and data.plan_distance
+      "green"
+    else
+      "white"
+    end
+  end
 end
