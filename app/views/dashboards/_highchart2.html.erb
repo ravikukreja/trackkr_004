@@ -1,17 +1,23 @@
 <script type="text/javascript" charset="utf-8">
-		$(function() {
-    	new Highcharts.Chart({
-      	chart: {
-        renderTo: "user_chart",
-		defaultSeriesType: 'column'
-    	 },
-      		title: {
-        	text: "Distance by Day"
-      		},
+	$(function(){
+		new Highcharts.Chart({
+			chart: {
+				renderTo: "user_chart2",
+				defaultSeriesType: 'column'
+			},
+			
+			title: {
+				text: "Distance Graph"
+			},
+			
+			plotOptions: {
+				series: {
+            	allowPointSelect: true}
+        	},
 			credits: {
-			text: "trackkr ",
-			href: "www.trackkr.com"
-	   		},
+				text: "trackkr",
+				href: "www.trackkr.com"
+			},
       		xAxis: {
         	type: "datetime"
       		},
@@ -35,7 +41,7 @@
     });
   </script> 
  
-	
+<div id="user_chart2" style="width:560px; height:300px;"> </div>	
 	
 
 

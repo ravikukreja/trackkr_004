@@ -25,19 +25,24 @@ body {
 -->
 </style>
 
+   
+
 <% @user_product_plan_graphs.each do |user_product_plan_graph| %>
-	<p>User graphs list:<%= user_product_plan_graph.graph_id%></p>
-	<% if  user_product_plan_graph.graph_id = '1' %>
+
+	<p>User graphs ID:<%= user_product_plan_graph.graph_id%></p>
+	<p>User graphs name:<%= user_product_plan_graph.graph.name%></p>
+	
+	<% if  user_product_plan_graph.graph_id == 1 %>
 	<%= render 'dashboards/highchart1'%>
-	<% elsif user_product_plan_graph.graph_id = '2' %>
+	<% elsif user_product_plan_graph.graph_id == 2 %>
 	<%= render 'dashboards/highchart2'%>
-	<% elsif user_product_plan_graph.graph_id = '3' %>
+	<% elsif user_product_plan_graph.graph_id == 3 %>
 	<%= render 'dashboards/highchart3'%>
-	<% elsif user_product_plan_graph.graph_id = '4' %>
+	<% elsif user_product_plan_graph.graph_id == 4 %>
 	<%= render 'dashboards/highchart4'%>
-	<% elsif user_product_plan_graph.graph_id = '5' %>
+	<% elsif user_product_plan_graph.graph_id == 5 %>
 	<%= render 'dashboards/highchart5'%>
-	<% end %>
+	<%end%>
 <% end %>
 
 </head>
