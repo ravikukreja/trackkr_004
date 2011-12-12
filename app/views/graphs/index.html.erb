@@ -1,6 +1,7 @@
 <h1>Listing graphs</h1>
 <table>
   <tr>
+  	<th>Graph Id</th>
     <th>Category Id</th>
     <th>Name</th>
     <th>Image</th>
@@ -12,6 +13,7 @@
 
 <% @graphs.each do |graph| %>
   <tr>
+  	<td><%= graph.id %></td>
     <td><%= graph.t_category_id %></td>
     <td><%= graph.name %></td>
     <td><%= graph.image %></td>

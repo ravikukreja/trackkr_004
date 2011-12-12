@@ -21,6 +21,12 @@
 
 
 
+UserProductPlanGraph.create(:user_product_plan_id=> 54, :graph_id=>5, :graph_select_type=>'Line', :graph_select_range=> '1 month')
+UserProductPlanGraph.create(:user_product_plan_id=> 61, :graph_id=>1, :graph_select_type=>'Line', :graph_select_range=> '1 month')
+UserProductPlanGraph.create(:user_product_plan_id=> 61, :graph_id=>5, :graph_select_type=>'Bar', :graph_select_range=> '1 month')
+
+
+
 UserProductPlanData.create(:user_product_plan_id=> 59, :training_date=>'01-11-2011', :actual_distance=>5, :actual_speed=> 5, :actual_time=>20, :actual_notes=>'slow running', :plan_distance => '10' , :plan_speed=>'10', :plan_time=> '10', :plan_notes => 'fast running')
 UserProductPlanData.create(:user_product_plan_id=> 59, :training_date=>'02-11-2011', :actual_distance=>5, :actual_speed=> 5, :actual_time=>20, :actual_notes=>'slow running', :plan_distance => '11' , :plan_speed=>'10', :plan_time=> '10', :plan_notes => 'fast running')
 UserProductPlanData.create(:user_product_plan_id=> 59, :training_date=>'03-11-2011', :actual_distance=>5, :actual_speed=> 5, :actual_time=>20, :actual_notes=>'slow running', :plan_distance => '12' , :plan_speed=>'10', :plan_time=> '10', :plan_notes => 'fast running')
@@ -254,6 +260,7 @@ PlanValue.create(:product_plan_id=> 2, :day=>102, :distance=>12, :speed=> 5, :ti
 PlanValue.create(:product_plan_id=> 2, :day=>103, :distance=>23, :speed=> 5, :time=>20, :notes=>'slow running')
 PlanValue.create(:product_plan_id=> 2, :day=>104, :distance=>12, :speed=> 5, :time=>20, :notes=>'slow running')
 PlanValue.create(:product_plan_id=> 2, :day=>105, :distance=>12, :speed=> 5, :time=>20, :notes=>'slow running')
+
 
 
 

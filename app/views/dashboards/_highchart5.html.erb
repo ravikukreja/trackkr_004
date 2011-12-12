@@ -1,0 +1,44 @@
+<script type="text/javascript" charset="utf-8">
+		$(function() {
+    	new Highcharts.Chart({
+      	chart: {
+        renderTo: "user_chart",
+		defaultSeriesType: 'column'
+    	 },
+      		title: {
+        	text: "Speed by Day"
+      		},
+			credits: {
+			text: "trackkr ",
+			href: "www.trackkr.com"
+	   		},
+      		xAxis: {
+        	type: "datetime"
+      		},
+      		yAxis: {
+        	title: {
+          	text: "Speed"
+        	}},
+      	series: [{
+	  		name: "Actual",
+			pointInterval: <%= 1.day * 1000 %>,
+			pointStart: <%= 5.weeks.ago.to_i * 1000 %>,  
+	  		data: <%= (5.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_actual_speed(date, @user_product_plan_id)}.inspect%>
+			},
+			{
+	  		name: "Planned",
+			pointInterval: <%= 1.day * 1000 %>,
+			pointStart: <%= 5.weeks.ago.to_i * 1000 %>,  
+			data: <%= (5.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_plan_speed(date, @user_product_plan_id)}.inspect%>
+		}]
+      });
+    });
+  </script> 
+ 
+	
+	
+
+
+
+
+
