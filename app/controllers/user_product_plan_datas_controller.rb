@@ -53,8 +53,8 @@
       if @user_product_plan_data.save
         #format.html { redirect_to(@user_product_plan_data, :notice => 'User product plan data was successfully created.') }
         format.html { redirect_to(@dashboards, :notice => 'User product plan data was successfully created.') }
-        formet .js
-        format.xml  { render :xml => @user_product_plan_data, :status => :created, :location => @user_product_plan_data }
+        #format.xml  { render :xml => @user_product_plan_data, :status => :created, :location => @user_product_plan_data }
+        format.xml  { render :xml => @dashboards, :status => :created, :location => @user_product_plan_data }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @user_product_plan_data.errors, :status => :unprocessable_entity }
