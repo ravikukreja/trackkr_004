@@ -25,8 +25,25 @@ body {
 -->
 </style>
 
+   
 
-<%= render 'dashboards/highchart'%>
+<% @user_product_plan_graphs.each do |user_product_plan_graph| %>
+
+	<p>User graphs ID:<%= user_product_plan_graph.graph_id%></p>
+	<p>User graphs name:<%= user_product_plan_graph.graph.name%></p>
+	
+	<% if  user_product_plan_graph.graph_id == 1 %>
+	<%= render 'dashboards/highchart1'%>
+	<% elsif user_product_plan_graph.graph_id == 2 %>
+	<%= render 'dashboards/highchart2'%>
+	<% elsif user_product_plan_graph.graph_id == 3 %>
+	<%= render 'dashboards/highchart3'%>
+	<% elsif user_product_plan_graph.graph_id == 4 %>
+	<%= render 'dashboards/highchart4'%>
+	<% elsif user_product_plan_graph.graph_id == 5 %>
+	<%= render 'dashboards/highchart5'%>
+	<%end%>
+<% end %>
 
 </head>
 
@@ -53,7 +70,7 @@ body {
 
 <div>  <strong>List of Plans on this product:</strong></div>
 <ul>
-	<% @user_product_plans.each do | user_product|%>
+	<% @user_product_plans.each do |user_product|%>
 		<li>
 			<%= link_to user_product.product_plan.product_plan_name, dashboards_path(:product_plan_id => user_product.product_plan_id) %>
 			<%= user_product.id%>
