@@ -28,6 +28,7 @@ class UserProductPlansController < ApplicationController
     @existing_user_product_plan = current_user.user_product_plans.find_by_product_id(params[:product_id])
     @user_product_plan = UserProductPlan.new
     @trackkr_modules = TrackkrModule.all
+    session[:product_id] = params[:product_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -77,7 +78,7 @@ class UserProductPlansController < ApplicationController
         format.html { redirect_to(dashboards_path, :notice => 'User product plan was successfully created.') }
         format.xml  { render :xml => @user_product_plan, :status => :created, :location => @user_product_plan }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to(add_new_user_product_plan_path(:product_id => session[:product_id]), :notice => 'This product already exists') }
         format.xml  { render :xml => @user_product_plan.errors, :status => :unprocessable_entity }
       end
     end
@@ -106,7 +107,7 @@ class UserProductPlansController < ApplicationController
     @user_product_plan.destroy
 
     respond_to do |format|
-      format.html { redirect_to(user_product_plans_url) }
+      format.html { redirect_to(dashboards_url) }
       format.xml  { head :ok }
     end
   end

@@ -186,7 +186,7 @@
 	border-bottom-style: solid;
 	border-left-style: solid;
 	border-right-color: #DFE3CC;
-	border-bottom-color: #DFE3CC#DFE3CC;
+	border-bottom-color: #DFE3CC;
 	border-left-color: #DFE3CC;
 }
 .textfields {
@@ -397,6 +397,13 @@
   padding: 0;
   font-size: 10px;
   text-align: center;
+}
+.green {
+	background-color: #008000
+}
+
+.red {
+	background-color: #CC0000
 }
 
 
