@@ -72,7 +72,7 @@ body {
 <ul>
 	<% @user_product_plans.each do |user_product|%>
 		<li>
-			<%= link_to user_product.product_plan.product_plan_name, dashboards_path(:product_plan_id => user_product.product_plan_id) %>
+			<%= link_to user_product.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product.id) %>
 			<%= user_product.id%>
 			
 		</li>
@@ -86,7 +86,7 @@ body {
 <%= render 'user_product_plan_datas/edit_individual'%>	
 </div>
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
-<%= button_to "Edit Chart Setting", new_graph_plan_path(:user_product_plan_id=>@user_product_plan_id.id), :method => :get%>
+<%= button_to "Edit Chart Setting", new_graph_plan_path(:user_product_plan_id=>session[:user_product_plan_id]), :method => :get%>
 <div id="user_chart"></div>
 <div style="height:100px;width:300px; overflow:auto;">	
   <p><strong>GOAL:</strong></p>
@@ -106,21 +106,21 @@ body {
 <div class="regionhdr"> Calendar
 <div id="calendar">
 	<h2 id="month">
-		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m")%>
+		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m"), :user_product_plan_id => session[:user_product_plan_id]%>
 		<%= h @date.strftime("%B %Y")%>
-		<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m")%>
+		<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m"), :user_product_plan_id => session[:user_product_plan_id]%>
 	</h2> 
 <%= calendar_for @user_product_plan_datas, :year => @date.year, :month => @date.month do |calendar| %>
 	<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 	<%= calendar.day(:day_method => :training_date) do |date, user_product_plan_datas|%>
-	<%data = current_user.user_product_plan_datas(session[:product_plan_id],date)%>
+	<%data = user_product_plan_datas_row(session[:user_product_plan_id] , date)%>
     <div class="<%=get_color(data)%>">
     	<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
 	</div>
 
 <% end %>
 </div>
- <%= link_to "Big Calendar", user_product_plan_datas_path(:user_product_plan_id => @user_product_plan_id), :method => :get  %>
+ <%= link_to "Big Calendar", user_product_plan_datas_path, :method => :get  %>
 	<%end%>
 </div>
 

@@ -6,9 +6,7 @@
   def index
    # @user_product_plan_datas = UserProductPlanData.all
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    session[:product_plan_id] = params[:product_plan_id] || current_user.user_product_plans.first.product_plan_id
-    @user_product_plan_id = current_user.user_product_plans.find_by_product_plan_id(session[:product_plan_id])
-    @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(params[:user_product_plan_id])
+    @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(session[:user_product_plan_id])
     
     respond_to do |format|
       format.html # index.html.erb
@@ -30,7 +28,7 @@
   # GET /user_product_plan_datas/new
   # GET /user_product_plan_datas/new.xml
   def new
-    @user_product_plan_data = current_user.user_product_plan_datas(session[:product_plan_id],params[:date])
+    @user_product_plan_data = UserProductPlanData.find_by_user_product_plan_id_and_training_date(session[:user_product_plan_id],params[:date])
     @user_product_plan_data ||= UserProductPlanData.new
 
     respond_to do |format|

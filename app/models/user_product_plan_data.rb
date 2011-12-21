@@ -17,5 +17,4 @@ class UserProductPlanData < ActiveRecord::Base
     where("training_date = ? and user_product_plan_id = ?", date, user_product_plan_id).sum(:plan_speed)
   end
 
-
 end

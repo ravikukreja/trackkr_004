@@ -29,13 +29,13 @@
 	  			name: "Actual",
 				pointInterval: <%= 1.day * 1000 %>,
 				pointStart: <%= 5.weeks.ago.to_i * 1000 %>,  
-	  			data: <%= (5.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, @user_product_plan_id)}.inspect%>
+	  			data: <%= (5.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, session[:user_product_plan_id])}.inspect%>
 			},
 			{
 	  			name: "Planned",
 				pointInterval: <%= 1.day * 1000 %>,
 				pointStart: <%= 5.weeks.ago.to_i * 1000 %>,  
-				data: <%= (5.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, @user_product_plan_id)}.inspect%>
+				data: <%= (5.weeks.ago.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, session[:user_product_plan_id])}.inspect%>
 		}]
       });
     });

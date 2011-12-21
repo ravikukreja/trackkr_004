@@ -18,9 +18,5 @@ class User < ActiveRecord::Base
     end
     results.order(sort)
   end
-  
-  def user_product_plan_datas(product_plan_id,date)
-    user_product_plan = UserProductPlan.find_by_user_id_and_product_plan_id(self.id,product_plan_id)
-    UserProductPlanData.find_by_user_product_plan_id_and_training_date(user_product_plan.id,date)
-  end
+
 end
