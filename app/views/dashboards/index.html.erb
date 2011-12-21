@@ -120,7 +120,7 @@ body {
 
 <% end %>
 </div>
- <%= button_to "Big Calendar", user_product_plan_datas_path, :method => :get  %>
+ <%= link_to "Big Calendar", user_product_plan_datas_path(:user_product_plan_id => @user_product_plan_id), :method => :get  %>
 	<%end%>
 </div>
 
