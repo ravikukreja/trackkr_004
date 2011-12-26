@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   has_many :user_product_plans
-  has_many :friends
+  has_many :friends, :through => :friendships
+  has_many :friendships
   
   scope :by_email, lambda{ |arg|
     where(:email => arg)  

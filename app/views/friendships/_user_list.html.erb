@@ -1,0 +1,25 @@
+<%= form_tag "/send_invite",:method=>"get" do |f| %>
+<ul>
+	<%@users.each do |user|%>
+		<li>
+			<div>
+		  	   <%=user.username%>
+			     <%current_user.user_products.each do |u_p|%>
+				     <%=check_box_tag 'product_id[]',u_p.product_id	%>
+					 <%=hidden_field 'user','id',:value=>user.id%> 
+					 <%=u_p.product.name%>
+				  <%end%>
+			</div> 
+		</li>
+	<%end%>
+</ul>
+<div>
+   <div class="field" >
+    <%= text_area :user,:content,{:rows=>3,:cols=>60,:value=>"Hi : I have been using trackkr to track my #{Product.find(params[:product_id]).name rescue nil} . I thought you might be interested in "} %>
+  </div>
+  <%#=hidden_field_tag :product_id,params[:product_id]%>
+  <div class="actions" style="margin-left:400px;">
+    <%=submit_tag 'Send Invite' %>
+  </div>
+<%end%>	
+</div>

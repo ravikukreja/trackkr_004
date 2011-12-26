@@ -10,7 +10,7 @@ Trackkr002::Application.routes.draw do
 
   resources :plan_values
 
-  resources :friends
+  resources :friendships
 
   root :to => "trackkr_modules#index"
  

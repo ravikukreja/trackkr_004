@@ -2,6 +2,8 @@
 
 <table>
   <tr>
+  	<th>User ID</th>
+	<th></th>
     <th>Username</th>
 	<th></th>
     <th>Email</th>
@@ -17,12 +19,14 @@
 
 <% @users.each do |user| %>
   <tr>
+  	<td><%= user.id %></td>
+	<th></th>
     <td><%= user.username %></td>
 	<th></th>
     <td><%= user.email %></td>
 	<th></th>
     <td><%= user.password %></td>
-	
+	<th></th>
 	<td><%= user.contact_number %></td>
 	<th></th>
 	<td><%= user.reminder_option %></td>
