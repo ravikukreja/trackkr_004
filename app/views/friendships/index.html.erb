@@ -5,6 +5,7 @@
     <th>User</th>
     <th>Friend</th>
     <th>Product</th>
+	<th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,7 @@
     <td><%= friend.user_id %></td>
     <td><%= friend.friend_id %></td>
     <td><%= friend.product_id %></td>
+	<td><%= friend.status %></td>
     <td><%= link_to 'Show', friend %></td>
     <td><%= link_to 'Edit', edit_friendship_path(friend) %></td>
     <td><%= link_to 'Destroy', friend, :confirm => 'Are you sure?', :method => :delete %></td>

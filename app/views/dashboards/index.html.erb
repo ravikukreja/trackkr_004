@@ -31,21 +31,32 @@ body {
 
 	<p>User graphs ID:<%= user_product_plan_graph.graph_id%></p>
 	<p>User graphs name:<%= user_product_plan_graph.graph.name%></p>
-	<p><%= @graph_select_range = user_product_plan_graph.graph_select_range %></p>
-	<% if @graph_select_range == '1 week'%>
-		<%= @graph_select_range = 1.week.ago %>
-	<% end %>
+	<%= @graph_select_type = user_product_plan_graph.graph_select_type.downcase%>
+	<%= @graph_select_range = user_product_plan_graph.graph_select_range%>
 	
-	<% if  user_product_plan_graph.graph_id == 1 %>
+	
+	<% if @graph_select_range == "1 month" %>
+	<% @graph_select_range = 1.month.ago %>
+	
+	<% elsif @graph_select_range == "1 week" %>
+	<% @graph_select_range = 1.week.ago %>
+	
+	<% elsif @graph_select_range == "3 month" %>
+	<% @graph_select_range = 3.months.ago %>
+	 <%end%>
+	 
+	<% if user_product_plan_graph.graph_id ==1 %>
 	<%= render 'dashboards/highchart1'%>
-	<% elsif user_product_plan_graph.graph_id == 2 %>
+	
+	<% elsif user_product_plan_graph.graph_id ==2 %>
 	<%= render 'dashboards/highchart2'%>
-	<% elsif user_product_plan_graph.graph_id == 3 %>
+	
+	<% elsif user_product_plan_graph.graph_id ==3 %>
 	<%= render 'dashboards/highchart3'%>
-	<% elsif user_product_plan_graph.graph_id == 4 %>
+	
+	<% elsif user_product_plan_graph.graph_id ==4 %>
 	<%= render 'dashboards/highchart4'%>
-	<% elsif user_product_plan_graph.graph_id == 5 %>
-	<%= render 'dashboards/highchart5'%>
+	
 	<%end%>
 <% end %>
 
@@ -56,13 +67,19 @@ body {
 </div>	
 
 
-<div> Pending Friends List on this product:</div>
+<div> Friends List on this product:</div>
 <ul>
 	
-	<% for friendship in current_user.friendships%>
+	<% for friendship in @friendships%>
 	<li>
-	<%= friendship.friend.username%>
-	<%= link_to "Remove", friendship, :method => :delete %>
+		<%if friendship.status =="Accepted"%>
+		<%= link_to friendship.friend.username, users_path%>
+		<%elsif friendship.status =="Pending"%>
+		<%= friendship.friend.username%>
+		<%elsif friendship.status =="Rejected"%>
+		<%= friendship.friend.id%>
+		<%end%>
+		<%= link_to "Remove", friendship, :method => :delete %>
 		</li>
 	<%end%>
 </ul>

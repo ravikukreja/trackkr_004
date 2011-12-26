@@ -24,7 +24,7 @@
 						<%if @selected_graph%>
 							<%= g.name%>
 							<%= check_box "new[p_#{i}]","graph_id",{:checked=>true},g.id%>
-							<%= select "new[p_#{i}]","graph_select_type",["Bar","Line","Pie"],{:selected=>@selected_graph.graph_select_type}%>
+							<%= select "new[p_#{i}]","graph_select_type",["column","line","Pie"],{:selected=>@selected_graph.graph_select_type}%>
 	 						<%= select "new[p_#{i}]", "graph_select_range", ["1 week", "1 month", "3 months"],{:selected=>@selected_graph.graph_select_range}%>
 						<%else%>
 							<%= g.name%>
