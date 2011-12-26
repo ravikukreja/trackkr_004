@@ -18,4 +18,18 @@ module ApplicationHelper
       "white"
     end
   end
+  
+  
+  def big_id_2(data)
+    if data and data.actual_distance and data.plan_distance
+      "red"
+    elsif data and data.actual_distance
+      "red"
+    elsif data and data.plan_distance
+      "green"
+    else
+      "white"
+    end
+  end
+  
 end
