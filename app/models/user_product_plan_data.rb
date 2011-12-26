@@ -1,7 +1,7 @@
 class UserProductPlanData < ActiveRecord::Base
   belongs_to :user_product_plan
  scope :by_days, lambda{ |no_days|
-     where("training_date >= ?", no_days.days.ago)  
+     where("training_date >= ? and training_date <= ?", no_days.days.ago, Date.today)  
        }
          
 	   scope :unfilled_actual_data,lambda {

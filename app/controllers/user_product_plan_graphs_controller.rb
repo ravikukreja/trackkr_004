@@ -25,7 +25,7 @@ class UserProductPlanGraphsController < ApplicationController
   # GET /user_product_plan_graphs/new.xml
   def new
     @user_product_plan_graph = UserProductPlanGraph.new
-    @user_product_plan = UserProductPlan.find(params[:user_product_plan_id])
+    @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
     @graphs = Graph.all
     respond_to do |format|
       format.html # new.html.erb
