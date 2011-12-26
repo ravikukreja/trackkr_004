@@ -42,6 +42,9 @@ class UserProductPlanGraphsController < ApplicationController
   # POST /user_product_plan_graphs.xml
   def create
     status = false
+    UserProductPlanGraph.find_all_by_user_product_plan_id(params[:user_product_plan_id].to_i).each do |existing|
+          existing.destroy
+	      end
     params[:new].each do |key,value|
       if Graph.exists?(value[:graph_id])
         value.merge!(:user_product_plan_id=>params[:user_product_plan_id].to_i)
@@ -60,6 +63,9 @@ class UserProductPlanGraphsController < ApplicationController
         format.html { redirect_to("/dashboards", :notice => 'User product plan graph was successfully created.') }
         format.xml  { render :xml => @user_product_plan_graph, :status => :created, :location => @user_product_plan_graph }
       else
+        @user_product_plan_graph = UserProductPlanGraph.new
+	        @user_product_plan = UserProductPlan.find params[:user_product_plan_id]
+		        @graphs = Graph.all
         format.html { render :action => "new" }
         format.xml  { render :xml => @user_product_plan_graph.errors, :status => :unprocessable_entity }
       end
