@@ -6,7 +6,7 @@ class DashboardsController < ApplicationController
   def index
     current_user
     
-    @friends = current_user.friendships.all
+    
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @dashboards = Dashboard.all
     @user_product_plans = current_user.user_product_plans.all
@@ -17,6 +17,8 @@ class DashboardsController < ApplicationController
     @user_product_plan_ids = current_user.user_product_plans
     @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(session[:user_product_plan_id])
     @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)
+    @friendships = current_user.friendships.by_product(session[:product_id])
+    
     
     # Active Friend Identification Functionalities & logic is here
     #accepted_users = Friendship.by_usr_or_frd(current_user.id).by_product(session[:product_id]).by_status("Accepted").select("friend_id,user_id")
