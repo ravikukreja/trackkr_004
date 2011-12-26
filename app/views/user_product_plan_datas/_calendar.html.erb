@@ -3,9 +3,9 @@
 <div class="regionhdr"> Calendar
 <div id="big_calendar">
 	<h2 id="month">
-		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m")%>
+		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m"), :user_product_plan_data => session[:user_product_plan_data]%>
 		<%= h @date.strftime("%B %Y")%>
-		<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m")%>
+		<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m"), :user_product_plan_data => session[:user_product_plan_data]%>
 	</h2> 
 <%= calendar_for @user_product_plan_datas, :year => @date.year, :month => @date.month do |calendar| %>
 	<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
