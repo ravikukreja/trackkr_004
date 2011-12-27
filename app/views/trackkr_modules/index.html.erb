@@ -18,10 +18,10 @@
 		<%= button_to "My Trackkr", dashboards_path, :method => :get %>
 		  
 	<%else%>
- 		<%= button_to "Sample Trackkr",'sample_dashboard' %>
+ 		<%= button_to "Sample Trackkr",'/sample_dashboard' %>
 	<%end%>
 	
 	<%end%>
 	<%unless current_user%>
-<%= button_to "Dummy Trackkr", 'sample_dashboard' %>
+<%= button_to "Dummy Trackkr", '/sample_dashboard' %>
 <%end%>	
