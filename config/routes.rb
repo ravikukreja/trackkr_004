@@ -23,7 +23,10 @@ Trackkr002::Application.routes.draw do
 # the above are named routes - so we can call them using :as and the url that will be matched
 
   resources :dashboards 
-
+  
+  
+  match  "/sample_dashboard" => "info#sample_dashboard", :as => :sample_dashboard
+  
 resources :t_categories do
   resources :products do
     put 'select', :on => :collection
