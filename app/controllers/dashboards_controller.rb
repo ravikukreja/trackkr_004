@@ -11,7 +11,7 @@ class DashboardsController < ApplicationController
     session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
     session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
     @user_product_plan_graphs = UserProductPlanGraph.find_all_by_user_product_plan_id(session[:user_product_plan_id])
-    @user_product_plan_ids = current_user.user_product_plans
+    @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
     @user_product_plan_datas = UserProductPlanData.by_days(14).unfilled_actual_data.find_all_by_user_product_plan_id(session[:user_product_plan_id])
     @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)
     @friendships = current_user.friendships.by_product(session[:product_id])
