@@ -5,10 +5,7 @@ class DashboardsController < ApplicationController
   # GET /dashboards.xml
   def index
     current_user
-    
-    
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
-    @dashboards = Dashboard.all
     @user_product_plans = current_user.user_product_plans.all
     #session[:product_plan_id] = params[:product_plan_id] || current_user.user_product_plans.first.product_plan_id
     session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
@@ -19,7 +16,6 @@ class DashboardsController < ApplicationController
     @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)
     @friendships = current_user.friendships.by_product(session[:product_id])
     
-    
     # Active Friend Identification Functionalities & logic is here
     #accepted_users = Friendship.by_usr_or_frd(current_user.id).by_product(session[:product_id]).by_status("Accepted").select("friend_id,user_id")
     #pending_users = Friendship.by_usr_or_frd(current_user.id).by_product(session[:product_id]).by_status("Pending").select("friend_id,user_id")
@@ -28,17 +24,13 @@ class DashboardsController < ApplicationController
     #pending_users = Friendship.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Pending").select("friend_id,user_id")
     #rejected_users = Friendship.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Rejected").select("friend_id,user_id")
     #accepted_friend_ids = (accepted_users.collect(&:friend_id) + accepted_users.collect(&:user_id)).uniq
-    #accepted_friend_ids.delete(current_user.id)
-    #pending_friend_ids = (pending_users.collect(&:friend_id) + pending_users.collect(&:user_id)).uniq
-    #pending_friend_ids.delete(current_user.id)
-    #rejected_friend_ids = (rejected_users.collect(&:friend_id) + rejected_users.collect(&:user_id)).uniq
-    #rejected_friend_ids.delete(current_user.id)
-    #@accepted_friends = User.find(accepted_friend_ids)
-    #@pending_friends = User.find(pending_friend_ids)
-    #@rejected_friends = User.find(rejected_friend_ids)
     respond_to do |format|
+      if @user_product_plan.blank?
       format.html # index.html.erb
       format.xml  { render :xml => @dashboards }
+      else
+      format.html { redirect to 'public/Dashboard.html' }
+        end
     end
   end
 
