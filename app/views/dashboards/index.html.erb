@@ -93,11 +93,14 @@ body {
 		<li><%= user_product_plan.product_plan.product_plan_name %> </li>
 		<% else %>
 		<li>
-			<%= link_to user_product_plan.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product_plan.id) %>
-			<%= user_product_plan.id%>
-			<%= session[:user_product_plan_id]%>
-		<% end %>
+			<% if  session[:user_product_plan_id].to_i == user_product.id  %>
+			<p><strong><font size ="4"><%= user_product.product_plan.product_plan_name%></font></strong></p>
+			<%else %>
+			<%= link_to user_product.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product.id) %>
+			<%= user_product.id%>
+			<%end%>
 		</li>
+	
 	<%end%>
 	
 	<%= button_to "Add new Plan", trackkr_modules_path, :method => :get%>

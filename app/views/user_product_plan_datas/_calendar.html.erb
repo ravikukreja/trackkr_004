@@ -14,6 +14,7 @@
 		<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 		<%= calendar.day(:day_method => :training_date) do |date, user_product_plan_datas|%>
 		<%data = user_product_plan_datas_row(session[:user_product_plan_id] , date)%>
+		<%= select "Display value",["distance","speed","time"]%> 
 
 	<div class="<%=big_id_2(data)%>">
 			<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>	
@@ -21,9 +22,6 @@
 					Plan Distance: <%= user_product_plan_data.plan_distance %><br>
 					Actual Distance: <%= user_product_plan_data.actual_distance %>
 	</div>
-				
-	
-				
 				
 	<% end %>
 	
