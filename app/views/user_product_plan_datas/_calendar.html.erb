@@ -1,5 +1,8 @@
 <div>
-
+<%= form_for @user_product_plan, :url => {:controller => "user_product_plans", :action => "update"} do |f| %>
+	<%= select "user_data_field", "calendar_display_field", ["distance", "speed", "time"], :prompt => "Select for display"%>
+	<%= f.submit %>
+<% end %>
 <div class="regionhdr"> Calendar
 <div id="big_calendar">
 	<h2 id="month">
@@ -14,13 +17,10 @@
 
 	<div class="<%=big_id_2(data)%>">
 			<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>	
-					<% for user_product_plan_data in user_product_plan_datas%>
-					<% if user_product_plan_data.actual_distance?%>
-								
-								<%else user_product_plan_data.plan_distance?%>
-								
-					<%end%>		
-		</div>
+					<% for user_product_plan_data in user_product_plan_datas%><br>
+					Plan Distance: <%= user_product_plan_data.plan_distance %><br>
+					Actual Distance: <%= user_product_plan_data.actual_distance %>
+	</div>
 				
 	
 				

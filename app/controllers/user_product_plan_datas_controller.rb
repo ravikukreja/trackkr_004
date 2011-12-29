@@ -4,7 +4,8 @@
   layout "blank"
   
   def index
-   # @user_product_plan_datas = UserProductPlanData.all
+   @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
+   
     @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
     @user_product_plan_datas = UserProductPlanData.find_all_by_user_product_plan_id(session[:user_product_plan_id])
     

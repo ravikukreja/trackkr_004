@@ -105,10 +105,15 @@ class UserProductPlansController < ApplicationController
   def destroy
     @user_product_plan = UserProductPlan.find(params[:id])
     @user_product_plan.destroy
+    @any_plans_left = current_user.user_product_plans
 
     respond_to do |format|
-      format.html { redirect_to(dashboards_url) }
-      format.xml  { head :ok }
+      unless @any_plans_left.blank?
+        format.html { redirect_to(dashboards_url) }
+        format.xml  { head :ok }
+      else
+        format.html {redirect_to(trackkr_modules_path)}
     end
   end
+end
 end
