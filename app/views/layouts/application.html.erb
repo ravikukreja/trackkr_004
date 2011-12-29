@@ -15,15 +15,38 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<%= image_tag("/images/logo.gif") %> <br>
-	<div class="notice">
-	<%= flash[:notice] %>
+	<div id="container">
+	  <%= image_tag("/images/logo.gif") %> <br>
+	  <div id="header"> 
+    <%= link_to "About us",'/about'%>      ||
+	<%= link_to "Partners", '/partners'%>  || 
+	<%= link_to "Contact Us", '/contact'%> || 
+	<%= link_to "Carriers", '/carriers'%>  || 
+	<%= link_to "Help", '/help' %>
 	</div>
+		<div class="notice">
+			<%= flash[:notice] %>
+		</div>
 	
-   <%= render :partial => '/user_sessions/sign_in' %>
+      <%= render :partial => '/user_sessions/sign_in' %>
+	  <div id="footer-spacer"></div>
+    </div>
+
 
 
 <%= yield %>
 
 </body>
+
+<div id="footer">
+    <p> 
+    <%= link_to "About us",'/about'%>      ||
+	<%= link_to "Partners", '/partners'%>  || 
+	<%= link_to "Contact Us", '/contact'%> || 
+	<%= link_to "Carriers", '/carriers'%>  || 
+	<%= link_to "Help", '/help' %>
+	</p>
+    
+</div>
 </html>
+

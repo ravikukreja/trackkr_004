@@ -26,6 +26,11 @@ Trackkr002::Application.routes.draw do
   
   
   match  "/sample_dashboard" => "info#sample_dashboard", :as => :sample_dashboard
+  match  "/about" => "info#About", :as => :About
+  match  "/partners" => "info#Partners", :as => :Partners
+  match  "/contact" => "info#Contact", :as => :Contact
+  match  "/carriers" => "info#Carriers", :as => :Carriers
+  match  "/help" => "info#Help", :as => :Help
   
 resources :t_categories do
   resources :products do
