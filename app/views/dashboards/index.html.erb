@@ -90,19 +90,14 @@ body {
 <ul>
 	<% @user_product_plans.each do |user_product_plan|%>
 	<% if user_product_plan.id == session[:user_product_plan_id].to_i%>
-		<li><%= user_product_plan.product_plan.product_plan_name %> </li>
-		<% else %>
 		<li>
-			<% if  session[:user_product_plan_id].to_i == user_product.id  %>
-			<p><strong><font size ="4"><%= user_product.product_plan.product_plan_name%></font></strong></p>
+			<p><strong><font size ="4"><%= user_product_plan.product_plan.product_plan_name%></font></strong></p>
 			<%else %>
-			<%= link_to user_product.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product.id) %>
-			<%= user_product.id%>
-			<%end%>
+			<%= link_to user_product_plan.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product_plan.id) %>
 		</li>
 	
 	<%end%>
-	
+<% end %>
 	<%= button_to "Add new Plan", trackkr_modules_path, :method => :get%>
 	
 </ul>
@@ -147,9 +142,5 @@ body {
 <div>
 	<%= link_to 'Share your trackkr'%>
 </div>
-
-
 </body>
 </html>
-
-
