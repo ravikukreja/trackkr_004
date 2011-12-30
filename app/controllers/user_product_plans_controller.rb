@@ -51,10 +51,11 @@ class UserProductPlansController < ApplicationController
     date = "#{params['plan']['date(1i)']}/#{params['plan']['date(2i)']}/#{params['plan']['date(3i)']}"
     if params[:start_end] == "start"
       @user_product_plan.start_date = date
-      @user_product_plan.end_date = date + 100
+      t = date.to_i + 1350000000
+      @user_product_plan.end_date = Time.at(t)
     elsif params[:start_end] == "end"
       @user_product_plan.end_date = date
-      @user_product_plan.start_date = date
+      @user_product_plan.start_date = 2.month.ago
     end
     
     if @user_product_plan.save
