@@ -51,8 +51,10 @@ class UserProductPlansController < ApplicationController
     date = "#{params['plan']['date(1i)']}/#{params['plan']['date(2i)']}/#{params['plan']['date(3i)']}"
     if params[:start_end] == "start"
       @user_product_plan.start_date = date
+      @user_product_plan.end_date = date + 100
     elsif params[:start_end] == "end"
       @user_product_plan.end_date = date
+      @user_product_plan.start_date = date
     end
     
     if @user_product_plan.save
@@ -91,7 +93,7 @@ class UserProductPlansController < ApplicationController
 
     respond_to do |format|
       if @user_product_plan.update_attributes(params[:user_product_plan])
-        format.html { redirect_to(@user_product_plan, :notice => 'User product plan was successfully updated.') }
+        format.html { redirect_to(user_product_plan_datas_path, :notice => 'User product plan was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
