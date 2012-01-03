@@ -83,14 +83,14 @@ body {
 		</li>
 	<%end%>
 </ul>
-
+<% if @inverse_friendships %>
   <div> Friended by Users:</div>
-  <% for a in @users %>
-  <%=a.username%>
-   
- 	
-	<%end%>
-	
+
+  <%# for inverse_friendship in @inverse_friendships %>
+ 	<%= @inverse_friendships.user.username %>
+	<%#end%>
+<% end %>
+
 
  
 
@@ -100,7 +100,7 @@ body {
 	<% if user_product_plan.id == session[:user_product_plan_id].to_i%>
 		<li>
 			<p><strong><font size ="4"><%= user_product_plan.product_plan.product_plan_name%></font></strong></p>
-			<%else %>
+		<%else %>
 			<%= link_to user_product_plan.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product_plan.id) %>
 		</li>
 	

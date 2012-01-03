@@ -1,6 +1,6 @@
 <div>
-<%= form_for @user_product_plan, :url => {:controller => "user_product_plans", :action => "update"} do |f| %>
-	<%= select "user_data_field", "calendar_display_field", ["distance", "speed", "time"], :prompt => "Select for display"%>
+<%= form_for @user_product_plan do |f| %>
+	<%= select "user_product_plan", "calendar_display_field", ["distance", "speed", "time"], :prompt => "Select for display"%>
 	<%= f.submit %>
 <% end %>
 <div class="regionhdr"> Calendar
@@ -14,13 +14,20 @@
 		<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 		<%= calendar.day(:day_method => :training_date) do |date, user_product_plan_datas|%>
 		<%data = user_product_plan_datas_row(session[:user_product_plan_id] , date)%>
-		<%= select "Display value",["distance","speed","time"]%> 
 
 	<div class="<%=big_id_2(data)%>">
 			<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>	
 					<% for user_product_plan_data in user_product_plan_datas%><br>
-					Plan Distance: <%= user_product_plan_data.plan_distance %><br>
-					Actual Distance: <%= user_product_plan_data.actual_distance %>
+					<% if @user_product_plan.calendar_display_field == 'distance'%>
+						Plan Distance: <%= user_product_plan_data.plan_distance %><br>
+						Actual Distance: <%= user_product_plan_data.actual_distance %>
+					<% elsif @user_product_plan.calendar_display_field == 'speed' %>
+						Plan Speed: <%= user_product_plan_data.plan_speed %>
+						Actual Speed: <%= user_product_plan_data.actual_speed%>
+					<% elsif @user_product_plan.calendar_display_field == 'time' %>
+						Plan Time: <%= user_product_plan_data.plan_time %>
+						Actual Time: <%= user_product_plan_data.actual_time %>
+					<% end %>
 	</div>
 				
 	<% end %>

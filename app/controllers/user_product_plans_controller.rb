@@ -94,7 +94,7 @@ class UserProductPlansController < ApplicationController
 
     respond_to do |format|
       if @user_product_plan.update_attributes(params[:user_product_plan])
-        format.html { redirect_to(@user_product_plan, :notice => 'User product plan was successfully updated.') }
+        format.html { redirect_to(user_product_plan_datas_path, :notice => 'User product plan was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
