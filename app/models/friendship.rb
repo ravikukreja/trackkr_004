@@ -1,7 +1,9 @@
 class Friendship < ActiveRecord::Base
   belongs_to :user
   belongs_to :product
+  
   belongs_to :friend, :class_name => "User"
+  belongs_to :inverse_friend, :class_name => "User"
   
   scope :by_product, lambda{ |arg|
     where(:product_id => arg)  
