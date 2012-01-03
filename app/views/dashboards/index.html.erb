@@ -83,12 +83,12 @@ body {
 		</li>
 	<%end%>
 </ul>
-
+<% if @inverse_friendships %>
   <div> Friended by Users:</div>
-  <%# for user in @friendships.inverse_friends%>
- 	<%# user.username%>
+  <%# for inverse_friendship in @inverse_friendships %>
+ 	<%= @inverse_friendships.user.username %>
 	<%#end%>
-	
+<% end %>
 
  
 

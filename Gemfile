@@ -16,7 +16,6 @@ gem 'formtastic', '~> 1.2.0'
  
 gem "mail", "2.2.19"
 
-gem "pdfkit"
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
@@ -37,9 +36,17 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
+#gem "rspec-rails", :group => [:test, :development]
+ 
+ #group :test do
+  # gem "factory_girl_rails"
+   #gem "guard-rspec"
+   #gem "capybara"
+# end
+
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 # group :development, :test do
 #   gem 'webrat'
-# end
+#end
