@@ -17,6 +17,7 @@ gem 'formtastic', '~> 1.2.0'
 gem "mail", "2.2.19"
 
 gem 'pg'
+gem 'thin'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # gem 'mysql2'
