@@ -23,5 +23,10 @@ class UserProductPlanData < ActiveRecord::Base
   def self.user_plan_speed(date, user_product_plan_id)
     where("training_date = ? and user_product_plan_id = ?", date, user_product_plan_id).sum(:plan_speed)
   end
-
+  
+  def self.show_data( user_product_plan_id)
+    where("user_product_plan_id = ?",user_product_plan_id).sum(:plan_speed)
+    
+  end
+  
 end

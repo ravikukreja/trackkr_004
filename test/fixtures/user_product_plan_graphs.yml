@@ -2,12 +2,12 @@
 
 one:
   user_product_plan_id: 1
-  graph_select: MyString
-  graph_select_type: MyString
-  graph_select_range: MyString
+  #graph_select: MyString
+  #graph_select_type: MyString
+  #graph_select_range: MyString
 
 two:
   user_product_plan_id: 1
-  graph_select: MyString
-  graph_select_type: MyString
-  graph_select_range: MyString
+  #graph_select: MyString
+  #graph_select_type: MyString
+  #graph_select_range: MyString
