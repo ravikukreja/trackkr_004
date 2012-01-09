@@ -1,12 +1,17 @@
 
 # this is test for pull and push bittu
 
+require "bundler/setup"
+
 
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
 
 gem 'pg'
+
+
+
 
 gem 'authlogic'
 # Bundle edge Rails instead:
