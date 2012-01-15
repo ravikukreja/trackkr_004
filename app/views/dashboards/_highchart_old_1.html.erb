@@ -12,7 +12,15 @@
 			
 			plotOptions: {
 				series: {
-            	allowPointSelect: true}
+            	allowPointSelect: true,
+				point: {
+					events: { click: function() {
+							  show_data(this.text);
+							  }
+							}
+						}
+
+				}
         	},
 			credits: {
 				text: "trackkr",
@@ -45,5 +53,7 @@
 	
 	
 
+
+}
 
 

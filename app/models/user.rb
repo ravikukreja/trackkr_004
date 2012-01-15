@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   has_many :user_product_plans
   has_many :friendships
   has_many :friends, :through => :friendships
-  
-  validates :username, :email, :password,  :presence => true
+  before_create { generate_token(:auth_token) }
+  #validates :username, :email, :password,  :presence => true
 
   
   has_many :inverse_friendships,:class_name => "Friendship", :foreign_key => "friend_id"
@@ -26,5 +26,19 @@ class User < ActiveRecord::Base
     end
     results.order(sort)
   end
+  
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
 
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+  
+  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228075447) do
+ActiveRecord::Schema.define(:version => 20120110122853) do
 
   create_table "dashboards", :force => true do |t|
     t.datetime "created_at"
@@ -136,6 +136,9 @@ ActiveRecord::Schema.define(:version => 20111228075447) do
     t.datetime "updated_at"
     t.integer  "contact_number"
     t.string   "reminder_option"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.string   "auth_token"
   end
 
 end

@@ -15,6 +15,11 @@
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </p>
+  <div class="field">
+    <%= label_tag :remember_me %>
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+  </div>
+  <%= link_to "Forgotten Password", new_password_reset_path%>
   <p><%= f.submit "Submit" %></p>
 <% end %>
   <% end %>
