@@ -1,13 +1,13 @@
 
 # this is test for pull and push bittu
 
-require "bundler/setup"
+#require "bundler/setup"
 
 #gem  "rake", "0.9.2"
 
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.1'
 
 gem 'pg'
 
