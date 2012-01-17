@@ -7,9 +7,11 @@ require "bundler/setup"
 
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.0'
 
 gem 'pg'
+
+gem 'heroku'
 
 #gem 'sqlite3'
 
@@ -25,7 +27,7 @@ gem 'formtastic', '~> 1.2.0'
 #gem 'mail' "2.2.19"
 
 #gem 'pg'
-gem 'thin'
+#gem 'thin'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # gem 'mysql2'
