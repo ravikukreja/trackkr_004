@@ -9,9 +9,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
 
-#gem 'pg'
+gem 'pg'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 
 
 gem 'authlogic'
@@ -24,7 +24,7 @@ gem 'formtastic', '~> 1.2.0'
  
 #gem 'mail' "2.2.19"
 
-gem 'pg'
+#gem 'pg'
 gem 'thin'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 
