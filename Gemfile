@@ -24,15 +24,13 @@ gem 'authlogic'
 gem 'formtastic', '~> 1.2.0'
 
 #gem 'mysql', '2.8.1'
- 
-<<<<<<< HEAD
+
 gem 'activeadmin'
 
 gem "mail", "2.2.19"
-gem "rake", "0.9.2.2"
-=======
+#gem "rake", "0.9.2.2"
+
 #gem 'mail' "2.2.19"
->>>>>>> db_changes4
 
 #gem 'pg'
 #gem 'thin'
