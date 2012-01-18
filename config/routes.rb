@@ -1,5 +1,10 @@
 Trackkr002::Application.routes.draw do
+  
+
   resources :user_product_plan_graphs
+  
+  #get "password_resets/new"
+  resources :password_resets
 
   resources :user_product_plan_datas do
    post 'edit_individual', :on => :collection

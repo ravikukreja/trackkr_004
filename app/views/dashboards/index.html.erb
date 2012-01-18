@@ -67,7 +67,7 @@ body {
 </div>	
 
 
-<div> Friends List on this product:</div>
+<div> My Friends:</div>
 <ul>
 	
 	<% for friendship in @friendships%>
@@ -84,7 +84,7 @@ body {
 	<%end%>
 </ul>
 <% if @inverse_friendships %>
-  <div> Friended by Users:</div>
+  <div> Added Me as friend:</div>
   <%for inverse_friendship in @inverse_friendships%>
   
  	<li>
@@ -101,7 +101,7 @@ body {
 	<% @user_product_plans.each do |user_product_plan|%>
 	<% if user_product_plan.id == session[:user_product_plan_id].to_i%>
 		<li>
-			<p><strong><font size ="4"><%= user_product_plan.product_plan.product_plan_name%></font></strong></p>
+			<p><strong><font size ="3"><%= user_product_plan.product_plan.product_plan_name%></font></strong></p>
 		<%else %>
 			<%= link_to user_product_plan.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product_plan.id) %>
 		</li>
