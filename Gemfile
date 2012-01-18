@@ -9,11 +9,12 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
 
-gem 'pg'
+gem 'activeadmin'
+
 
 gem 'heroku'
 
-#gem 'sqlite3'
+gem 'sqlite3'
 
 
 gem 'authlogic'

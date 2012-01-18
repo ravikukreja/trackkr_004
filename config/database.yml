@@ -1,9 +1,5 @@
 development:
-  adapter: postgresql
-  database: trackkr_002_dev
-  username: root
-  password: 
+  adapter: sqlite3
+  database: db/development.sqlite3_2
   pool: 5
   timeout: 5000
-
-
