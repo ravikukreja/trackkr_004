@@ -1,5 +1,19 @@
 ActiveAdmin::Dashboards.build do
 
+    section "Recent Users" do
+      table_for User.order("created_at desc").limit(10) do
+        column :id do |user|
+          link_to user.id, [:admin, user]
+        end
+        column "Name", :username do |user|
+          link_to user.username, admin_user_path(user)
+        end
+        column :email
+        column :created_at
+      end
+      strong {link_to "View all Users", admin_users_path}
+    end
+
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
