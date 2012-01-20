@@ -15,7 +15,12 @@ class UserMailer < ActionMailer::Base
   
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "Password Reset"
+    mail :to => user.email, :subject => "Password Reset",:host=>"localhost:3000"
   end
+  
+  def share(share_dashboard)
+    mail(:to =>share_dashboard.email, :subject => "SHare Trackkr with Friends",:from => "manishkukreja@gmail.com")
+  end
+  
 end
 

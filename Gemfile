@@ -11,6 +11,7 @@ gem 'rails', '3.0.1'
 
 gem 'activeadmin'
 
+gem 'roadie'
 
 gem 'heroku'
 

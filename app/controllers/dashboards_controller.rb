@@ -26,6 +26,7 @@ class DashboardsController < ApplicationController
     #rejected_users = Friendship.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Rejected").select("friend_id,user_id")
     #accepted_friend_ids = (accepted_users.collect(&:friend_id) + accepted_users.collect(&:user_id)).uniq
     respond_to do |format|
+      #UserMailer.share(@user).deliver
       format.html # index.html.erb
       format.xml  { render :xml => @dashboards }
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120118055648) do
+ActiveRecord::Schema.define(:version => 20120120091615) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(:version => 20120118055648) do
     t.string   "name",          :null => false
     t.string   "image_url",     :null => false
     t.integer  "t_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "share_dashboards", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "shared_plan"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
