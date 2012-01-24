@@ -1,5 +1,16 @@
 <h1>New user_product_plan_graph</h1>
 
 <%= render 'form' %>
-
+ 	<p>My Friend in Product ID=> <%= session[:product_id]%> </p>
+ <% for friendship in @friendships%>
+ 
+	
+		<%if friendship.status =="Accepted"%>
+		<p>Name-> <%= friendship.friend.username%></p>
+		<p>Friendship ID -><%= friendship.id%></p>
+		<p>Friend's user ID -><%= friendship.friend.id%></p>
+		<p>Friend's Product ID -><%= friendship.product_id%></p>
+	
+<%end%>	
+<%end%>	
 <%= link_to 'Back', user_product_plan_graphs_path %>

@@ -16,7 +16,7 @@ class DashboardsController < ApplicationController
     @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)
     @friendships = current_user.friendships.by_product(session[:product_id])
     @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
-    
+    #@friend_product_plan_graphs = UserProductPlanGraph.find_all_by_friend_product_plan_id(@friendship.user_id.product_plan_id)
     # Active Friend Identification Functionalities & logic is here
     #accepted_users = Friendship.by_usr_or_frd(current_user.id).by_product(session[:product_id]).by_status("Accepted").select("friend_id,user_id")
     #pending_users = Friendship.by_usr_or_frd(current_user.id).by_product(session[:product_id]).by_status("Pending").select("friend_id,user_id")

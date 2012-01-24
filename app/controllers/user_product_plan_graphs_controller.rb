@@ -2,7 +2,9 @@ class UserProductPlanGraphsController < ApplicationController
   # GET /user_product_plan_graphs
   # GET /user_product_plan_graphs.xml
   def index
+    
     @user_product_plan_graphs = UserProductPlanGraph.all
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,6 +29,18 @@ class UserProductPlanGraphsController < ApplicationController
     @user_product_plan_graph = UserProductPlanGraph.new
     @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
     @graphs = Graph.all
+    
+     #new functionality by bittu#
+    #start#
+    current_user
+    session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
+    session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
+    @friendships = current_user.friendships.by_product(session[:product_id])
+   # @user_friend_plans = UserProductPlan.find(current_user.user.friendships.friend_id)
+    #@user_friend_plans = current_user.user.friendships.friend_id
+   # @user_friend_plans = @friendships.friend.user_product_plan.all
+    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user_product_plan_graph }

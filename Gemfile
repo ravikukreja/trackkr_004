@@ -17,6 +17,8 @@ gem 'heroku'
 
 gem 'sqlite3'
 
+gem 'pg'
+
 
 gem 'authlogic'
 # Bundle edge Rails instead:
