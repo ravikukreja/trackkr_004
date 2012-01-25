@@ -36,10 +36,11 @@ class UserProductPlanGraphsController < ApplicationController
     session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
     session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
     @friendships = current_user.friendships.by_product(session[:product_id])
-   # @user_friend_plans = UserProductPlan.find(current_user.user.friendships.friend_id)
-    #@user_friend_plans = current_user.user.friendships.friend_id
-   # @user_friend_plans = @friendships.friend.user_product_plan.all
-    
+    #@friend_id = @friendships.friend.id
+    @friend_product_plans = UserProductPlan.find_all_by_product_id(@user_product_plan.product_id)
+    #@friend_product_plan = UserProductPlan.find_by_product_id_and_user_id(@user_product_plan.product_id, 22)
+   
+   
     
     respond_to do |format|
       format.html # new.html.erb

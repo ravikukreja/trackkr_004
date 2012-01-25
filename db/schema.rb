@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120120091615) do
+ActiveRecord::Schema.define(:version => 20120124150331) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -136,11 +136,12 @@ ActiveRecord::Schema.define(:version => 20120120091615) do
 
   create_table "user_product_plan_graphs", :force => true do |t|
     t.integer  "user_product_plan_id"
-    t.integer  "graph_id",             :limit => 255
+    t.integer  "graph_id",               :limit => 255
     t.string   "graph_select_type"
     t.string   "graph_select_range"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "friend_product_plan_id"
   end
 
   create_table "user_product_plans", :force => true do |t|
