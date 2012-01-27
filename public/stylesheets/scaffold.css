@@ -28,8 +28,14 @@ div.field, div.actions {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  background-color: #FFFF00	;
+  display: inline;
+}
+
+.field_with_errors .message{
+	color: #0361B7;
+	font-size: 	12px
+	
 }
 
 #error_explanation {

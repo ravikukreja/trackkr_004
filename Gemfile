@@ -19,6 +19,7 @@ gem 'sqlite3'
 
 gem 'pg'
 
+gem 'client_side_validations','3.0.5'
 
 gem 'authlogic'
 # Bundle edge Rails instead:

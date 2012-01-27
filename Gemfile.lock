@@ -44,6 +44,8 @@ GEM
       activesupport
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (2.1.2)
+    client_side_validations (3.0.5)
+      activesupport
     css_parser (1.2.6)
       addressable
       rdoc
@@ -136,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   authlogic
+  client_side_validations (= 3.0.5)
   formtastic (~> 1.2.0)
   heroku
   mail (= 2.2.19)
