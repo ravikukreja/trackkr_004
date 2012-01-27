@@ -7,7 +7,7 @@
     <th>Username</th>
 	<th></th>
     <th>Email</th>
-    <th>Password</th>
+    <th>Avatar</th>
 	<th></th>
 	<th>Contact number</th>
 	<th></th>
@@ -23,9 +23,9 @@
 	<th></th>
     <td><%= user.username %></td>
 	<th></th>
-    <td><%= user.email %></td>
+    <td><%= user.email%></td>
 	<th></th>
-    <td><%= user.password %></td>
+    <td><%= image_tag avatar_url(user)%></td>
 	<th></th>
 	<td><%= user.contact_number %></td>
 	<th></th>

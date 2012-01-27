@@ -32,4 +32,15 @@ module ApplicationHelper
     end
   end
   
+  def avatar_url(user)
+    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    "http://www.gravatar.com/avatar/#{gravatar_id}"
+  end
+  
+  def current_avatar_url(current_user)
+    gravatar_id = Digest::MD5.hexdigest(current_user.email.downcase)
+    "http://www.gravatar.com/avatar/#{gravatar_id}?s=40"
+  end
+  
+  
 end
