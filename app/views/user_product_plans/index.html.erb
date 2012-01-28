@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+  	<th>ID</th>
     <th>User</th>
     <th>Product</th>
     <th>Product Plan</th>
@@ -13,6 +14,7 @@
 
 <% @user_product_plans.each do |user_product_plan| %>
   <tr>
+  	<td><%= user_product_plan.id %></td>
     <td><%= user_product_plan.user_id %></td>
     <td><%= user_product_plan.product_id %></td>
     <td><%= user_product_plan.product_plan_id %></td>

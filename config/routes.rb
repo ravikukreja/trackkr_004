@@ -1,6 +1,11 @@
 
 Trackkr002::Application.routes.draw do
   
+  default_url_options :host => "localhost:3000" 
+
+  resources :share_dashboards
+
+  get "share/index"
 
   ActiveAdmin.routes(self)
 

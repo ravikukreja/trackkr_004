@@ -1,0 +1,27 @@
+<h1>Listing share_dashboards</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Shared plan</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @share_dashboards.each do |share_dashboard| %>
+  <tr>
+    <td><%= share_dashboard.name %></td>
+    <td><%= share_dashboard.email %></td>
+    <td><%= share_dashboard.shared_plan %></td>
+    <td><%= link_to 'Show', share_dashboard %></td>
+    <td><%= link_to 'Edit', edit_share_dashboard_path(share_dashboard) %></td>
+    <td><%= link_to 'Destroy', share_dashboard, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Share dashboard', new_share_dashboard_path %>

@@ -446,7 +446,7 @@ form {
         padding: 0;
         border: 0; }
   form input[type=text], form input[type=password], form input[type=email], form input[type=url], form input[type=tel], form textarea {
-    width: 76%;
+    width: 15%;
     border: 1px solid #c9d0d6;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  shared_plan: MyString
+
+two:
+  name: MyString
+  email: MyString
+  shared_plan: MyString

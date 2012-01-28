@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :through => :friendships
   before_create { generate_token(:auth_token) }
-  #validates :username, :email, :password,  :presence => true
+  validates_presence_of :username, :email, :password
+  validates_uniqueness_of :username, :email
 
   
   has_many :inverse_friendships,:class_name => "Friendship", :foreign_key => "friend_id"

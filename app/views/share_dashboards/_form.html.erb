@@ -1,0 +1,29 @@
+<%= form_for(@share_dashboard) do |f| %>
+  <% if @share_dashboard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@share_dashboard.errors.count, "error") %> prohibited this share_dashboard from being saved:</h2>
+
+      <ul>
+      <% @share_dashboard.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :shared_plan %><br />
+    <%= f.text_field :shared_plan %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
