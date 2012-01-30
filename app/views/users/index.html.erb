@@ -1,43 +1,15 @@
 <h1>Listing users</h1>
 
-<table>
-  <tr>
-  	<th>User ID</th>
-	<th></th>
-    <th>Username</th>
-	<th></th>
-    <th>Email</th>
-    <th>Avatar</th>
-	<th></th>
-	<th>Contact number</th>
-	<th></th>
-	<th>Reminder option</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @users.each do |user| %>
-  <tr>
-  	<td><%= user.id %></td>
-	<th></th>
-    <td><%= user.username %></td>
-	<th></th>
-    <td><%= user.email%></td>
-	<th></th>
-    <td><%= image_tag avatar_url(user)%></td>
-	<th></th>
-	<td><%= user.contact_number %></td>
-	<th></th>
-	<td><%= user.reminder_option %></td>
-	<th></th>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% form_tag users_path, :method => 'get' do %>
+	<%= hidden_field_tag :direction, params[:direction]%>
+	<%= hidden_field_tag :sort, params[:sort]%>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>
-</table>
 
+<div id="users"><%= render 'users'%></div>
 <br />
 
 <%= link_to 'New User', new_user_path %>

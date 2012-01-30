@@ -34,7 +34,7 @@ module ApplicationHelper
   
   def avatar_url(user)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-    "http://www.gravatar.com/avatar/#{gravatar_id}"
+    "http://www.gravatar.com/avatar/#{gravatar_id}?s=50"
   end
   
   def current_avatar_url(current_user)
@@ -42,5 +42,12 @@ module ApplicationHelper
     "http://www.gravatar.com/avatar/#{gravatar_id}?s=40"
   end
   
+  
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, params.merge(:sort => column, :direction => direction, :page=> nil)
+    
+  end
   
 end

@@ -70,6 +70,9 @@ GEM
     inherited_resources (1.2.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
+    jquery-rails (1.0.19)
+      railties (~> 3.0)
+      thor (~> 0.14)
     json (1.6.5)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
@@ -131,6 +134,7 @@ GEM
     tzinfo (0.3.31)
     warden (1.1.0)
       rack (>= 1.0)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   x86-mingw32
@@ -141,8 +145,10 @@ DEPENDENCIES
   client_side_validations (= 3.0.5)
   formtastic (~> 1.2.0)
   heroku
+  jquery-rails
   mail (= 2.2.19)
   pg
   rails (= 3.0.1)
   roadie
   sqlite3
+  will_paginate (= 3.0.pre2)
