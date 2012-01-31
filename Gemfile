@@ -22,6 +22,11 @@ gem 'pg'
 gem 'client_side_validations','3.0.5'
 
 gem 'authlogic'
+
+gem 'will_paginate', '3.0.pre2'
+
+gem 'jquery-rails'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

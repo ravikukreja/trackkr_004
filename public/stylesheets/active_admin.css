@@ -1311,12 +1311,12 @@ a.button, input[type=submit] {
 
 .pagination {
   display: inline;
-  font-size: 0.9;
+  font-size: 10;
   margin-left: 10px; }
   .pagination a {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 10);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 10);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 10);
     background: #838a90;
     background: -webkit-gradient(linear, left top, left bottom, from(#838a90), to(#414549));
     background: -moz-linear-gradient(-90deg, #838a90, #414549);
