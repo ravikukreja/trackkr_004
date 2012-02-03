@@ -1,7 +1,8 @@
 <div id="logInBox">
   <% if current_user %>
   	Welcome <%= current_user.username %>
-  	<%= image_tag current_avatar_url(current_user)%><br>
+  	<%#= image_tag current_avatar_url(current_user)%><br>
+  	<%= image_tag ("/images/anjali.jpeg")%>
     <%= link_to "Edit Profile", edit_user_path(:current) %> |
     <%= link_to "Logout", logout_path %>
   <% else %>

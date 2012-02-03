@@ -1,3 +1,4 @@
+<div id="graphs">
 <script type="text/javascript" charset="utf-8">
 	$(function(){
 		new Highcharts.Chart({
@@ -5,7 +6,15 @@
 				renderTo: "user_chart1",
 				height: 250,
 				width: 450,
+				backgroundColor: '#FCFFC5',
 				defaultSeriesType: '<%= @graph_select_type %>'
+			},
+			tooltip:{
+				backgroundColor: '#008000'
+			},
+			legend: {
+				
+				backgroundColor: '#008000',
 			},
 			
 			title: {
@@ -42,8 +51,9 @@
       });
     });
   </script> 
-  <div id="user_chart1" style="width:560px; height:300px;"> </div>
  
+  <div id="user_chart1" style="width:560px; height:300px;"> </div>
+ </div> 
 	
 	
 

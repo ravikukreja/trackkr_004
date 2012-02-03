@@ -24,7 +24,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
   padding: 0;
-  border: 0;
+  
   outline: 0;
   font-weight: inherit;
   font-style: inherit;
@@ -446,7 +446,7 @@ form {
         padding: 0;
         border: 0; }
   form input[type=text], form input[type=password], form input[type=email], form input[type=url], form input[type=tel], form textarea {
-    width: 15%;
+    width: 30%;
     border: 1px solid #c9d0d6;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;

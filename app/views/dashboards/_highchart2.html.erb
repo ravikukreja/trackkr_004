@@ -1,10 +1,12 @@
+<div id="graphs">
 <script type="text/javascript" charset="utf-8">
 	$(function(){
 		new Highcharts.Chart({
 			chart: {
 				renderTo: "user_chart2",
-				height: 300,
-				width: 500,
+				height: 250,
+				width: 450,
+				backgroundColor: '#8A949E',
 				defaultSeriesType: '<%= @graph_select_type %>'
 			},
 			
@@ -42,9 +44,9 @@
       });
     });
   </script> 
- 
+
 <div id="user_chart2" style="width:560px; height:300px;"> </div>	
-	
+</div>	
 
 
 
