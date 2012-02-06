@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
-  helper_method :sort_column, :sort_direction
+  
   # GET /users
   # GET /users.xml
   layout "blank"
+  helper_method :sort_column, :sort_direction
   
   def index
     @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page =>5, :page =>params[:page])
 
     respond_to do |format|
+      
       format.html # index.html.erb
+      format.js {render :content_type => 'text/javascript'}
       format.xml  { render :xml => @users }
     end
   end

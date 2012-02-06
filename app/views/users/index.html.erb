@@ -1,6 +1,8 @@
 <h1>Listing users</h1>
 
-<% form_tag users_path, :method => 'get' do %>
+
+
+<%= form_tag users_path, :method => 'get' do %>
 	<%= hidden_field_tag :direction, params[:direction]%>
 	<%= hidden_field_tag :sort, params[:sort]%>
   <p>
@@ -9,7 +11,7 @@
   </p>
 <% end %>
 
-<div id="users"><%= render 'users'%></div>
+<div id="page"><%= render 'users'%></div>
 <br />
 
 <%= link_to 'New User', new_user_path %>
