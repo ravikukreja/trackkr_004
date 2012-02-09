@@ -1,18 +1,25 @@
 <h1>Listing users</h1>
 
+<%= form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <table>
   <tr>
-  	<th>User ID</th>
+  	<th><%= link_to "User ID"%></th>
 	<th></th>
-    <th>Username</th>
+    <th><%= sortable "username"%></th>
 	<th></th>
-    <th>Email</th>
-    <th>Avatar</th>
+    <th><%= sortable "email"%></th>
 	<th></th>
-	<th>Contact number</th>
+	<th><%= sortable "contact_number", "Contact Number" %></th>
 	<th></th>
-	<th>Reminder option</th>
+	<th><%= sortable "reminder_option", "Reminder"%></th>
     <th></th>
+    <th>Avatar</th>
     <th></th>
     <th></th>
   </tr>
@@ -25,11 +32,11 @@
 	<th></th>
     <td><%= user.email%></td>
 	<th></th>
-    <td><%= image_tag avatar_url(user)%></td>
-	<th></th>
 	<td><%= user.contact_number %></td>
 	<th></th>
 	<td><%= user.reminder_option %></td>
+	<th></th>
+	<td><%= image_tag avatar_url(user)%></td>
 	<th></th>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
@@ -40,4 +47,5 @@
 
 <br />
 
+<%= will_paginate @users%><br />
 <%= link_to 'New User', new_user_path %>

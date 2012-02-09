@@ -446,7 +446,7 @@ form {
         padding: 0;
         border: 0; }
   form input[type=text], form input[type=password], form input[type=email], form input[type=url], form input[type=tel], form textarea {
-    width: 76%;
+    width: 15%;
     border: 1px solid #c9d0d6;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -1311,7 +1311,7 @@ a.button, input[type=submit] {
 
 .pagination {
   display: inline;
-  font-size: 0.9;
+  font-size: 12px;
   margin-left: 10px; }
   .pagination a {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);

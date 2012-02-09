@@ -2,9 +2,10 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   layout "blank"
+  helper_method :sort_column, :sort_direction 
   
   def index
-    @users = User.all
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page=> 8, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,4 +85,15 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def sort_column
+    params[:sort] || "username"
+  end
+  
+  def sort_direction
+    params[:direction] || "asc"
+  end
+  
+  
+  
 end

@@ -41,4 +41,12 @@ class User < ActiveRecord::Base
   end
   
   
+  def self.search(search)
+    if search
+      where('username LIKE ?', "%#{search}%")
+    else
+      scoped  
+    end
+  end
+  
 end
