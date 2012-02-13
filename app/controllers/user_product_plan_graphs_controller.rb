@@ -29,19 +29,14 @@ class UserProductPlanGraphsController < ApplicationController
     @user_product_plan_graph = UserProductPlanGraph.new
     @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
     @graphs = Graph.all
-    
-     #new functionality by bittu#
-    #start#
-    current_user
-    session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
-    session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
     @friendships = current_user.friendships.by_product(session[:product_id])
-    #@friend_id = @friendships.friend.id
-    @friend_product_plans = UserProductPlan.find_all_by_product_id(@user_product_plan.product_id)
-    #@friend_product_plan = UserProductPlan.find_by_product_id_and_user_id(@user_product_plan.product_id, 22)
-   
-   
-    
+    @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
+    #new functionality by bittu#
+    #start#
+    #current_user
+    #session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
+    #session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
+      
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user_product_plan_graph }
