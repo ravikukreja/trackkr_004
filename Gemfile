@@ -19,7 +19,11 @@ gem 'sqlite3'
 
 gem 'pg'
 
+<<<<<<< HEAD
 gem 'client_side_validations','3.0.5'
+=======
+gem 'will_paginate', '3.0.pre2'
+>>>>>>> db_changes7
 
 gem 'authlogic'
 

@@ -7,4 +7,19 @@ class PlanValue < ActiveRecord::Base
   validates :notes, :format => { :with => /\A[a-zA-Z]+\z/,
     :message => "Only letters allowed" }
   #validates :day, :presence => true
+  
+   def self.distance(day)
+    where("day = ?", day).sum(:distance) * 0.5
+  end
+  
+  def self.speed(day)
+    where("day = ?", day).sum(:speed) * 0.5
+  end
+  
+  def self.time(day)
+    where("day = ?", day).sum(:time) * 0.5
+  end
+  
+  
+  
 end

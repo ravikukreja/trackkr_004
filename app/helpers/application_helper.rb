@@ -34,13 +34,25 @@ module ApplicationHelper
   
   def avatar_url(user)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+<<<<<<< HEAD
     "http://www.gravatar.com/avatar/#{gravatar_id}?s=50"
+=======
+    "http://www.gravatar.com/avatar/#{gravatar_id}?s=30"
+>>>>>>> db_changes7
   end
   
   def current_avatar_url(current_user)
     gravatar_id = Digest::MD5.hexdigest(current_user.email.downcase)
     "http://www.gravatar.com/avatar/#{gravatar_id}?s=40"
   end
+  
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = column == sort_column && sort_direction == "asc"? "desc" : "asc"
+    link_to title, :sort => column, :direction => direction
+    
+  end
+  
   
   
   def sortable(column, title = nil)

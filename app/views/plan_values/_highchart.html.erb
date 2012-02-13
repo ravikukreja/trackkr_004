@@ -1,0 +1,60 @@
+<div id="graphs">
+<script type="text/javascript" charset="utf-8">
+	$(function(){
+		new Highcharts.Chart({
+			chart: {
+				renderTo: "general_graph",
+				defaultSeriesType: "column",
+			},
+			title: {
+				text: "Plan Value Graph for <%= session[:product_plan_name]%>",
+			},
+			
+			plotOptions: {
+				series: {
+            	allowPointSelect: true}
+        	},
+			
+			credits: {
+				text: "trackkr",
+				href: "www.trackkr.com",
+			},
+      		xAxis: {
+        			max: 100,
+      		},
+      		yAxis: {
+        		title: {
+          		text: "Value",
+        	}
+        	},
+      		series: [
+			{
+	  			name: "Distance", 
+	  			pointStart: 1,
+	  			pointInterval: 1,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.distance(day)}.inspect%>,
+			},
+			{
+			name: "Speed", 
+	  			pointStart: 1,
+	  			pointInterval: 1,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.speed(day)}.inspect%>,
+			},
+			{
+			name: "Time", 
+	  			pointStart: 1,
+	  			pointInterval: 1,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.time(day)}.inspect%>,
+			}
+			]
+      });
+    });
+  </script> 
+ 
+  <div id="general_graph" style="width:700px; height:300px;"> </div>
+ </div> 
+	
+	
+
+
+
