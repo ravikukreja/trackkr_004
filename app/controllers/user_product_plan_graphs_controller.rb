@@ -36,7 +36,7 @@ class UserProductPlanGraphsController < ApplicationController
     #current_user
     #session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
     #session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
-      
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user_product_plan_graph }
