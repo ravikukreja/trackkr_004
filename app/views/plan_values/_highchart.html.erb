@@ -4,7 +4,7 @@
 		new Highcharts.Chart({
 			chart: {
 				renderTo: "general_graph",
-				defaultSeriesType: "column",
+				defaultSeriesType: "line",
 			},
 			title: {
 				text: "Plan Value Graph for <%= session[:product_plan_name]%>",
@@ -19,8 +19,13 @@
 				text: "trackkr",
 				href: "www.trackkr.com",
 			},
+		
+			
+			
+			
+			
       		xAxis: {
-        			max: 100,
+        			max: 50,
       		},
       		yAxis: {
         		title: {
@@ -29,10 +34,11 @@
         	},
       		series: [
 			{
-	  			name: "Distance", 
+	  			name: "Distance (km)", 
 	  			pointStart: 1,
 	  			pointInterval: 1,
 				data: <%= (day=(1..100).to_a).map{|day| PlanValue.distance(day)}.inspect%>,
+				
 			},
 			{
 			name: "Speed", 
