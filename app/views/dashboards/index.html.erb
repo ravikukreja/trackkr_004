@@ -66,7 +66,7 @@ body {
 </div>	
 
 
-<div id="left"> My Friends:
+<div> My Friends:
 <ul>	
 	<% for friendship in @friendships%>
 	<li>
@@ -95,7 +95,7 @@ body {
 
  
 
-<div id="centre">  <strong>List of Plans on this product:</strong>
+<div>  <strong>List of Plans on this product:</strong>
 <ul>
 	<% @user_product_plans.each do |user_product_plan|%>
 	<% if user_product_plan.id == session[:user_product_plan_id].to_i%>
@@ -112,7 +112,7 @@ body {
 </ul>
 </div>
 
-<div style="height:100px;width:300px; overflow:auto;" id="right">	
+<div style="height:100px;width:300px; overflow:auto;">	
   <p><strong>GOAL:</strong></p>
 	<ul>
 		 <p> Product Plan ID: <%= @user_product_plan.product_plan.product_plan_name %></p> 
