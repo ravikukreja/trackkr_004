@@ -1,0 +1,43 @@
+<table>
+  <tr>
+  	<th><%= link_to "User ID" %></th>
+	<th></th>
+    <th><%= sortable "Username" %></th>
+	<th></th>
+    <th><%= sortable "Email" %></th>
+    <th></th>
+    <th><%= sortable "created_at", "Date of Creation" %></th>
+	<th></th>
+	<th><%= sortable "contact_number","Contact number" %></th>
+	<th></th>
+	<th><%= sortable "reminder_option","Reminder" %></th>
+    <th></th>
+    <th><%= link_to "Avatar" %></th>
+	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+  	<td><%= user.id %></td>
+	<th></th>
+    <td><%= user.username %></td>
+	<th></th>
+    <td><%= user.email%></td>
+	<th></th>
+    <td><%= user.created_at%></td>
+	<th></th>
+	<td><%= user.contact_number %></td>
+	<th></th>
+	<td><%= user.reminder_option %></td>
+	<th></th>
+	<td><%= image_tag avatar_url(user)%></td>
+	<th></th>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @users%>

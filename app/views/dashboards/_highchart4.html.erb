@@ -2,10 +2,11 @@
 		$(function() {
     	new Highcharts.Chart({
       	chart: {
-        renderTo: "user_chart4",
-        height: 300,
-		width: 500,
-		defaultSeriesType: '<%= @graph_select_type %>'
+		        renderTo: "user_chart4",
+		        height: 300,
+				width: 500,
+				backgroundColor: '#F4F4F4',
+				defaultSeriesType: '<%= @graph_select_type %>'
     	 },
       		title: {
         	text: "Distance by Day"

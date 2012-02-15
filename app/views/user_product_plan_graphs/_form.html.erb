@@ -40,31 +40,18 @@
   	
   	
   	
-  	<!--<#code for friend graph section starts here>-->
+  	<!--code for friend graph section starts here-->
   	
   	
-  	<p>My Friend in Product ID=> <%= session[:product_id]%> </p>
- <% for friendship in @friendships%>
- 
-	
+<ul>	
+	<% for friendship in @friendships%>
+	<li>
 		<%if friendship.status =="Accepted"%>
-			<p>Name-> <%= friendship.friend.username%></p>
-			<p>Friendship ID -><%= friendship.id%></p>
-			<p>Friend's user ID -><%= friendship.friend.id%></p>
-			<p>Friend's Product ID -><%= friendship.product_id%></p>
-			
-				<%for friend_product_plan in @friend_product_plans%>
-					<%if friend_product_plan.user_id == friendship.friend.id %>
-						<p>Friend's Product Plan ID --><%= friend_product_plan.id%> </p>		
-						
-		
-		
-		
-				<div>  List of Graph for <%=friendship.friend.username%> under product <%= friendship.product_id%>  </div>
+		<%= friendship.friend.username%>
 			<ul>	
 				<%@graphs.each_with_index do |g,i|%>
 					<li>
-						<%@selected_graph=UserProductPlanGraph.find_by_user_product_plan_id_and_graph_id(@user_product_plan.id,g.id)%>
+						<%@selected_graph=UserProductPlanGraph.find_by_user_product_plan_id_and_friend_product_plan_id_and_graph_id(@user_product_plan_id,friendship.friend_id,g.id)%>
 						<%if @selected_graph%>
 							<%= g.name%>
 							<%= check_box "new[p_#{i}]","graph_id",{:checked=>true},g.id%>
@@ -79,14 +66,39 @@
 					</li>
 				<%end%>
 			</ul>
-		</div> 
-  	</div>
-	
+		<%end%>
+		</li>
+	<%end%>
+</ul>
 
-<%end%>	
-<%end%>	
-<%end%>	
-<%end%>	
+
+<% if @inverse_friendships %>
+  	<%for inverse_friendship in @inverse_friendships%> 
+ 	<li>
+	<%= inverse_friendship.user.username %>
+	<ul>	
+				<%@graphs.each_with_index do |g,i|%>
+					<li>
+						<%@selected_graph=UserProductPlanGraph.find_by_user_product_plan_id_and_friend_product_plan_id_and_graph_id(@user_product_plan_id, inverse_friendship.friend_id,g.id)%>
+						<%if @selected_graph%>
+							<%= g.name%>
+							<%= check_box "new[p_#{i}]","graph_id",{:checked=>true},g.id%>
+							<%= select "new[p_#{i}]","graph_select_type",["column","line","Pie"],{:selected=>@selected_graph.graph_select_type}%>
+	 						<%= select "new[p_#{i}]", "graph_select_range", ["1 week", "1 month", "3 months"],{:selected=>@selected_graph.graph_select_range}%>
+						<%else%>
+							<%= g.name%>
+							<%= check_box "new[p_#{i}]","graph_id",{},g.id%>
+							<%= select "new[p_#{i}]","graph_select_type",["Bar","Line","Pie"],:prompt=>"Select the type" %>
+	 						<%= select "new[p_#{i}]", "graph_select_range", ["1 week", "1 month", "3 months"] %>
+						<%end%>
+					</li>
+				<%end%>
+			</ul>
+	</li>
+	<%end%>
+<% end %>
+</div>	
+						
 <!--code for graph secton ends here-->
 
 

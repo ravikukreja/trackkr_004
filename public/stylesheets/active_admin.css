@@ -24,7 +24,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
   padding: 0;
-  border: 0;
+  
   outline: 0;
   font-weight: inherit;
   font-style: inherit;
@@ -446,7 +446,11 @@ form {
         padding: 0;
         border: 0; }
   form input[type=text], form input[type=password], form input[type=email], form input[type=url], form input[type=tel], form textarea {
+<<<<<<< HEAD
+    width: 30%;
+=======
     width: 15%;
+>>>>>>> db_changes7
     border: 1px solid #c9d0d6;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -1311,12 +1315,16 @@ a.button, input[type=submit] {
 
 .pagination {
   display: inline;
+<<<<<<< HEAD
+  font-size: 10;
+=======
   font-size: 12px;
+>>>>>>> db_changes7
   margin-left: 10px; }
   .pagination a {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 10);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 10);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 10);
     background: #838a90;
     background: -webkit-gradient(linear, left top, left bottom, from(#838a90), to(#414549));
     background: -moz-linear-gradient(-90deg, #838a90, #414549);
