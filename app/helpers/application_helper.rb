@@ -34,11 +34,7 @@ module ApplicationHelper
   
   def avatar_url(user)
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-<<<<<<< HEAD
-    "http://www.gravatar.com/avatar/#{gravatar_id}?s=50"
-=======
     "http://www.gravatar.com/avatar/#{gravatar_id}?s=30"
->>>>>>> db_changes7
   end
   
   def current_avatar_url(current_user)

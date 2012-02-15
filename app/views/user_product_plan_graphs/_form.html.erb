@@ -51,7 +51,7 @@
 			<ul>	
 				<%@graphs.each_with_index do |g,i|%>
 					<li>
-						<%@selected_graph=UserProductPlanGraph.find_by_friend_product_plan_id_and_graph_id(friendship.friend_id,g.id)%>
+						<%@selected_graph=UserProductPlanGraph.find_by_user_product_plan_id_and_friend_product_plan_id_and_graph_id(@user_product_plan_id,friendship.friend_id,g.id)%>
 						<%if @selected_graph%>
 							<%= g.name%>
 							<%= check_box "new[p_#{i}]","graph_id",{:checked=>true},g.id%>
@@ -79,7 +79,7 @@
 	<ul>	
 				<%@graphs.each_with_index do |g,i|%>
 					<li>
-						<%@selected_graph=UserProductPlanGraph.find_by_friend_product_plan_id_and_graph_id(inverse_friendship.friend_id,g.id)%>
+						<%@selected_graph=UserProductPlanGraph.find_by_user_product_plan_id_and_friend_product_plan_id_and_graph_id(@user_product_plan_id, inverse_friendship.friend_id,g.id)%>
 						<%if @selected_graph%>
 							<%= g.name%>
 							<%= check_box "new[p_#{i}]","graph_id",{:checked=>true},g.id%>
