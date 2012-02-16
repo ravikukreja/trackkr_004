@@ -10,12 +10,13 @@
    # <%= #submit_tag "Search", :name => nil %>
  # <#/p>
 
-<%= form_tag users_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+#<%= form_tag users_path, :method => :get do %>
+ 
+ # <p>
+  #  <%= text_field_tag :search, params[:search] %>
+   # <%= submit_tag "Search", :name => nil %>
+ # </p>
+#<% end %>
 
 <table>
   <tr>
@@ -52,11 +53,11 @@
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
->>>>>>> db_changes7
 <% end %>
 
 <div id="page"><%= render 'users'%></div>
 <br />
 
-<%= will_paginate @users%><br />
+
+ <%#= will_paginate @users%><br />
 <%= link_to 'New User', new_user_path %>

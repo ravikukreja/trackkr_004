@@ -58,12 +58,12 @@ class UserProductPlanGraphsController < ApplicationController
     params[:new].each do |key,value|
       if Graph.exists?(value[:graph_id])
         value.merge!(:user_product_plan_id=>params[:user_product_plan_id].to_i)
-        if (exist_data = UserProductPlanGraph.find_by_user_product_plan_id_and_graph_id(params[:user_product_plan_id].to_i,value[:graph_id]))
-          status = exist_data.update_attributes(value)
-        else
+      #  if (exist_data = UserProductPlanGraph.find_by_user_product_plan_id_and_graph_id(params[:user_product_plan_id].to_i,value[:graph_id]))
+       #   status = exist_data.update_attributes(value)
+      #  else
           user_product_plan_graph = UserProductPlanGraph.new(value)
           status = user_product_plan_graph.save
-        end
+      #  end
       end
     end
     
