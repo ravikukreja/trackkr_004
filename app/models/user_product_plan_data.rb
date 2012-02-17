@@ -26,7 +26,14 @@ class UserProductPlanData < ActiveRecord::Base
   
   def self.show_data( user_product_plan_id)
     where("user_product_plan_id = ?",user_product_plan_id).sum(:plan_speed)
-    
+  end
+  
+  def self.friend_actual_distance(date, user_product_plan_id)
+    where("training_date = ? and user_product_plan_id = ?", date, user_product_plan_id).sum(:actual_distance)
+  end
+  
+  def self.friend_plan_distance(date, user_product_plan_id)
+    where("training_date = ? and user_product_plan_id = ?", date, user_product_plan_id).sum(:plan_distance)
   end
   
 end

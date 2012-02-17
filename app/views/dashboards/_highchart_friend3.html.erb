@@ -2,14 +2,14 @@
 		$(function() {
     	new Highcharts.Chart({
       	chart: {
-		        renderTo: "user_chart4",
+		        renderTo: "user_chart3",
 		        height: 250,
 				width: 450,
-				backgroundColor: '#F4F4F4',
+				backgroundColor: '#AAB2BA',
 				defaultSeriesType: '<%= @graph_select_type %>'
     	 },
       		title: {
-        	text: "Graph - 4"
+        	text: "Graph - 3"
       		},
 			credits: {
 			text: "trackkr ",
@@ -26,20 +26,20 @@
 	  		name: "Actual",
 			pointInterval: <%= 1.day * 1000 %>,
 			pointStart: <%= @graph_select_range.to_i * 1000 %>,  
-	  		data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id])}.inspect%>
+	  		data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, session[:user_product_plan_id])}.inspect%>
 			},
 			{
 	  		name: "Planned",
 			pointInterval: <%= 1.day * 1000 %>,
 			pointStart: <%= @graph_select_range.to_i * 1000 %>,  
-			data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id])}.inspect%>
+			data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, session[:user_product_plan_id])}.inspect%>
 		}]
       });
     });
   </script> 
- ra
+ 
 	
-	<div id="user_chart4" style="width:560px; height:300px;"> </div>
+<div id="user_chart3" style="width:560px; height:300px;"> </div>	
 
 
 
