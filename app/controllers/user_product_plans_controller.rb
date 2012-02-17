@@ -1,12 +1,14 @@
 class UserProductPlansController < ApplicationController
   before_filter :require_user
+  helper_method :sort_direction, :sort_column
   # GET /user_product_plans
   # GET /user_product_plans.xml
   def index
-    @user_product_plans = UserProductPlan.all
+    @user_product_plans = UserProductPlan.order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.xml  { render :xml => @user_product_plans }
     end
   end
@@ -119,4 +121,16 @@ class UserProductPlansController < ApplicationController
     end
   end
 end
+
+ private
+
+  def sort_column
+    params[:sort] || "id"
+    #UserProductPlan.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+  
+  def sort_direction
+    params[:direction] || "asc"
+    #%w["asc","desc"].include?(params[:sort_direction]) ? params[:sort_direction] :"asc"
+  end
 end

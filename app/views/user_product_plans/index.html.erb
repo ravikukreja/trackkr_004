@@ -2,31 +2,19 @@
 
 <table>
   <tr>
-  	<th>ID</th>
-    <th>User</th>
-    <th>Product</th>
-    <th>Product Plan</th>
-    <th>Start Date</th>
-    <th>End Date</th>
+  	<th><%= sortable "id" %></th>
+    <th><%= sortable "user_id" %></th>
+    <th><%= sortable "product_id" %></th>
+    <th><%= sortable "product_plan_id" %></th>
+    <th><%= sortable "start_date"%></th>
+    <th><%= sortable "end_date" %></th>
     <th></th>
   </tr>
 
 
-<% @user_product_plans.each do |user_product_plan| %>
-  <tr>
-  	<td><%= user_product_plan.id %></td>
-    <td><%= user_product_plan.user_id %></td>
-    <td><%= user_product_plan.product_id %></td>
-    <td><%= user_product_plan.product_plan_id %></td>
-    <td><%= user_product_plan.start_date %></td>
-    <td><%= user_product_plan.end_date %></td>
-    <td><%= link_to 'Show', user_product_plan %></td>
-    <td><%= link_to 'Edit', edit_user_product_plan_path(user_product_plan) %></td>
-    <td><%= button_to 'Destroy', user_product_plan, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id='user_product_plans'><%= render 'user_product_plans' %> </div>
 
 <br />
+<%= will_paginate @user_product_plans%>
 
 <%= link_to 'New User product', new_user_product_plan_path %>
