@@ -26,13 +26,13 @@
 							<%= check_box "new[p_#{i}]","graph_id",{:checked=>true},g.id%>
 							<%= select "new[p_#{i}]","graph_select_type",["column","line","Pie"],{:selected=>@selected_graph.graph_select_type}%>
 	 						<%= select "new[p_#{i}]", "graph_select_range", ["1 week", "1 month", "3 months"],{:selected=>@selected_graph.graph_select_range}%>
-						    <%= check_box "new[p_#{i}]","friend_product_plan_id",{},{},nil%>
+						    <% check_box "new[p_#{i}]","friend_product_plan_id",{},{},nil%>
 						<%else%>
 							<%= g.name%>
 							<%= check_box "new[p_#{i}]","graph_id",{},g.id%>
 							<%= select "new[p_#{i}]","graph_select_type",["Bar","Line","Pie"],:prompt=>"Select the type" %>
 	 						<%= select "new[p_#{i}]", "graph_select_range", ["1 week", "1 month", "3 months"] %>
-	 						<%= check_box "new[p_#{i}]","friend_product_plan_id",{},{},nil %>
+	 						<% check_box "new[p_#{i}]","friend_product_plan_id",{},{},nil %>
 						<%end%>
 					</li>
 				<%end%>
