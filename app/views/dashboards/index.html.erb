@@ -25,13 +25,17 @@ body {
 -->
 </style>
 
+
+
 <% @user_product_plan_graphs.each do |user_product_plan_graph| %>
   
-  
-		<p>User graphs ID:<%= user_product_plan_graph.graph_id%></p>
-		<p>User graphs name:<%= user_product_plan_graph.graph.name%></p>
-		<p>Friend graphs ID:<%= user_product_plan_graph.graph_id%></p>
-		<p>Friend graphs name:<%= user_product_plan_graph.graph.name%></p>	
+  <div class="<%= cycle('user_graph1', 'user_graph2') %>">
+  	
+		<%if user_product_plan_graph.friend_product_plan_id == nil%>
+			<p>User's graphs name:<%= user_product_plan_graph.graph.name%></p>
+		<%else%>
+			<p>Friend's graphs name:<%= user_product_plan_graph.graph.name%></p>	
+		<%end%>
 		
 		<%= @graph_select_type = user_product_plan_graph.graph_select_type.downcase%>
 		<%= @graph_select_range = user_product_plan_graph.graph_select_range%>
@@ -53,9 +57,11 @@ body {
 		<% elsif user_product_plan_graph.graph_id ==4 %>
 			<%= render 'dashboards/highchart4',:user_product_plan_graph => user_product_plan_graph %>
 		<%end%>
+
+</div>	
 	
 <% end %>
-	
+
 
 </head>
 </br>

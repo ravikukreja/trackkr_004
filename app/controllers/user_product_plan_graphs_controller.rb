@@ -28,7 +28,8 @@ class UserProductPlanGraphsController < ApplicationController
   def new
     @user_product_plan_graph = UserProductPlanGraph.new
     @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
-    @graphs = Graph.all
+    session[:t_category] = ProductPlan.find(session[:product_id]).product.t_category.id
+    @graphs = Graph.find_all_by_t_category_id(session[:t_category])
     @friendships = current_user.friendships.by_product(session[:product_id])
     @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
     #new functionality by bittu#

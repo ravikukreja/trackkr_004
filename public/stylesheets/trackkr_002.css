@@ -43,6 +43,22 @@
 	height: 100px;
 	}
 
+  .user_graph1 {
+  	margin-top: 100px;
+  	margin-right 
+	position: absolute;
+	
+	
+	width: 560px;
+}
+.user_graph2 {
+	
+	margin-left: 600px;
+	width: 560px;
+	
+}
+
+
 
 
 #logInBox {
