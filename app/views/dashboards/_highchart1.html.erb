@@ -40,13 +40,13 @@
 	  			name: "Actual",
 				pointInterval: <%= 1.day * 1000 %>,
 				pointStart: <%= @graph_select_range.to_i * 1000 %>,  
-	  			data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id])}.inspect%>
+	  			data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, user_product_plan_graph.friend_product_plan_id) || session[:user_product_plan_id]}.inspect%>
 			},
 			{
 	  			name: "Planned",
 				pointInterval: <%= 1.day * 1000 %>,
 				pointStart: <%= @graph_select_range.to_i * 1000 %>,  
-				data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id])}.inspect%>
+				data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, user_product_plan_graph.friend_product_plan_id) || session[:user_product_plan_id]}.inspect%>
 		}]
       });
     });
