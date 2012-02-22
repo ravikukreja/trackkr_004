@@ -41,13 +41,13 @@
 				
 			},
 			{
-			name: "Speed", 
+				name: "Speed", 
 	  			pointStart: 1,
 	  			pointInterval: 1,
 				data: <%= (day=(1..100).to_a).map{|day| PlanValue.speed(day)}.inspect%>,
 			},
 			{
-			name: "Time", 
+				name: "Time", 
 	  			pointStart: 1,
 	  			pointInterval: 1,
 				data: <%= (day=(1..100).to_a).map{|day| PlanValue.time(day)}.inspect%>,
