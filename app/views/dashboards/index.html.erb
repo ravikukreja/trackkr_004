@@ -68,7 +68,7 @@ body {
 <body>
 	
 </div>	
-
+ <div style="width:600px; height:350px"> </div>
 
 <div id="left"> My Friends:
 <ul>	
@@ -116,7 +116,7 @@ body {
 </ul>
 </div>
 
-<div style="height:100px;width:300px; overflow:auto;" id="right">	
+<div style="height:100px;width:250px; overflow:auto;" id="right">	
   <p><strong>GOAL:</strong></p>
 	<ul>
 		 <p> Product Plan ID: <%= @user_product_plan.product_plan.product_plan_name %></p> 
@@ -133,7 +133,7 @@ body {
 <%= render 'user_product_plan_datas/edit_individual'%>	
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
 <%= button_to "Edit Chart Setting", new_user_product_plan_graph_path, :method => :get%>
-<div id="user_chart"></div>
+ <!--<div id="user_chart"></div>-->
 
 	
 <div id="common">

@@ -3,7 +3,7 @@
 	$(function(){
 		new Highcharts.Chart({
 			chart: {
-				renderTo: '<%= user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id] %>',
+				renderTo: 'graph_1_<%= user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id] %>',
 				height: 250,
 				width: 450,
 				backgroundColor: '#FCFFC5',
@@ -54,7 +54,7 @@
  
  
  
-  <div id="<%=user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id]%>" style="width:560px; height:300px;"> </div>
+  <div id="graph_1_<%=user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id]%>" style="width:560px; height:300px;"> </div>
  </div> 
 	
 	
