@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127040024) do
+ActiveRecord::Schema.define(:version => 20120221110422) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20120127040024) do
   end
 
   create_table "products", :force => true do |t|
-    t.string   "name",          :null => false
-    t.string   "image_url",     :null => false
+    t.string   "name",           :null => false
+    t.string   "image_location", :null => false
     t.integer  "t_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(:version => 20120127040024) do
 
   create_table "t_categories", :force => true do |t|
     t.string   "name",              :null => false
-    t.string   "image_url",         :null => false
+    t.string   "image_location",    :null => false
     t.integer  "trackkr_module_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20120127040024) do
 
   create_table "trackkr_modules", :force => true do |t|
     t.string   "name"
-    t.string   "image_url"
+    t.string   "image_location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

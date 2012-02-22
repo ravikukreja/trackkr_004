@@ -7,7 +7,7 @@
 <% @products.each do |product| %>
 <div class="<%= cycle('marketingPanelPosition1', 'marketingPanelPosition2') %>">
 	<p><%= product.name %>
-	<%= image_tag(product.image_url)  %>
+	<%= image_tag(product.image_location)  %>
 	<% if current_user %>
 		<% if current_user.username == 'admin' %>
 			<%= link_to 'Edit', edit_t_category_product_path(product.t_category_id, product.id) %>
