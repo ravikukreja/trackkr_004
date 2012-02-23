@@ -38,15 +38,15 @@
 
 <%= render 'highchart'%>
 
-<%= link_to 'New Plan value', new_plan_value_path %> |
+<%= link_to 'New Plan value', new_plan_value_path %> <br>
 
 
-<% @user_product_plans.each do |user_product_plan|%>
-	<% if user_product_plan.id == session[:user_product_plan_id].to_i%>
+<% @product_plans.each do |product_plan|%>
+	<% if product_plan.id == params[:product_plan_id].to_i%>
 		<li>
-			<p>"You are on"<strong><SPAN style="BACKGROUND-COLOR: #ffff00"><font size ="3"><%= user_product_plan.product_plan.product_plan_name%></font></strong></p>
+			<p>"You are on"<strong><SPAN style="BACKGROUND-COLOR: #ffff00"><font size ="3"><%= product_plan.product_plan_name%></font></strong></p>
 		<%else %>
-			<%= link_to user_product_plan.product_plan(ProductPlan.find_by_product_id(session[:product_id])).product_plan_name, dashboards_path(:user_product_plan_id => user_product_plan.id) %>
+			<br><%= link_to product_plan.product_plan_name, plan_value_product_info_path(:product_plan_id => product_plan.id), :method => :get %>
 		</li>
 	
 	<%end%>
@@ -54,7 +54,7 @@
 
 
 <% if params[:product_id] %> 
-<%= button_to "Get Started", add_new_user_product_plan_path, :method => :get %>
+<%= button_to "Get Started", add_new_user_product_plan_path, :method => :get %> 
 <% end %>
 
 
