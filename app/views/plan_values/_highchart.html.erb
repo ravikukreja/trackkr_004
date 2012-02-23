@@ -7,7 +7,7 @@
 				defaultSeriesType: "line",
 			},
 			title: {
-				text: "Plan Value Graph for <%= session[:product_plan_name]%>",
+				text: "Plan Value Graph for <%= ProductPlan.find_by_id(params[:product_plan_id]).product_plan_name%>",
 			},
 			
 			plotOptions: {
@@ -20,10 +20,6 @@
 				href: "www.trackkr.com",
 			},
 		
-			
-			
-			
-			
       		xAxis: {
         			max: 50,
       		},
@@ -37,20 +33,20 @@
 	  			name: "Distance (km)", 
 	  			pointStart: 1,
 	  			pointInterval: 1,
-				data: <%= (day=(1..100).to_a).map{|day| PlanValue.distance(day)}.inspect%>,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.distance(day, params[:product_plan_id].to_i)}.inspect%>,
 				
 			},
 			{
 				name: "Speed", 
 	  			pointStart: 1,
 	  			pointInterval: 1,
-				data: <%= (day=(1..100).to_a).map{|day| PlanValue.speed(day)}.inspect%>,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.speed(day, params[:product_plan_id])}.inspect%>,
 			},
 			{
 				name: "Time", 
 	  			pointStart: 1,
 	  			pointInterval: 1,
-				data: <%= (day=(1..100).to_a).map{|day| PlanValue.time(day)}.inspect%>,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.time(day, params[:product_plan_id])}.inspect%>,
 			}
 			]
       });

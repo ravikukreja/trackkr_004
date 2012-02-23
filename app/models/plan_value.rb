@@ -8,16 +8,16 @@ class PlanValue < ActiveRecord::Base
     :message => "Only letters allowed" }
   #validates :day, :presence => true
   
-   def self.distance(day)
-    where("day = ?", day).sum(:distance) * 0.5
+   def self.distance(day, product_plan_id)
+    where("day = ? and product_plan_id =?", day, product_plan_id).sum(:distance)
   end
   
-  def self.speed(day)
-    where("day = ?", day).sum(:speed) * 0.5
+  def self.speed(day, product_plan_id)
+    where("day = ? and product_plan_id =?", day, product_plan_id).sum(:speed)
   end
   
-  def self.time(day)
-    where("day = ?", day).sum(:time) * 0.5
+  def self.time(day, product_plan_id)
+    where("day = ? and product_plan_id =?", day, product_plan_id).sum(:time)
   end
   
   
