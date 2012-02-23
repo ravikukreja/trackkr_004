@@ -11,8 +11,12 @@
     </div>
   <% end %>
   <% if @existing_user_product_plan %>
- You are currently signed up for: <%= @existing_user_product_plan.product_plan.product_plan_name%><br>
- If you would like to change or reset the plan, please reselect from the following options. Please note that all your previous entries will be deleted and lost forever!
+ 	You are currently signed up for:
+    <%@existing_user_product_plan.each do|existing_user_product_plan|%>
+     <li><%= existing_user_product_plan.product_plan.product_plan_name%></li>
+  	<%end%>
+  	
+ 	If you would like to change or reset the plan, please reselect from the following options. Please note that all your previous entries will be deleted and lost forever!
   <% end %>
   <br>
   <br>

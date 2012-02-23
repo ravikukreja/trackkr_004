@@ -27,7 +27,7 @@ class UserProductPlansController < ApplicationController
   # GET /user_product_plans/new
   # GET /user_product_plans/new.xml
   def new
-    @existing_user_product_plan = current_user.user_product_plans.find_by_product_id(params[:product_id])
+    @existing_user_product_plan = current_user.user_product_plans.find_all_by_product_id(params[:product_id])
     @user_product_plan = UserProductPlan.new
     @trackkr_modules = TrackkrModule.all
     session[:product_id] = params[:product_id]

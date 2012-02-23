@@ -34,7 +34,7 @@ Trackkr002::Application.routes.draw do
   resources :user_product_plans
   get 'user_product_plan_graphs/new/:user_product_plan_id' => 'user_product_plan_graphs#new', :as => :new_graph_plan
   get 'user_product_plans/product/:product_id' => 'user_product_plans#new', :as => "add_new_user_product_plan"
-  get 'plan_values/product/:product_id' => 'plan_values#index', :as => "plan_value_product_info"
+  get 'plan_values/product/:product_plan_id' => 'plan_values#index', :as => "plan_value_product_info"
 # the above are named routes - so we can call them using :as and the url that will be matched
 
   resources :dashboards 
