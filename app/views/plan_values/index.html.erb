@@ -41,9 +41,22 @@
 <%= link_to 'New Plan value', new_plan_value_path %> |
 
 
+<% @user_product_plans.each do |user_product_plan|%>
+	<% if user_product_plan.id == session[:user_product_plan_id].to_i%>
+		<li>
+			<p>"You are on"<strong><SPAN style="BACKGROUND-COLOR: #ffff00"><font size ="3"><%= user_product_plan.product_plan.product_plan_name%></font></strong></p>
+		<%else %>
+			<%= link_to user_product_plan.product_plan(ProductPlan.find_by_product_id(session[:product_id])).product_plan_name, dashboards_path(:user_product_plan_id => user_product_plan.id) %>
+		</li>
+	
+	<%end%>
+<% end %>
+
 
 <% if params[:product_id] %> 
 <%= button_to "Get Started", add_new_user_product_plan_path, :method => :get %>
 <% end %>
+
+
 
  
