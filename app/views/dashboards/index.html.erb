@@ -34,6 +34,7 @@ body {
 		<%if user_product_plan_graph.friend_product_plan_id == nil%>
 			<p>User's graphs name:<%= user_product_plan_graph.graph.name%></p>
 		<%else%>
+			<p> Friend's Name: <%=User.find(UserProductPlan.find(user_product_plan_graph.friend_product_plan_id).user_id).username%></p>
 			<p>Friend's graphs name:<%= user_product_plan_graph.graph.name%></p>	
 		<%end%>
 		
