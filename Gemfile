@@ -15,7 +15,7 @@ gem 'roadie'
 
 gem 'heroku'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 gem 'pg'
 
