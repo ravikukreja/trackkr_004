@@ -1,0 +1,46 @@
+<script type="text/javascript" charset="utf-8">
+		$(function() {
+    	new Highcharts.Chart({
+      	chart: {
+		        renderTo: 'graph_4_<%= user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id] %>',
+		        height: 250,
+				width: 450,
+				backgroundColor: '#F4F4F4',
+				defaultSeriesType: '<%= @graph_select_type %>'
+    	 },
+      		title: {
+        	text: "Graph - 4"
+      		},
+			credits: {
+			text: "trackkr ",
+			href: "www.trackkr.com"
+	   		},
+      		xAxis: {
+        	type: "datetime"
+      		},
+      		yAxis: {
+        	title: {
+          	text: "Distance"
+        	}},
+      	series: [{
+	  		name: "Actual",
+			pointInterval: <%= 1.day * 1000 %>,
+			pointStart: <%= @graph_select_range.to_i * 1000 %>,  
+	  		data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_actual_distance(date, user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id])}.inspect%>
+			},
+			{
+	  		name: "Planned",
+			pointInterval: <%= 1.day * 1000 %>,
+			pointStart: <%= @graph_select_range.to_i * 1000 %>,  
+			data: <%= (@graph_select_range.to_date..Date.today).map {|date| UserProductPlanData.user_plan_distance(date, user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id])}.inspect%>
+		}]
+      });
+    });
+  </script> 
+ ra
+	
+	<div id="graph_4_<%= user_product_plan_graph.friend_product_plan_id || session[:user_product_plan_id] %>" style="width:560px; height:300px;"> </div>
+
+
+
+

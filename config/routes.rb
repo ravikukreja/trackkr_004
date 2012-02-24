@@ -1,5 +1,22 @@
+
 Trackkr002::Application.routes.draw do
-  resources :user_product_actual_datas do
+  
+  default_url_options :host => "localhost:3000" 
+
+  resources :share_dashboards
+
+  get "share/index"
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  resources :user_product_plan_graphs
+  
+  #get "password_resets/new"
+  resources :password_resets
+
+  resources :user_product_plan_datas do
    post 'edit_individual', :on => :collection
    put 'update_individual', :on => :collection
   end
@@ -8,19 +25,28 @@ Trackkr002::Application.routes.draw do
 
   resources :plan_values
 
-  resources :friends
+  resources :friendships
 
   root :to => "trackkr_modules#index"
  
   resources :graphs
 
-  resources :user_products
+  resources :user_product_plans
+  get 'user_product_plan_graphs/new/:user_product_plan_id' => 'user_product_plan_graphs#new', :as => :new_graph_plan
+  get 'user_product_plans/product/:product_id' => 'user_product_plans#new', :as => "add_new_user_product_plan"
+  get 'plan_values/product/:product_plan_id' => 'plan_values#index', :as => "plan_value_product_info"
+# the above are named routes - so we can call them using :as and the url that will be matched
 
-  get 'user_products/product/:product_id' => 'user_products#new', :as => "add_new_user_product"
-  get 'plan_values/product/:product_id' => 'plan_values#index', :as => "plan_value_product_info"
-  
   resources :dashboards 
-
+  
+  
+  match  "/sample_dashboard" => "info#sample_dashboard", :as => :sample_dashboard
+  match  "/about" => "info#About", :as => :About
+  match  "/partners" => "info#Partners", :as => :Partners
+  match  "/contact" => "info#Contact", :as => :Contact
+  match  "/carriers" => "info#Carriers", :as => :Carriers
+  match  "/help" => "info#Help", :as => :Help
+  
 resources :t_categories do
   resources :products do
     put 'select', :on => :collection

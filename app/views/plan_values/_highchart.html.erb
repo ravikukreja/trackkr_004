@@ -1,0 +1,72 @@
+<div id="graphs">
+<script type="text/javascript" charset="utf-8">
+	$(function(){
+		new Highcharts.Chart({
+			chart: {
+				renderTo: "general_graph",
+				defaultSeriesType: "line",
+				marginRight: 80 
+			},
+			title: {
+				text: "Plan Value Graph for <%= ProductPlan.find_by_id(params[:product_plan_id]).product_plan_name%>",
+			},
+			
+			plotOptions: {
+				series: {
+            	allowPointSelect: true}
+        	},
+			
+			credits: {
+				text: "trackkr",
+				href: "www.trackkr.com",
+			},
+		
+      		xAxis: {
+        			max: 50,
+      		},
+      		yAxis: [{
+        		title: {
+          		text: "Distance",
+        	}
+        	},
+        	{
+        		opposite: true,
+       			title: {
+                text: "Time",
+        }
+    }],
+        	
+        	
+      		series: [
+			{
+	  			name: "Distance (km)", 
+	  			pointStart: 1,
+	  			pointInterval: 1,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.distance(day, params[:product_plan_id].to_i)}.inspect%>,
+				
+			},
+			{
+				name: "Speed", 
+	  			pointStart: 1,
+	  			pointInterval: 1,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.speed(day, params[:product_plan_id])}.inspect%>,
+			},
+			{
+				name: "Time", 
+	  			pointStart: 1,
+	  			pointInterval: 1,
+				data: <%= (day=(1..100).to_a).map{|day| PlanValue.time(day, params[:product_plan_id])}.inspect%>,
+				yAxis: 1
+			}
+			]
+      });
+    });
+  </script> 
+ 
+  <div id="general_graph" style="width:700px; height:300px;"> </div>
+ </div> 
+	
+	
+
+
+

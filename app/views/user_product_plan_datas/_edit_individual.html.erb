@@ -1,0 +1,32 @@
+
+<div style="height:300px;width:1000px;font:10px; overflow:auto;"><table border = "2">
+<tr>
+<th colspan="10">Edit Individual Training </th>
+</tr>
+
+  <tr id="tr_1">
+    <th>User product Plan</th>1
+    <th>Training date</th>
+    <th>Actual distance</th>
+    <th>Actual speed</th>
+    <th>Actual time</th>
+    <th>Actual notes</th>
+    <th>Plan distance</th>
+    <th>Plan speed</th>
+    <th>Plan time</th>
+	<th>Plan notes</th>
+	</tr>
+	
+<%= form_tag update_individual_user_product_plan_datas_path, :method => :put do %>
+	<% for plan_data in @user_product_plan_datas %>
+		<%= fields_for "plan_datas[]", plan_data do |f| %>
+			<%= render 'user_product_plan_datas/fields', :f => f %>
+		<% end %>
+		
+	<% end %>
+	
+	</table>
+<%= submit_tag 'Submit'%>  
+<% end %>
+</div>
+

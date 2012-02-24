@@ -1,8 +1,10 @@
+
+
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
+  font-size:   11px;
   line-height: 18px;
 }
 
@@ -26,8 +28,14 @@ div.field, div.actions {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  background-color: #FFFF00	;
+  display: inline;
+}
+
+.field_with_errors .message{
+	color: #0361B7;
+	font-size: 	12px
+	
 }
 
 #error_explanation {
@@ -54,3 +62,4 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+

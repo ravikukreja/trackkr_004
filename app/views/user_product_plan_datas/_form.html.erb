@@ -1,0 +1,45 @@
+<%= form_for(@user_product_plan_data) do |f| %>
+  <% if @user_product_plan_data.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_product_plan_data.errors.count, "error") %> prohibited this user_product_plan_data from being saved:</h2>
+
+      <ul>
+      <% @user_product_plan_data.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+<table border = "1">
+	<tr>
+	<th colspan="11">Enter user details </th>
+	</tr>
+
+	<tr>
+	    <th>User product Plan</th>
+	    <th>Training date</th>
+	    <th>Actual distance</th>
+	    <th>Actual speed</th>
+	    <th>Actual time</th>
+	    <th>Actual notes</th>
+	    <th>Plan distance</th>
+	    <th>Plan speed</th>
+	    <th>Plan time</th>
+		<th>Plan notes</th>
+	</tr>  
+
+	<tr>
+	<%= render 'fields', :f => f %>
+	</tr>
+
+		<div class="actions">
+  			<%= f.submit %>
+			
+  		</div>
+	
+
+</table>
+
+<% end %>

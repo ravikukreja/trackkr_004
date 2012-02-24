@@ -4,16 +4,23 @@ class DashboardsController < ApplicationController
   # GET /dashboards
   # GET /dashboards.xml
   def index
-    @dashboards = Dashboard.all
-    @user_product_actual_datas = UserProductActualData.all
-    @graphs = Graph.all
-    session[:product_id] ||= params[:product_id] || current_user.user_products.first.product.id
-    # Active Friend Identification Functionalities & logic is here
-    active_users = Friend.by_usr_or_frd(current_user.id).by_product(Product.first.id).by_status("Approved").select("friend_id,user_id")
-    active_friend_ids = (active_users.collect(&:friend_id) + active_users.collect(&:user_id)).uniq
-    active_friend_ids.delete(current_user.id)
-    @active_friends = User.find(active_friend_ids)
+    current_user
+    @date = params[:month] ? Date.parse(params[:month].gsub('-', '/')) : Date.today
+    @user_product_plans = current_user.user_product_plans.all
+    #session[:product_plan_id] = params[:product_plan_id] || current_user.user_product_plans.first.product_plan_id
+    session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
+    #session[:friend_product_plan_id] = UserProductPlanGraph.find(session[:user_product_plan_id]).friend_product_plan_id
+    session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
+    @user_product_plan_graphs = UserProductPlanGraph.find_all_by_user_product_plan_id(session[:user_product_plan_id])
+    #session[:friend_product_plan_id] = @user_product_plan_graphs.friend_product_plan_id
+    @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
+    @user_product_plan_datas = UserProductPlanData.by_days(14).unfilled_actual_data.find_all_by_user_product_plan_id(session[:user_product_plan_id])
+    @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)
+    @friendships = current_user.friendships.by_product(session[:product_id])
+    @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
+    
     respond_to do |format|
+      #UserMailer.share(@user).deliver
       format.html # index.html.erb
       format.xml  { render :xml => @dashboards }
     end

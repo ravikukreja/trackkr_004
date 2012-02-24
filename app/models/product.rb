@@ -1,8 +1,7 @@
 class Product < ActiveRecord::Base
-  validates :name, :image_url, :presence => true
+  validates :name, :image_location, :presence => true
   
   belongs_to :t_category
-  has_many :user_products
   has_many :product_plans
   
   def self.search(search)

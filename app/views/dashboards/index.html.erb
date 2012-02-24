@@ -13,80 +13,154 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
+.white{
+	background-color:#fff;
+}
+.red{
+	background-color:red
+}
+.green{
+	background-color:008000;
+}
 -->
 </style>
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    new Highcharts.Chart({
-      chart: {
-        renderTo: "user_chart",
-		defaultSeriesType: 'line'
-      },
-      title: {
-        text: "Distance by Day"
-      },
-      xAxis: {
-        type: "datetime"
-      },
-      yAxis: {
-        title: {
-          text: "Dollars"
-        }
-      },
-      series: [{
-	  	pointInterval: <%= 1.day * 1000 %>,
-		pointStart: <%= 3.weeks.ago.to_i * 1000 %>,  
-	  	data: <%= (3.weeks.ago.to_date..Date.today).map {|date| Graph.total_on(date).to_f}.inspect%>
-		}]
-       });
-  });
-</script>	
+
+
+
+<% @user_product_plan_graphs.each do |user_product_plan_graph| %>
+  
+  <div class="<%= cycle('user_graph1', 'user_graph2') %>">
+  	
+		<%if user_product_plan_graph.friend_product_plan_id == nil%>
+			<p>User's graphs name:<%= user_product_plan_graph.graph.name%></p>
+		<%else%>
+			<p> Friend's Name: <%=User.find(UserProductPlan.find(user_product_plan_graph.friend_product_plan_id).user_id).username%></p>
+			<p>Friend's graphs name:<%= user_product_plan_graph.graph.name%></p>	
+		<%end%>
+		
+		<%= @graph_select_type = user_product_plan_graph.graph_select_type.downcase%>
+		<%= @graph_select_range = user_product_plan_graph.graph_select_range%>
+		
+		<% if @graph_select_range == "1 week" %>
+			<% @graph_select_range = 1.week.ago %>
+		<% elsif @graph_select_range == "1 month" %>
+			<% @graph_select_range = 1.month.ago %>
+		<% elsif @graph_select_range == "3 month" %>
+			<% @graph_select_range = 3.months.ago %>
+		 <%end%>
+		 
+		<% if user_product_plan_graph.graph_id ==1 %>
+			<%= render 'dashboards/highchart1',:user_product_plan_graph => user_product_plan_graph %>
+		<% elsif user_product_plan_graph.graph_id ==2 %>
+			<%= render 'dashboards/highchart2',:user_product_plan_graph => user_product_plan_graph  %>
+		<% elsif user_product_plan_graph.graph_id ==3 %>
+			<%= render 'dashboards/highchart3',:user_product_plan_graph => user_product_plan_graph %>
+		<% elsif user_product_plan_graph.graph_id ==4 %>
+			<%= render 'dashboards/highchart4',:user_product_plan_graph => user_product_plan_graph %>
+		<%end%>
+
+</div>	
+	
+<% end %>
+
+
 </head>
-
+</br>
 <body>
+	
+</div>	
+ <div style="width:600px; height:350px"> </div>
 
-<div id ="frd_network"> <%=link_to "Add Friend to Network",new_friend_path(:product_id=>Product.first.id),{:rel=>"facebox[.bolder]"}%></div>
-
-<div> Approved Friends List on this product:</div>
-<ul>
-	<%@active_friends.each do |frd|%>
-		<li>
-			<%=frd.username%>
+<div id="left"> My Friends:
+<ul>	
+	<% for friendship in @friendships%>
+	<li>
+		<%if friendship.status =="Accepted"%>
+		<%= link_to friendship.friend.username, users_path%>
+		<%elsif friendship.status =="Pending"%>
+		<%= friendship.friend.username%>
+		<%elsif friendship.status =="Rejected"%>
+		<%= friendship.friend.id%>
+		<%end%>
+		<%= link_to "Remove", friendship, :method => :delete %>
 		</li>
 	<%end%>
 </ul>
 
 
+<div> Added Me as friend:</div>
+  	<% if @inverse_friendships %>
+  	<%for inverse_friendship in @inverse_friendships%> 
+ 	<li>
+	<%= inverse_friendship.user.username %>
+	</li>
+	<%end%>
+<% end %>
+</div>
 
-<%= render 'user_product_actual_datas/edit_individual'%>	
+ 
+
+<div id="centre">  <strong>List of Plans I have registered to:</strong>
+<ul>
+	<% @user_product_plans.each do |user_product_plan|%>
+	<% if user_product_plan.id == session[:user_product_plan_id].to_i%>
+		<li>
+			<p><strong><SPAN style="BACKGROUND-COLOR: #ffff00"><font size ="3"><%= user_product_plan.product_plan.product_plan_name%></font></strong></p>
+		<%else %>
+			<%= link_to user_product_plan.product_plan.product_plan_name, dashboards_path(:user_product_plan_id => user_product_plan.id) %>
+		</li>
+	
+	<%end%>
+<% end %>
+	<%= button_to "Add new Plan", trackkr_modules_path, :method => :get%>
+	
+</ul>
+</div>
+
+<div style="height:100px;width:250px; overflow:auto;" id="right">	
+  <p><strong>GOAL:</strong></p>
+	<ul>
+		 <p> Product Plan ID: <%= @user_product_plan.product_plan.product_plan_name %></p> 
+		 <p> Start Date: 	  <%= @user_product_plan.start_date%></p>	
+		 <p> End Date: 	  	  <%= @user_product_plan.end_date%></p>	
+	</ul> 			
+	
+<%= button_to 'Destroy', @user_product_plan, :confirm => 'Are you sure? If you delete the product plan all your data will be lost', :method => :delete %>	
+</div> 
+</br>
+</br>
+</br>
+
+<%= render 'user_product_plan_datas/edit_individual'%>	
 <%= button_to "Home", trackkr_modules_path, :method => :get %>	
-<div id="user_chart"></div>
+<%= button_to "Edit Chart Setting", new_user_product_plan_graph_path, :method => :get%>
+ <!--<div id="user_chart"></div>-->
 
+	
 <div id="common">
 
 <div class="regionhdr"> Calendar
 <div id="calendar">
-<%= calendar_for @graphs do |calendar| %>
-<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
-<%= calendar.day(:day_method => :training_date) do |date, graphs|%>
+	<h2 id="month">
+		<%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m"), :user_product_plan_id => session[:user_product_plan_id]%>
+		<%= h @date.strftime("%B %Y")%>
+		<%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m"), :user_product_plan_id => session[:user_product_plan_id]%>
+	</h2> 
+<%= calendar_for @user_product_plan_datas, :year => @date.year, :month => @date.month do |calendar| %>
+	<%= calendar.head('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
+	<%= calendar.day(:day_method => :training_date) do |date, user_product_plan_datas|%>
+	<%data = user_product_plan_datas_row(session[:user_product_plan_id] , date)%>
+    <div class="<%=get_color(data)%>">
+    	<%= link_to (date.day), "#{new_user_product_plan_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
+	</div>
 
-
-<%= link_to (date.day), "#{new_user_product_actual_data_path}?date=#{date}",:rel => "facebox[.bolder]" %>
-
-
-
-<ul>
-<%# for graph in graphs %>
-<%#= link_to h(graph.planned_distance), graph %>
-<%# end %>
-</ul>
-<% end %>
 <% end %>
 </div>
-
+ <%= link_to "Big Calendar", user_product_plan_datas_path, :method => :get  %>
+	<%end%>
 </div>
-
+<div>
+	<%= link_to 'Share your trackkr', new_share_dashboard_path,:method => :get %>
+</div>
 </body>
 </html>
-
-

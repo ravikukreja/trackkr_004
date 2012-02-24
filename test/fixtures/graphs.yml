@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  training_date: 2011-03-10
-  planned_distance: 1
-  actual_distance: 1
+#one:
+ # training_date: 2011-03-10
+  #planned_distance: 1
+  #actual_distance: 1
 
-two:
-  training_date: 2011-03-10
-  planned_distance: 1
-  actual_distance: 1
+#two:
+#training_date: 2011-03-10
+# planned_distance: 1
+# actual_distance: 1

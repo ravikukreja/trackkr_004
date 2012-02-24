@@ -1,5 +1,4 @@
 class Graph < ActiveRecord::Base
-  def self.total_on(date)
-    where("date(training_date) = ?", date).sum(:actual_distance)
-  end
+  belongs_to :t_category
+  has_many   :user_product_plan_graphs
 end

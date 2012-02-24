@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User product plan:</b>
+  <%= @user_product_plan_graph.user_product_plan_id %>
+</p>
+
+<p>
+  <b>Graph ID:</b>
+  <%= @user_product_plan_graph.graph_id %>
+</p>
+
+<p>
+  <b>Graph select type:</b>
+  <%= @user_product_plan_graph.graph_select_type %>
+</p>
+
+<p>
+  <b>Graph select range:</b>
+  <%= @user_product_plan_graph.graph_select_range %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_product_plan_graph_path(@user_product_plan_graph) %> |
+<%= link_to 'Back', user_product_plan_graphs_path %>

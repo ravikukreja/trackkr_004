@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
+  
   # GET /users
   # GET /users.xml
   layout "blank"
+
+  helper_method :sort_column, :sort_direction 
   
   def index
-    @users = User.all
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page=> 8, :page => params[:page])
 
     respond_to do |format|
+      
       format.html # index.html.erb
+      format.js {render :content_type => 'text/javascript'}
       format.xml  { render :xml => @users }
     end
   end
@@ -48,7 +53,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(new_user_product_path, :notice => 'Registration successful')}
+        format.html { redirect_to(trackkr_modules_path, :notice => 'Registration successful')}
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -64,7 +69,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(new_user_product_path, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(trackkr_modules_path, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -84,4 +89,16 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+
+  private
+  
+  def sort_column
+    params[:sort] || "username"
+  end
+  
+  def sort_direction
+    params[:direction] || "asc"
+  end
+  
 end

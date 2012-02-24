@@ -1,7 +1,16 @@
 class User < ActiveRecord::Base
   acts_as_authentic
-  has_many :user_products
-  has_many :friends
+  has_many :user_product_plans
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  before_create { generate_token(:auth_token) }
+  validates_presence_of :username, :email, :password
+  validates_uniqueness_of :username, :email
+
+  
+  has_many :inverse_friendships,:class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+
   
   scope :by_email, lambda{ |arg|
     where(:email => arg)  
@@ -19,8 +28,33 @@ class User < ActiveRecord::Base
     results.order(sort)
   end
   
-  def user_product_actual_datas(product_id,date)
-    user_product = UserProduct.find_by_user_id_and_product_id(self.id,product_id)
-    UserProductActualData.find_by_user_product_id_and_actual_training_date(user_product.id,date)
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
   end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+  
+  def self.search(search)
+    if search
+      where('username LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+end
+  
+  def self.search(search)
+    if search
+      where('username LIKE ?', "%#{search}%")
+    else
+      scoped  
+    end
+  end
+  
 end

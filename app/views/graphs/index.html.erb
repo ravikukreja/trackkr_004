@@ -1,26 +1,11 @@
 <h1>Listing graphs</h1>
-<% table_for(@graphs) do |t| %>
-  <% t.head do %>
-    <% t.r do %>
-      <%= t.h('Training Date') %>
-      <%= t.h('Planned Distance') %>
-	   <%= t.h('Actual Distance') %>
-    <% end %>
-  <% end %>
-  <% t.body do |graph| %>
-    <% t.r do %>
-      <%= t.d(h(graph.training_date)) %>
-      <%= t.d(h(graph.planned_distance)) %>
-	  <%= t.d(h(graph.actual_distance)) %>
-    <% end %>
-  <% end %>
-<% end %>
-
 <table>
   <tr>
-    <th>Training date</th>
-    <th>Planned distance</th>
-    <th>Actual distance</th>
+  	<th>Graph Id</th>
+    <th>Category Id</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Description</th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,9 +13,11 @@
 
 <% @graphs.each do |graph| %>
   <tr>
-    <td><%= graph.training_date %></td>
-    <td><%= graph.planned_distance %></td>
-    <td><%= graph.actual_distance %></td>
+  	<td><%= graph.id %></td>
+    <td><%= graph.t_category_id %></td>
+    <td><%= graph.name %></td>
+    <td><%= graph.image %></td>
+     <td><%= graph.description %></td>
     <td><%= link_to 'Show', graph %></td>
     <td><%= link_to 'Edit', edit_graph_path(graph) %></td>
     <td><%= link_to 'Destroy', graph, :confirm => 'Are you sure?', :method => :delete %></td>

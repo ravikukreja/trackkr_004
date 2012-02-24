@@ -1,0 +1,22 @@
+<h1>Listing user_products</h1>
+
+<table>
+  <tr>
+  	<th><%= sortable "id" %></th>
+    <th><%= sortable "user_id" %></th>
+    <th><%= sortable "product_id" %></th>
+    <th><%= sortable "product_plan_id" %></th>
+    <th><%= sortable "start_date"%></th>
+    <th><%= sortable "end_date" %></th>
+    <th></th>
+  </tr>
+<script type="text/javascript">
+	
+</script>
+
+<div id='user_product_plans'><%= render 'user_product_plans' %> </div>
+
+<br />
+<%= will_paginate @user_product_plans%>
+
+<%= link_to 'New User product', new_user_product_plan_path %>

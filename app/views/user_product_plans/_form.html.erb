@@ -1,0 +1,35 @@
+<%= form_for(@user_product_plan) do |f| %>
+  <% if @user_product_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_product_plan.errors.count, "error") %> prohibited this user_product_plan from being saved:</h2>
+
+      <ul>
+      <% @user_product_plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @existing_user_product_plan %>
+ 	You are currently signed up for:
+    <%@existing_user_product_plan.each do|existing_user_product_plan|%>
+     <li><%= existing_user_product_plan.product_plan.product_plan_name%></li>
+  	<%end%>
+  	
+ 	If you would like to change or reset the plan, please reselect from the following options. Please note that all your previous entries will be deleted and lost forever!
+  <% end %>
+  <br>
+  <br>
+  <div class="field">
+  	<%=f.hidden_field :product_id , :value => params[:product_id]%>
+  	<%= f.label :product_plan_id %>
+	<%product_plans = Product.find(params[:product_id]).product_plans%>
+  	<%= f.collection_select :product_plan_id, product_plans, :id, :product_plan_name, :prompt => 'Select a Plan' %>
+  </div>
+  <div><%=radio_button_tag :start_end, "start",:checked => true%> Start Date <%=radio_button_tag :start_end, "end"%> End Date</div>
+  <div class="field">
+  	<%= date_select :plan, :date %>
+  </div>
+
+ <%= submit_tag "Add to Trackkr" %>
+<% end %>

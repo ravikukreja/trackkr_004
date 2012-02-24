@@ -5,12 +5,65 @@
 	text-align: center;
 }
 
+#left {
+	position: absolute;
+	display: inline-block;
+	left: 0px;
+	margin: 20px;
+	padding: 10px;
+	border: 5px solid #ccc;
+	background: #F5EDC5;
+	width: 150px; /* ie5win fudge begins */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 150px;	
+
+
+}
+#centre{
+	margin: 20px 1px 20px 200px;
+	padding: 10px;
+	display: inline-block;
+	border: 5px solid #ccc;
+	background: #DFE3CC;
+	width: 150px;
+}
+
+#right {
+	position: absolute;
+	display: inline-block;
+	margin: 20px 210px 20px 1px;
+	padding: 10px;
+	border: 5px solid #ccc;
+	background: #666;
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 10px;
+	height: 100px;
+	}
+
+.user_graph1 {
+  position: absolute;
+	margin-left: 50px;
+	width: 600px;
+}
+
+.user_graph2 {
+	margin-left: 550px;
+	width: 600px;
+	
+}
+
+
+
 
 #logInBox {
+	
 	float: right;
-	font-size: 12px;
+	display: inline;
+	font-size: 10px;
 	border: 1px solid #EBF0D0;
-	padding: 20px 20px 20px 20px;
+	padding-right: 15px 15px 15px 15px;
 }
 
 .marketingPanelPosition1 {
@@ -186,7 +239,7 @@
 	border-bottom-style: solid;
 	border-left-style: solid;
 	border-right-color: #DFE3CC;
-	border-bottom-color: #DFE3CC#DFE3CC;
+	border-bottom-color: #DFE3CC;
 	border-left-color: #DFE3CC;
 }
 .textfields {
@@ -225,3 +278,220 @@
 	height: 300px
 }
 
+#calendar table {
+  border-collapse: collapse;
+  width: 30%;
+}
+
+
+
+#calendar td,
+#calendar th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  border: 1px solid #999;
+}
+
+#calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 3%;
+}
+
+#calendar td {
+  color: #777;
+  height: 80px;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+#calendar .weekend {
+  color: #777;
+  height: 80px;
+  vertical-align: top;
+  font-size: 16px;
+}
+#calendar .future {
+  color: #777;
+  height: 10px;
+  vertical-align: top;
+  font-size: 10px;
+}
+
+
+
+
+#calendar #id_2 {
+  background: #A52A2A;
+  font-size: 10px;
+}
+
+#calendar #id_3 {
+  background: #CDAA7D;
+  font-size: 10px;
+}
+
+
+
+#calendar .notmonth {
+  color: #CCC;
+}
+
+#calendar #month {
+  margin: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: center;
+}
+
+#calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
+}
+
+#calendar .today {
+  background-color: #8B8378;
+}
+
+#calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#calendar li {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  text-align: center;
+}
+
+
+ Css for  big calendar 
+
+#big_calendar table {
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+#big_calendar td,
+#big_calendar th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 12px;
+  padding: 15px;
+  border: 1px solid #999;
+  
+}
+
+#big_calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 3%;
+}
+
+#big_calendar td {
+  background: #FFF;
+  color: #777;
+  height: 10px;
+  vertical-align: top;
+  font-size: 12px;
+}
+
+
+
+
+#calendar #big_id_2 {
+  background: #A52A2A;
+  font-size: 10px;
+}
+
+#calendar #id_3 {
+  background: #CDAA7D;
+  font-size: 10px;
+}
+
+
+
+#big_calendar .notmonth {
+  color: #CCC;
+}
+
+#big_calendar #month {
+  margin: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: center;
+}
+
+#big_calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
+}
+
+#big_calendar .today {
+  background-color: #8B8378;
+}
+
+#big_calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#big_calendar li {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  text-align: center;
+}
+.green {
+	background-color: #008000
+}
+
+.red {
+	background-color: #CC0000
+}
+
+/*-- this is for header and footer --*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+#top {
+    position: absolute;
+}
+h1, p {
+    margin: 0;
+    padding: 0.3em 0;
+}
+#container {
+    min-height: 100%;
+    margin-bottom: -36px;
+}
+* html #container {
+    height: 100%;
+}
+#footer-spacer {
+    height: 36px;
+}
+#footer {
+	float: left;
+    border-top: 1px solid #000;
+    height: 35px;
+} 
+
+#header {
+	float: right;
+    border-bottom: 1px solid #000;
+    height: 35px;
+}
