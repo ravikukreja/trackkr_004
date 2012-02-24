@@ -136,11 +136,11 @@ ActiveRecord::Schema.define(:version => 20120221110422) do
 
   create_table "user_product_plan_graphs", :force => true do |t|
     t.integer  "user_product_plan_id"
-    t.integer  "graph_id",               :limit => 255
     t.string   "graph_select_type"
     t.string   "graph_select_range"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "graph_id"
     t.integer  "friend_product_plan_id"
   end
 
@@ -176,6 +176,11 @@ ActiveRecord::Schema.define(:version => 20120221110422) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product1"
+    t.integer  "product2"
+    t.integer  "product3"
+    t.integer  "product4"
+    t.integer  "product5"
     t.integer  "contact_number"
     t.string   "reminder_option"
     t.string   "password_reset_token"
