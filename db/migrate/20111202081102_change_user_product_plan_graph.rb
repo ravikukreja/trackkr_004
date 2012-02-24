@@ -1,11 +1,11 @@
 class ChangeUserProductPlanGraph < ActiveRecord::Migration
   def self.up
-    rename_column :user_product_plan_graphs, :graph_select, :graph_id
-    change_column :user_product_plan_graphs, :graph_id, :integer
+    remove_column :user_product_plan_graphs, :graph_select
+    add_column :user_product_plan_graphs, :graph_id, :integer
   end
 
   def self.down
-    change_column :user_product_plan_graphs, :graph_id, :string
-    rename_column :user_product_plan_graphs, :graph_id, :graph_select
+    remove_column :user_product_plan_graphs, :graph_id
+    add_column :user_product_plan_graphs, :graph_select, :string
   end
 end
