@@ -7,7 +7,7 @@
 
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.3'
 
 gem 'activeadmin'
 
@@ -18,6 +18,8 @@ gem 'heroku'
 gem 'sqlite3'
 
 gem 'pg'
+
+gem 'bundler', '1.1.rc.7'
 
 
 gem 'client_side_validations','3.0.5'
