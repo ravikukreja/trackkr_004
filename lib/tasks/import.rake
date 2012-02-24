@@ -5,24 +5,24 @@ namespace :import do
   end
 
   task :t_modules => :environment do
-    tr_module_1 = TrackkrModule.create(:name=>"Sports & Fitness",:image_location=>File.new(RAILS_ROOT + "/public/images/Running.jpg"))
-    t_cat_1 = tr_module_1.t_categories.create(:name=>"Running",:image_location=>File.new(RAILS_ROOT + "/public/images/Running.jpg"))
-    product = t_cat_1.products.create(:name=>"Marathon",:image_location =>File.new(RAILS_ROOT + "/public/images/Running.jpg") )
+    tr_module_1 = TrackkrModule.create(:name=>"Sports & Fitness",:image_location=>"/images/Running.jpg")
+    t_cat_1 = tr_module_1.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
+    product = t_cat_1.products.create(:name=>"Marathon",:image_location =>"/images/Running.jpg") 
     ["Marathon_Novice","Marathon_Intermediate","Marathon_Advance"].each do | plan |
       product_plan = product.product_plans.create(:product_plan_name=>plan)
     end
     
-    tr_module_2 =TrackkrModule.create(:name=>"Module2",:image_location=>File.new(RAILS_ROOT + "/public/images/Adidas.gif"))
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>File.new(RAILS_ROOT + "/public/images/Running.jpg"))
-    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>File.new(RAILS_ROOT + "/public/images/Running.jpg") )
+    tr_module_2 =TrackkrModule.create(:name=>"Module2",:image_location=>"/images/Adidas.gif")
+    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
+    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>"/images/Running.jpg" )
     
-    tr_module_2 =TrackkrModule.create(:name=>"Module3",:image_location=>File.new(RAILS_ROOT + "/public/images/WineCollection.jpg"))
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>File.new(RAILS_ROOT + "/public/images/Running.jpg"))
-    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>File.new(RAILS_ROOT + "/public/images/Running.jpg") )
+    tr_module_2 =TrackkrModule.create(:name=>"Module3",:image_location=>"/images/WineCollection.jpg")
+    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
+    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>"/images/Running.jpg") 
     
-    tr_module_2 =TrackkrModule.create(:name=>"Module4",:image_location=>File.new(RAILS_ROOT + "/public/images/Marketing.jpg"))
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>File.new(RAILS_ROOT + "/public/images/Running.jpg"))
-    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>File.new(RAILS_ROOT + "/public/images/Running.jpg") )
+    tr_module_2 =TrackkrModule.create(:name=>"Module4",:image_location=>"/images/Marketing.jpg")
+    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
+    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>"/images/Running.jpg") 
   end
   
   task :plan_values => :environment do
