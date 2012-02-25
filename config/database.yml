@@ -3,8 +3,6 @@ development:
   database: trackkr
   username: postgres
   password: unix11
-<<<<<<< HEAD
-=======
   pool: 5
   timeout: 5000
   
@@ -13,6 +11,5 @@ test:
   database: trackkr_test
   username: postgres
   password: unix11
->>>>>>> dashboard_update_10
   pool: 5
   timeout: 5000

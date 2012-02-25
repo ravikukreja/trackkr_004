@@ -1,5 +1,5 @@
 require 'test_helper'
-fixture :trackkr_modules
+#fixtures :trackkr_modules
 
 class TrackkrModuleTest < ActiveSupport::TestCase
   # Replace this with your real tests.
