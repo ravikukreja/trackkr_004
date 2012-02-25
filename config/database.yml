@@ -5,3 +5,11 @@ development:
   password: admin1234
   pool: 5
   timeout: 5000
+  
+test:
+  adapter: postgresql
+  database: trackkr_test
+  username: postgres
+  password: admin1234
+  pool: 5
+  timeout: 5000
