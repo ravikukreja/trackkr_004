@@ -2,6 +2,6 @@ development:
   adapter: postgresql
   database: trackkr
   username: postgres
-  password: admin1234
+  password: unix11
   pool: 5
   timeout: 5000

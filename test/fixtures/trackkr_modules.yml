@@ -1,9 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  image_url: MyString
+trackkr_module_1:
+  name: swimming
+  image_location: adidas.gif
 
-two:
-  name: MyString
-  image_url: MyString

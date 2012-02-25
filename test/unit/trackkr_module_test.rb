@@ -1,8 +1,14 @@
 require 'test_helper'
+fixture :trackkr_modules
 
 class TrackkrModuleTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "Presence of name and location" do
+    t_module_2=TrackkrModule.new(
+      :name => swimming,
+      :image_location=> abc.jpg,
+      )
+      assert t_module_2.invalid?
+    
   end
 end
