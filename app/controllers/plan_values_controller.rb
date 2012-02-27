@@ -12,13 +12,20 @@ class PlanValuesController < ApplicationController
   end
 =end  
   def index
-    session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
-    session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
-    @plan_values = PlanValue.find_all_by_product_plan_id(params[:product_plan_id])
-    session[:product_plan_name] = ProductPlan.find(session[:product_id]).product_plan_name
-    @product_plans = ProductPlan.find_all_by_product_id(session[:product_id])
-    t = (Time.now + 15.week).to_i
-    @target_date = (Date.today + 15.week)
+    
+    if params[:user_product_plan_id] == nil
+      @product_plans = ProductPlan.find_all_by_product_id(session[:product_id])
+      @plan_values = PlanValue.find_all_by_product_plan_id(params[:product_plan_id])
+      
+    else
+      session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
+      session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
+      @plan_values = PlanValue.find_all_by_product_plan_id(params[:product_plan_id])
+      session[:product_plan_name] = ProductPlan.find(session[:product_id]).product_plan_name
+      @product_plans = ProductPlan.find_all_by_product_id(session[:product_id])
+    end  
+      t = (Time.now + 15.week).to_i
+      @target_date = (Date.today + 15.week)
     
     respond_to do |format|
       format.html # index.html.erb

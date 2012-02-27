@@ -1,5 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+<<<<<<< HEAD
 one:
   name: MyString
   image_location: MyString
@@ -7,3 +8,9 @@ one:
 two:
   name: MyString
   image_location: MyString
+=======
+trackkr_module_1:
+  name: swimming
+  image_location: adidas.gif
+
+>>>>>>> db_changes2
