@@ -46,7 +46,7 @@
 		<li>
 			<p>"You are on"<strong><SPAN style="BACKGROUND-COLOR: #ffff00"><font size ="3"><%= product_plan.product_plan_name%></font></strong></p>
 		<%else %>
-			<br><%= link_to product_plan.product_plan_name, plan_value_product_info_path(:product_plan_id => product_plan.id), :method => :get %>
+			<br><%= link_to product_plan.product_plan_name, plan_value_product_info_path(:product_plan_id => product_plan.id), :method => :get %><br>
 		</li>
 	
 	<%end%>

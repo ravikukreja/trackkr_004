@@ -32,7 +32,8 @@ body {
   <div class="<%= cycle('user_graph1', 'user_graph2') %>">
   	
 		<%if user_product_plan_graph.friend_product_plan_id == nil%>
-			<p>User's graphs name:<%= user_product_plan_graph.graph.name%></p>
+			<p><%=User.find(UserProductPlan.find(user_product_plan_graph.user_product_plan_id).user_id).username%>
+				<%= user_product_plan_graph.graph.name%></p>
 		<%else%>
 			<p> Friend's Name: <%=User.find(UserProductPlan.find(user_product_plan_graph.friend_product_plan_id).user_id).username%></p>
 			<p>Friend's graphs name:<%= user_product_plan_graph.graph.name%></p>	
@@ -46,7 +47,7 @@ body {
 		<% elsif @graph_select_range == "1 month" %>
 			<% @graph_select_range = 1.month.ago %>
 		<% elsif @graph_select_range == "3 month" %>
-			<% @graph_select_range = 3.months.ago %>
+			<% @graph_select_range = 3.month.ago %>
 		 <%end%>
 		 
 		<% if user_product_plan_graph.graph_id ==1 %>

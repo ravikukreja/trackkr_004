@@ -219,13 +219,10 @@ DEPENDENCIES
   pg
   rails (= 3.0.3)
   roadie
-<<<<<<< HEAD
-=======
   rspec!
   rspec-core!
   rspec-expectations!
   rspec-mocks!
   rspec-rails!
->>>>>>> dashboard_update_14
   selenium-webdriver (~> 2.19.0)
   will_paginate (= 3.0.pre2)

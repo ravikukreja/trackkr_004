@@ -14,7 +14,8 @@ class PlanValuesController < ApplicationController
   def index
     
     if params[:user_product_plan_id] == nil
-      @product_plans = ProductPlan.find_all_by_product_id(session[:product_id])
+      @product_ids = ProductPlan.find_by_id(params[:product_plan_id]).product_id
+      @product_plans = ProductPlan.find_all_by_product_id(@product_ids)
       @plan_values = PlanValue.find_all_by_product_plan_id(params[:product_plan_id])
       
     else
