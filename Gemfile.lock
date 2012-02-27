@@ -224,4 +224,5 @@ DEPENDENCIES
   rspec-expectations!
   rspec-mocks!
   rspec-rails!
+  selenium-webdriver (~> 2.19.0)
   will_paginate (= 3.0.pre2)
