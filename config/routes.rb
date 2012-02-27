@@ -1,6 +1,8 @@
 
 Trackkr002::Application.routes.draw do
   
+  resources :articles
+
   default_url_options :host => "localhost:3000" 
 
   resources :share_dashboards
