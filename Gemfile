@@ -11,6 +11,10 @@ gem 'rails', '3.0.3'
 
 gem 'activeadmin'
 
+gem 'cucumber-rails'
+
+gem "selenium-webdriver", "~> 2.19.0"
+
 gem 'roadie'
 
 gem 'heroku'

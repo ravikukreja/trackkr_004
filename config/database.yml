@@ -6,10 +6,12 @@ development:
   pool: 5
   timeout: 5000
   
-test:
+test: &test
   adapter: postgresql
   database: trackkr_test
   username: postgres
   password: unix11
   pool: 5
   timeout: 5000
+cucumber:
+  <<: *test
