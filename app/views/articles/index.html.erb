@@ -1,0 +1,29 @@
+<h1>Listing articles</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Contact number</th>
+    <th>Reminder option</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.username %></td>
+    <td><%= article.email %></td>
+    <td><%= article.contact_number %></td>
+    <td><%= article.reminder_option %></td>
+    <td><%= link_to 'Show', article %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_article_path %>
