@@ -29,7 +29,7 @@ gem "rspec-core",         :git => "git://github.com/rspec/rspec-core.git"
 gem "rspec-expectations", :git => "git://github.com/rspec/rspec-expectations.git"
 gem "rspec-mocks",        :git => "git://github.com/rspec/rspec-mocks.git"
 
-gem 'cucumber-rails'
+#gem 'cucumber-rails'
 
 gem 'bundler', '1.1.rc.7'
 
@@ -82,11 +82,12 @@ gem "mail", "2.2.19"
 
 #gem "rspec-rails", :group => [:test, :development]
  
- #group :test do
+ group :test do
   # gem "factory_girl_rails"
    #gem "guard-rspec"
    #gem "capybara"
-# end
+   gem 'cucumber-rails'
+ end
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

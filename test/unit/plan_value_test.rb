@@ -15,27 +15,27 @@ end
 test "numerical product plan" do
   plan_value = PlanValue.new 
   plan_value.product_plan_id = "abc"
-  assert plan_value.valid? "Only numerical value is allowed"
+  assert plan_value.invalid? "Only numerical value is allowed"
 end
 
 test "numerical product notes" do
   plan_value = PlanValue.new 
   plan_value.notes = 123
-  assert plan_value.valid? "Only numerical value is not allowed"
+  assert plan_value.invalid? "Numerical value is not allowed"
 end
 
 #Test to verify the presence
 
-test "day" do
+test "day is required" do
   plan_value = PlanValue.new(:day => nil)
-  assert plan_value.valid?,"Product plan is mandatory"
+  assert plan_value.invalid?,"Product plan is mandatory"
 
 end
 
 
 test "distance" do
-  plan_value = PlanValue.new(:distance => nil)
-  assert plan_value.invalid?,"Day is mandatory"
+  plan_value = PlanValue.new(:distance => 'ab')
+  assert plan_value.invalid?,"Distance is mandatory"
 
 end
 
@@ -61,11 +61,15 @@ assert plan_value.invalid?, "Day cannot be negative"
 end  
 
 # Test for positive day  
-test "positive day" do
-plan_value = PlanValue.new
-plan_value.day = 1
-assert plan_value.valid?
-end 
+# test "positive day" do
+# plan_value = PlanValue.new(:product_plan_id => 1,
+# :day => 3,
+# :distance => 1,
+# :speed => 1,
+# :time => 2,
+# :notes => "test")
+# assert plan_value.valid?
+# end 
      
 # Test for  day equal to 0  
 test " zero day" do
