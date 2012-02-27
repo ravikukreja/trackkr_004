@@ -1,5 +1,8 @@
 class UserProductPlanData < ActiveRecord::Base
   belongs_to :user_product_plan
+  validates :plan_distance, :plan_speed, :plan_time, :presence => true
+  validates :plan_distance, :plan_speed, :plan_time, :numericality => {:greater_than_or_equal_to => 0}
+  
  scope :by_days, lambda{ |no_days|
      where("training_date >= ? and training_date <= ?", no_days.days.ago, Date.today)  
        }

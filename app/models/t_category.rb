@@ -1,5 +1,5 @@
-class TCategory < ActiveRecord::Base
-  validates :name, :image_location, :presence => true
+  class TCategory < ActiveRecord::Base
+  validates :name, :image_location, :trackkr_module_id, :presence => true
   belongs_to :trackkr_module
   has_many :graphs
   has_many :products, :dependent => :destroy

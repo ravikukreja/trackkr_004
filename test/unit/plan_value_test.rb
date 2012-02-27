@@ -21,21 +21,21 @@ end
 test "numerical product notes" do
   plan_value = PlanValue.new 
   plan_value.notes = 123
-  assert plan_value.valid? "Only numerical value is not allowed"
+  assert plan_value.valid? "Only numerical value is allowed"
 end
 
 #Test to verify the presence
 
-test "day" do
+test "day is required" do
   plan_value = PlanValue.new(:day => nil)
-  assert plan_value.valid?,"Product plan is mandatory"
+  assert plan_value.invalid?,"Product plan is mandatory"
 
 end
 
 
 test "distance" do
-  plan_value = PlanValue.new(:distance => nil)
-  assert plan_value.invalid?,"Day is mandatory"
+  plan_value = PlanValue.new(:distance => 'ab')
+  assert plan_value.invalid?,"Distance is mandatory"
 
 end
 
