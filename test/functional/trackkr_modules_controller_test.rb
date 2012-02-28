@@ -13,6 +13,7 @@ class TrackkrModulesControllerTest < ActionController::TestCase
     assert_select '#footer', 1
     assert_select '#container', 1
 end
+
 =begin
   test "should get new" do
     get :new
@@ -49,5 +50,7 @@ end
 
     assert_redirected_to trackkr_modules_path
   end
+<<<<<<< HEAD
 =end
+
 end

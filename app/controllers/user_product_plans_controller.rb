@@ -68,7 +68,7 @@ class UserProductPlansController < ApplicationController
         user_product_plan_data.training_date = @user_product_plan.start_date.nil? ? (@user_product_plan.end_date - plan_day.day.days) : (@user_product_plan.start_date + plan_day.day.days)
         user_product_plan_data.plan_distance = plan_day.distance
         user_product_plan_data.plan_speed = plan_day.speed
-        user_product_plan_data.plan_time = plan_day.distance
+        user_product_plan_data.plan_time = plan_day.time
         user_product_plan_data.plan_notes = plan_day.notes
         status = user_product_plan_data.save
       end  

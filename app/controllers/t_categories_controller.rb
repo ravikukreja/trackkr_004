@@ -1,7 +1,7 @@
 class TCategoriesController < ApplicationController
   before_filter :authorize, :except => :index
   
-  respond_to :html
+  respond_to :html  
   
   def index
     @t_categories = trackkr_module.t_categories.search(params[:search])
