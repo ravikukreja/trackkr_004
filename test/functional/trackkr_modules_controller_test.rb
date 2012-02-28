@@ -10,7 +10,7 @@ class TrackkrModulesControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:trackkr_modules)
   end
-
+=begin
   test "should get new" do
     get :new
     assert_response :success
@@ -46,4 +46,5 @@ class TrackkrModulesControllerTest < ActionController::TestCase
 
     assert_redirected_to trackkr_modules_path
   end
+=end  
 end

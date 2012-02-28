@@ -1,7 +1,12 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-trackkr_module_1:
+one:
+  id: 1
   name: swimming
   image_location: adidas.gif
+  
+  
+  
+ 
 
 

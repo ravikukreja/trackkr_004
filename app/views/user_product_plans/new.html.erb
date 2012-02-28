@@ -1,6 +1,6 @@
 <%= render 'form' %>
 
 <% if params[:product_id]%>
- <%= button_to 'More Info', plan_value_product_info_path(:product_plan_id => 1), :method => :get %>
+ <%= button_to 'More Info', plan_value_product_info_path(:product_plan_id => ProductPlan.find_all_by_product_id(params[:product_id]).first.id.to_i), :method => :get %>
 <%end%>
- <%= link_to 'Back', user_product_plans_path %>
+ <br><%= link_to 'Back', user_product_plans_path %><br><br>
