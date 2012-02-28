@@ -5,6 +5,9 @@ namespace :import do
   end
 
   task :t_modules => :environment do
+    TrackkrModule.destroy_all
+    TCategory.destroy_all
+    Product.destroy_all
     tr_module_1 = TrackkrModule.create(:name=>"Sports & Fitness",:image_location=>"/images/Running.jpg")
     t_cat_1 = tr_module_1.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
     product = t_cat_1.products.create(:name=>"Marathon",:image_location =>"/images/Running.jpg") 
