@@ -44,7 +44,7 @@
   	
   	<!--code for friend graph section starts here-->
   	
-  	
+<% if @friendships %>
 <ul>	
 	<% for friendship in @friendships%>
 	<li>
@@ -76,7 +76,7 @@
 		</li>
 	<%end%>
 </ul>
-
+<% end %>
 
 <% if @inverse_friendships %>
   	<%for inverse_friendship in @inverse_friendships%> 

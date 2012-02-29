@@ -20,9 +20,11 @@
 
     	<%= button_to 'Get started', add_new_user_product_plan_path(:product_id => product.id), :method => :get %> 
 	</div>
+	<% if ProductPlan.find_all_by_product_id(product.id).first %>
     <div style="float: left; width: auto;">
 	  <%= button_to 'More Info', plan_value_product_info_path(:product_plan_id => ProductPlan.find_all_by_product_id(product.id).first), :method => :get %>
 	</div>
+	<% end %>
 
 	<br>
 </div>

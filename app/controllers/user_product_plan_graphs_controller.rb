@@ -32,11 +32,6 @@ class UserProductPlanGraphsController < ApplicationController
     @graphs = Graph.find_all_by_t_category_id(session[:t_category])
     @friendships = current_user.friendships.by_product(session[:product_id])
     @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
-    #new functionality by bittu#
-    #start#
-    #current_user
-    #session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
-    #session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -76,7 +71,7 @@ class UserProductPlanGraphsController < ApplicationController
       else
         @user_product_plan_graph = UserProductPlanGraph.new
 	        @user_product_plan = UserProductPlan.find params[:user_product_plan_id]
-		        @graphs = Graph.all
+		        @graphs = Graph.find_all_by_t_category_id(session[:t_category])
         format.html { render :action => "new" }
         format.xml  { render :xml => @user_product_plan_graph.errors, :status => :unprocessable_entity }
       end

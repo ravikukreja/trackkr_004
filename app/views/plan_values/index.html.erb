@@ -53,10 +53,10 @@
 <% end %>
 
 
-<% if params[:product_id] %> 
-<%= button_to "Get Started", add_new_user_product_plan_path, :method => :get %> 
+<% if session[:product_id] %> 
+<%= button_to "Get Started", add_new_user_product_plan_path(:product_id => session[:product_id]), :method => :get %> 
 <% end %>
 
-
+<%= button_to "Go Back", t_category_products_path(Product.find(session[:product_id]).t_category.id), :method => :get %>
 
  
