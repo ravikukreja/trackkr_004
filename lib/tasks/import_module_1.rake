@@ -2199,4 +2199,2108 @@ task :plan_values_3 => :environment do
    end
   end  
 
-end  
+#################################################################################
+
+task :plan_values_6 => :environment do
+    product_plan = ProductPlan.find_by_product_plan_name("Half_Marathon_Novice")
+    product_plan.plan_values.delete_all
+    if product_plan
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 1,
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 2,
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 3,
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 4,
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 5,
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 6,
+        :distance        => 8, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 7,
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  8,    
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  9,    
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      10,
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 11,      
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 12,      
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,
+        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 13,      
+        :distance        => 10, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 14,      
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 15,      
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 16,      
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CC" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  17,   
+        :distance        => 50, 
+        :speed           => 34,
+        :time            => 65,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    18, 
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  19,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 20,      
+        :distance        => 11, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 21,      
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  22,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  23,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CC" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  24,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 25,      
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  26,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  27,   
+        :distance        => 13, 
+        :speed           => 5,
+        :time            => 90,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  28,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  29,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  30,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  31,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  32,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  33,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  34,   
+        :distance        => 5, 
+        :speed           => 11,
+        :time            => 110,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  35,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    36, 
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    37, 
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    38, 
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    39, 
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    40, 
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    41, 
+        :distance        => 14, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  42,   
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    43, 
+        :distance        => 60, 
+        :speed           => 40,
+        :time            => 25,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    44, 
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    45, 
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "Stretching and Strides" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  46,   
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  47,   
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    48, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 125,
+        :notes           => "stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      49,
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    50, 
+        :distance        => 50, 
+        :speed           => 34,
+        :time            => 65,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    51, 
+        :distance        => 5, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    52, 
+        :distance        => 5, 
+        :speed           => 8,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    53, 
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    54, 
+        :distance        => 10, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    55, 
+        :distance        => 14, 
+        :speed           => 6,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    56, 
+        :distance        => 7, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  57,   
+        :distance        => 8, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    58, 
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    59, 
+        :distance        => 11, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  60,   
+        :distance        => 60, 
+        :speed           => 34,
+        :time            => 75,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  61,   
+        :distance        => 11, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    62, 
+        :distance        => 10, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    63, 
+        :distance        => 9, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      64,
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      65,
+        :distance        => 12, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      66,
+        :distance        => 13, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      67,
+        :distance        => 14, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    68, 
+        :distance        => 15, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    69, 
+        :distance        => 16, 
+        :speed           => 7,
+        :time            => 120,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    70, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 110,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    71, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 100,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    72, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 100,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    73, 
+        :distance        => 10, 
+        :speed           => 6,
+        :time            => 130,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      74,
+        :distance        => 15, 
+        :speed           => 5,
+        :time            => 130,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      75,
+        :distance        => 15, 
+        :speed           => 6,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      76,
+        :distance        => 20, 
+        :speed           => 7,
+        :time            => 200,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      77,
+        :distance        => 30, 
+        :speed           => 14,
+        :time            => 25,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    78, 
+        :distance        => 22, 
+        :speed           => 5,
+        :time            => 195,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    79, 
+        :distance        => 21, 
+        :speed           => 5,
+        :time            => 190,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    80, 
+        :distance        => 21, 
+        :speed           => 6,
+        :time            => 180,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      81,
+        :distance        => 21, 
+        :speed           => 7,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      82,
+        :distance        => 21, 
+        :speed           => 5,
+        :time            => 155,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      83,
+        :distance        => 22, 
+        :speed           => 4,
+        :time            => 165,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      84,
+        :distance        => 22, 
+        :speed           => 7,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      85,
+        :distance        => 23, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      86,
+        :distance        => 24, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      87,
+        :distance        => 25, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      88,
+        :distance        => 26, 
+        :speed           => 4,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      89,
+        :distance        => 27, 
+        :speed           => 6,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      90,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 135,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    91, 
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 345,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      92,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 135,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      93,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 165,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      94,
+        :distance        => 31, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      95,
+        :distance        => 32, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      96,
+        :distance        => 34, 
+        :speed           => 5,
+        :time            => 395,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    97, 
+        :distance        => 36, 
+        :speed           => 5,
+        :time            => 415,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      98,
+        :distance        => 38, 
+        :speed           => 5,
+        :time            => 405,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      99,
+        :distance        => 40, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      100,
+        :distance        => 42, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>101,
+        :distance        => 43, 
+        :speed           => 5,
+        :time            => 450,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      102,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 430,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      103,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 425,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      104,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 420,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      105,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 415,
+        :notes           => "Doing good" 
+    )
+   end
+  end  
+
+##################################################################################
+
+task :plan_values_5 => :environment do
+    product_plan = ProductPlan.find_by_product_plan_name("Half_Marathon_Intermediate")
+    product_plan.plan_values.delete_all
+    if product_plan
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 1,
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 2,
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 3,
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 4,
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 5,
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 6,
+        :distance        => 8, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 7,
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  8,    
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  9,    
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      10,
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 11,      
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 12,      
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,
+        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 13,      
+        :distance        => 10, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 14,      
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 15,      
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 16,      
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CC" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  17,   
+        :distance        => 50, 
+        :speed           => 34,
+        :time            => 65,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    18, 
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  19,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 20,      
+        :distance        => 11, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 21,      
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  22,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  23,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CC" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  24,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 25,      
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  26,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  27,   
+        :distance        => 13, 
+        :speed           => 5,
+        :time            => 90,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  28,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  29,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  30,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  31,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  32,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  33,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  34,   
+        :distance        => 5, 
+        :speed           => 11,
+        :time            => 110,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  35,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    36, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    37, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    38, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    39, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    40, 
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    41, 
+        :distance        => 14, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  42,   
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    43, 
+        :distance        => 42, 
+        :speed           => 49,
+        :time            => 15,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    44, 
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    45, 
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "Stretching and Strides" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  46,   
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  47,   
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    48, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 125,
+        :notes           => "stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      49,
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    50, 
+        :distance        => 50, 
+        :speed           => 34,
+        :time            => 65,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    51, 
+        :distance        => 5, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    52, 
+        :distance        => 5, 
+        :speed           => 8,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    53, 
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    54, 
+        :distance        => 10, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    55, 
+        :distance        => 14, 
+        :speed           => 6,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    56, 
+        :distance        => 7, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  57,   
+        :distance        => 8, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    58, 
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    59, 
+        :distance        => 11, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  60,   
+        :distance        => 60, 
+        :speed           => 34,
+        :time            => 75,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  61,   
+        :distance        => 11, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    62, 
+        :distance        => 10, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    63, 
+        :distance        => 9, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      64,
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      65,
+        :distance        => 12, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      66,
+        :distance        => 13, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      67,
+        :distance        => 14, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    68, 
+        :distance        => 15, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    69, 
+        :distance        => 16, 
+        :speed           => 7,
+        :time            => 120,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    70, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 110,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    71, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 100,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    72, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 100,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    73, 
+        :distance        => 10, 
+        :speed           => 6,
+        :time            => 130,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      74,
+        :distance        => 15, 
+        :speed           => 5,
+        :time            => 130,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      75,
+        :distance        => 15, 
+        :speed           => 6,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      76,
+        :distance        => 20, 
+        :speed           => 7,
+        :time            => 200,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      77,
+        :distance        => 30, 
+        :speed           => 14,
+        :time            => 25,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    78, 
+        :distance        => 22, 
+        :speed           => 5,
+        :time            => 195,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    79, 
+        :distance        => 21, 
+        :speed           => 5,
+        :time            => 190,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    80, 
+        :distance        => 21, 
+        :speed           => 6,
+        :time            => 180,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      81,
+        :distance        => 21, 
+        :speed           => 7,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      82,
+        :distance        => 21, 
+        :speed           => 5,
+        :time            => 155,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      83,
+        :distance        => 22, 
+        :speed           => 4,
+        :time            => 165,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      84,
+        :distance        => 22, 
+        :speed           => 7,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      85,
+        :distance        => 23, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      86,
+        :distance        => 24, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      87,
+        :distance        => 25, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      88,
+        :distance        => 26, 
+        :speed           => 4,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      89,
+        :distance        => 27, 
+        :speed           => 6,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      90,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 135,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    91, 
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 345,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      92,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 135,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      93,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 165,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      94,
+        :distance        => 31, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      95,
+        :distance        => 32, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      96,
+        :distance        => 34, 
+        :speed           => 5,
+        :time            => 395,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    97, 
+        :distance        => 36, 
+        :speed           => 5,
+        :time            => 415,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      98,
+        :distance        => 38, 
+        :speed           => 5,
+        :time            => 405,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      99,
+        :distance        => 40, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      100,
+        :distance        => 42, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>101,
+        :distance        => 43, 
+        :speed           => 5,
+        :time            => 450,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      102,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 430,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      103,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 425,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      104,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 420,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      105,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 415,
+        :notes           => "Doing good" 
+    )
+   end
+  end  
+
+#####################################################################################
+
+task :plan_values_4 => :environment do
+    product_plan = ProductPlan.find_by_product_plan_name("Half_Marathon_Advance")
+    product_plan.plan_values.delete_all
+    if product_plan
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 1,
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 2,
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 3,
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 4,
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 5,
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 6,
+        :distance        => 8, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day             => 7,
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  8,    
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  9,    
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      10,
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 11,      
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 12,      
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,
+        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 13,      
+        :distance        => 10, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 14,      
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 15,      
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 16,      
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CC" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  17,   
+        :distance        => 50, 
+        :speed           => 34,
+        :time            => 65,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    18, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  19,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 20,      
+        :distance        => 11, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 21,      
+        :distance        => 59, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  22,   
+        :distance        => 55, 
+        :speed           => 57,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  23,   
+        :distance        => 55, 
+        :speed           => 99,
+        :time            => 19,        :notes           => "CC" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  24,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  => 25,      
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  26,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  27,   
+        :distance        => 13, 
+        :speed           => 5,
+        :time            => 90,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  28,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  29,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  30,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  31,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  32,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  33,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  34,   
+        :distance        => 5, 
+        :speed           => 11,
+        :time            => 110,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  35,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    36, 
+        :distance        => 21, 
+        :speed           => 77,
+        :time            => 34,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    37, 
+        :distance        => 55, 
+        :speed           => 90,
+        :time            => 19,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    38, 
+        :distance        => 22, 
+        :speed           => 22,
+        :time            => 21,        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    39, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    40, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    41, 
+        :distance        => 14, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  42,   
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    43, 
+        :distance        => 55, 
+        :speed           => 59,
+        :time            => 19,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    44, 
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CE" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    45, 
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "Stretching and Strides" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  46,   
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "Warm-up" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  47,   
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    48, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 125,
+        :notes           => "stretching" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      49,
+        :distance        => 60, 
+        :speed           => 49,
+        :time            => 20,        :notes           => "CT" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    50, 
+        :distance        => 50, 
+        :speed           => 34,
+        :time            => 65,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    51, 
+        :distance        => 5, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    52, 
+        :distance        => 5, 
+        :speed           => 8,
+        :time            => 87,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    53, 
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 87,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    54, 
+        :distance        => 10, 
+        :speed           => 65,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    55, 
+        :distance        => 14, 
+        :speed           => 6,
+        :time            => 63,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    56, 
+        :distance        => 7, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  57,   
+        :distance        => 8, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    58, 
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    59, 
+        :distance        => 11, 
+        :speed           => 19,
+        :time            => 74,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  60,   
+        :distance        => 60, 
+        :speed           => 32,
+        :time            => 75,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>  61,   
+        :distance        => 11, 
+        :speed           => 87,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    62, 
+        :distance        => 52, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    63, 
+        :distance        => 9, 
+        :speed           => 7,
+        :time            => 45,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      64,
+        :distance        => 9, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      65,
+        :distance        => 12, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      66,
+        :distance        => 13, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      67,
+        :distance        => 14, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    68, 
+        :distance        => 15, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    69, 
+        :distance        => 16, 
+        :speed           => 7,
+        :time            => 120,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    70, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 110,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    71, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 100,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    72, 
+        :distance        => 10, 
+        :speed           => 5,
+        :time            => 100,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    73, 
+        :distance        => 10, 
+        :speed           => 6,
+        :time            => 130,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      74,
+        :distance        => 15, 
+        :speed           => 54,
+        :time            => 20,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      75,
+        :distance        => 96, 
+        :speed           => 6,
+        :time            => 52,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      76,
+        :distance        => 20, 
+        :speed           => 7,
+        :time            => 200,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      77,
+        :distance        => 30, 
+        :speed           => 14,
+        :time            => 25,        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    78, 
+        :distance        => 22, 
+        :speed           => 5,
+        :time            => 195,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    79, 
+        :distance        => 21, 
+        :speed           => 5,
+        :time            => 190,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    80, 
+        :distance        => 21, 
+        :speed           => 6,
+        :time            => 180,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      81,
+        :distance        => 21, 
+        :speed           => 7,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      82,
+        :distance        => 21, 
+        :speed           => 5,
+        :time            => 155,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      83,
+        :distance        => 22, 
+        :speed           => 4,
+        :time            => 165,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      84,
+        :distance        => 22, 
+        :speed           => 7,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      85,
+        :distance        => 23, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      86,
+        :distance        => 24, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      87,
+        :distance        => 25, 
+        :speed           => 5,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      88,
+        :distance        => 26, 
+        :speed           => 4,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      89,
+        :distance        => 27, 
+        :speed           => 6,
+        :time            => 245,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      90,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 135,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    91, 
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 345,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      92,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 135,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      93,
+        :distance        => 30, 
+        :speed           => 5,
+        :time            => 165,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      94,
+        :distance        => 31, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      95,
+        :distance        => 32, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      96,
+        :distance        => 34, 
+        :speed           => 5,
+        :time            => 395,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>    97, 
+        :distance        => 36, 
+        :speed           => 5,
+        :time            => 415,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      98,
+        :distance        => 38, 
+        :speed           => 5,
+        :time            => 405,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      99,
+        :distance        => 40, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      100,
+        :distance        => 42, 
+        :speed           => 19,
+        :time            => 40,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>101,
+        :distance        => 43, 
+        :speed           => 5,
+        :time            => 450,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      102,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 430,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      103,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 425,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      104,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 420,
+        :notes           => "Doing good" 
+    )
+    PlanValue.create(:product_plan_id => product_plan.id,
+        :day  =>      105,
+        :distance        => 44, 
+        :speed           => 5,
+        :time            => 415,
+        :notes           => "Doing good" 
+    )
+   end
+  end  
+
+######################################################################################
+end
