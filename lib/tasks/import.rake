@@ -5,27 +5,28 @@ namespace :import do
   end
 
   task :t_modules => :environment do
-    TrackkrModule.destroy_all
-    TCategory.destroy_all
-    Product.destroy_all
+    TrackkrModule.delete_all
+    TCategory.delete_all
+    Product.delete_all
+    ProductPlan.delete_all
     tr_module_1 = TrackkrModule.create(:name=>"Sports & Fitness",:image_location=>"/images/Running.jpg")
     t_cat_1 = tr_module_1.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
     product = t_cat_1.products.create(:name=>"Marathon",:image_location =>"/images/Running.jpg") 
-    ["Marathon_Novice","Marathon_Intermediate","Marathon_Advance"].each do | plan |
+    ["Marathon_Novice","Marathon_Intermediate","Marathon_Advance"].each do |plan|
       product_plan = product.product_plans.create(:product_plan_name=>plan)
     end
     
     tr_module_2 =TrackkrModule.create(:name=>"Module2",:image_location=>"/images/Adidas.gif")
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
-    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>"/images/Running.jpg" )
+    t_cat_2 = tr_module_2.t_categories.create(:name=>"Module2Category",:image_location=>"/images/Running.jpg")
+    t_cat_2.products.create(:name=>"Product2",:image_location =>"/images/Running.jpg" )
     
     tr_module_2 =TrackkrModule.create(:name=>"Module3",:image_location=>"/images/WineCollection.jpg")
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
-    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>"/images/Running.jpg") 
+    t_cat_2 = tr_module_2.t_categories.create(:name=>"Module3Category",:image_location=>"/images/Running.jpg")
+    t_cat_2.products.create(:name=>"Product3",:image_location =>"/images/Running.jpg") 
     
     tr_module_2 =TrackkrModule.create(:name=>"Module4",:image_location=>"/images/Marketing.jpg")
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
-    t_cat_2.products.create(:name=>"Gymnastic & Yoga",:image_location =>"/images/Running.jpg") 
+    t_cat_2 = tr_module_2.t_categories.create(:name=>"Module4Category",:image_location=>"/images/Running.jpg")
+    t_cat_2.products.create(:name=>"Product4",:image_location =>"/images/Running.jpg") 
   end
   
   task :plan_values => :environment do
