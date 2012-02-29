@@ -1,5 +1,7 @@
 namespace :import_module_1 do
+  
   task :user => :environment do
+    User.delete_all
     User.create(:username=>"admin",:password=>"admin",:password_confirmation=>"admin",:email=>"admin@trackkr.com")
     User.create(:username=>"user",:password=>"user",:password_confirmation=>"user",:email=>"user@trackkr.com")
     User.create(:username=>"trackkr1",:password=>"trackkr",:password_confirmation=>"trackkr",:email=>"trackkr1@trackkr.com")
@@ -22,27 +24,27 @@ task :t_modules => :environment do
     product_2_2 = t_categories_2.products.create(:name=>"50 KM",:image_location =>"/images/reading.jpg")
     
     ["Marathon_Novice","Marathon_Intermediate","Marathon_Advance"].each do |plan|
-      product_plan_1_1 = product_1_1.product_plans.create(:product_plan_name=>plan)
+      product_1_1.product_plans.create(:product_plan_name=>plan)
     end 
     
     ["Half_Marathon_Novice","Half_Marathon_Intermediate","Half_Marathon_Advance"].each do |plan|
-      product_plan_1_2 = product_1_2.product_plans.create(:product_plan_name=>plan)
+      product_1_2.product_plans.create(:product_plan_name=>plan)
     end 
     
     ["100_KM_Novice","100_KM_Intermediate","100_KM_Advance"].each do |plan|
-      product_plan_2_1 = product_2_1.product_plans.create(:product_plan_name=>plan)
+      product_2_1.product_plans.create(:product_plan_name=>plan)
     end
     
      ["50_KM_Novice","50_KM_Intermediate","50_KM_Advance"].each do |plan|
-      product_plan_2_2 = product_2_2.product_plans.create(:product_plan_name=>plan)
+      product_2_2.product_plans.create(:product_plan_name=>plan)
     end
     
     ["Distance_Graph_Running", "Speed_Graph_Running", "Time_Graph_Running"].each do |graph|
-      graph = t_categories_1.graph.create(:name => graph)
+      graph = t_categories_1.graphs.create(:name => graph)
     end
     
     ["Distance_Graph_Cycling", "Speed_Graph_Cycling", "Time_Graph_Cycling"].each do |graph|
-      graph = t_categories_2.graph.create(:name => graph)
+      graph = t_categories_2.graphs.create(:name => graph)
     end
     
     
