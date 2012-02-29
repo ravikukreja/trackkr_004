@@ -28,15 +28,10 @@ class UserProductPlanGraphsController < ApplicationController
   def new
     @user_product_plan_graph = UserProductPlanGraph.new
     @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
-    session[:t_category] = ProductPlan.find(session[:product_id]).product.t_category.id
+    session[:t_category] = Product.find(session[:product_id]).t_category.id
     @graphs = Graph.find_all_by_t_category_id(session[:t_category])
     @friendships = current_user.friendships.by_product(session[:product_id])
     @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
-    #new functionality by bittu#
-    #start#
-    #current_user
-    #session[:user_product_plan_id] = params[:user_product_plan_id] || current_user.user_product_plans.first.id
-    #session[:product_id] = UserProductPlan.find(session[:user_product_plan_id]).product_plan.product.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,12 +48,12 @@ class UserProductPlanGraphsController < ApplicationController
   # POST /user_product_plan_graphs.xml
   def create
     status = false
-    UserProductPlanGraph.find_all_by_user_product_plan_id(params[:user_product_plan_id].to_i).each do |existing|
+    UserProductPlanGraph.find_all_by_user_product_plan_id(session[:user_product_plan_id].to_i).each do |existing|
           existing.destroy
 	      end
     params[:new].each do |key,value|
       if Graph.exists?(value[:graph_id])
-        value.merge!(:user_product_plan_id=>params[:user_product_plan_id].to_i)
+        value.merge!(:user_product_plan_id=>session[:user_product_plan_id].to_i)
       #  if (exist_data = UserProductPlanGraph.find_by_user_product_plan_id_and_graph_id(params[:user_product_plan_id].to_i,value[:graph_id]))
        #   status = exist_data.update_attributes(value)
       #  else
@@ -76,7 +71,7 @@ class UserProductPlanGraphsController < ApplicationController
       else
         @user_product_plan_graph = UserProductPlanGraph.new
 	        @user_product_plan = UserProductPlan.find params[:user_product_plan_id]
-		        @graphs = Graph.all
+		        @graphs = Graph.find_all_by_t_category_id(session[:t_category])
         format.html { render :action => "new" }
         format.xml  { render :xml => @user_product_plan_graph.errors, :status => :unprocessable_entity }
       end

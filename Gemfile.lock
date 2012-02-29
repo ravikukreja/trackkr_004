@@ -83,7 +83,7 @@ GEM
     gherkin (2.9.0-x86-mingw32)
       json (>= 1.4.6)
     has_scope (0.5.1)
-    heroku (2.20.1)
+    heroku (2.21.0)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       rubyzip
