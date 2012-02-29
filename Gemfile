@@ -3,7 +3,7 @@
 
 #require "bundler/setup"
 
-#gem  "rake", "0.9.2"
+gem  "rake", "0.9.2"
 
 source 'http://rubygems.org'
 
