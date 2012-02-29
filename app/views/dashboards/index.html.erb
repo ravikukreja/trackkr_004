@@ -71,7 +71,7 @@ body {
 	
 </div>	
  <div style="width:600px; height:350px"> </div>
-
+<div id ="frd_network"> <%=link_to "Add Friend to Network",new_friendship_path(:product_id=>Product.first.id),{:rel=>"facebox[.bolder]"}%></div>
 <div id="left"> My Friends:
 <ul>	
 	<% for friendship in @friendships%>
