@@ -1,40 +1,56 @@
-namespace :import do
+namespace :import_module_1 do
   task :user => :environment do
-    User.create(:username=>"admin",:password=>"admin@123",:password_confirmation=>"admin@123",:email=>"admin@trackkr.com")
-    User.create(:username=>"regular_user",:password=>"regular_user@123",:password_confirmation=>"regular_user@123",:email=>"regular_user@trackkr.com")
-  end
+    User.create(:username=>"admin",:password=>"admin",:password_confirmation=>"admin",:email=>"admin@trackkr.com")
+    User.create(:username=>"user",:password=>"user",:password_confirmation=>"user",:email=>"user@trackkr.com")
+    User.create(:username=>"trackkr1",:password=>"trackkr",:password_confirmation=>"trackkr",:email=>"trackkr1@trackkr.com")
+    User.create(:username=>"trackkr2",:password=>"trackkr",:password_confirmation=>"trackkr",:email=>"trackkr2@trackkr.com")
+  end  
+##############################################################################################
 
-##########################################################################################################
 
-  task :t_modules => :environment do
+task :t_modules => :environment do
     TrackkrModule.delete_all
     TCategory.delete_all
     Product.delete_all
     ProductPlan.delete_all
-    tr_module_1 = TrackkrModule.create(:name=>"Sports & Fitness",:image_location=>"/images/Running.jpg")
-    t_cat_1 = tr_module_1.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
-    product = t_cat_1.products.create(:name=>"Marathon",:image_location =>"/images/Running.jpg") 
+    trackkr_module_1 = TrackkrModule.create(:name=>"Sports & Fitness",:image_location=>"/images/Running.jpg")
+    t_categories_1 = trackkr_module_1.t_categories.create(:name=>"Running",:image_location=>"/images/Running.jpg")
+    t_categories_2 = trackkr_module_1.t_categories.create(:name=>"Cycling",:image_location=>"/images/other.jpg")
+    product_1_1 = t_categories_1.products.create(:name=>"Marathon",:image_location =>"/images/Running.jpg") 
+    product_1_2 = t_categories_1.products.create(:name=>"Half Marathon",:image_location =>"/images/reading.jpg")
+    product_2_1 = t_categories_2.products.create(:name=>"100 KM",:image_location =>"/images/Running.jpg") 
+    product_2_2 = t_categories_2.products.create(:name=>"50 KM",:image_location =>"/images/reading.jpg")
+    
     ["Marathon_Novice","Marathon_Intermediate","Marathon_Advance"].each do |plan|
-      product_plan = product.product_plans.create(:product_plan_name=>plan)
+      product_plan_1_1 = product_1_1.product_plans.create(:product_plan_name=>plan)
+    end 
+    
+    ["Half_Marathon_Novice","Half_Marathon_Intermediate","Half_Marathon_Advance"].each do |plan|
+      product_plan_1_2 = product_1_2.product_plans.create(:product_plan_name=>plan)
+    end 
+    
+    ["100_KM_Novice","100_KM_Intermediate","100_KM_Advance"].each do |plan|
+      product_plan_2_1 = product_2_1.product_plans.create(:product_plan_name=>plan)
+    end
+    
+     ["50_KM_Novice","50_KM_Intermediate","50_KM_Advance"].each do |plan|
+      product_plan_2_2 = product_2_2.product_plans.create(:product_plan_name=>plan)
+    end
+    
+    ["Distance_Graph_Running", "Speed_Graph_Running", "Time_Graph_Running"].each do |graph|
+      graph = t_categories_1.graph.create(:name => graph)
+    end
+    
+    ["Distance_Graph_Cycling", "Speed_Graph_Cycling", "Time_Graph_Cycling"].each do |graph|
+      graph = t_categories_2.graph.create(:name => graph)
     end
     
     
-    tr_module_2 =TrackkrModule.create(:name=>"Module2",:image_location=>"/images/Adidas.gif")
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Module2Category",:image_location=>"/images/Running.jpg")
-    t_cat_2.products.create(:name=>"Product2",:image_location =>"/images/Running.jpg" )
-    
-    tr_module_2 =TrackkrModule.create(:name=>"Module3",:image_location=>"/images/WineCollection.jpg")
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Module3Category",:image_location=>"/images/Running.jpg")
-    t_cat_2.products.create(:name=>"Product3",:image_location =>"/images/Running.jpg") 
-    
-    tr_module_2 =TrackkrModule.create(:name=>"Module4",:image_location=>"/images/Marketing.jpg")
-    t_cat_2 = tr_module_2.t_categories.create(:name=>"Module4Category",:image_location=>"/images/Running.jpg")
-    t_cat_2.products.create(:name=>"Product4",:image_location =>"/images/Running.jpg") 
-  end
-
+end
 ############################################################################################## 
   
   task :plan_values => :environment do
+    PlanValue.delete_all
     product_plan = ProductPlan.find_by_product_plan_name("Marathon_Novice")
     product_plan.plan_values.delete_all
     if product_plan
@@ -1484,7 +1500,6 @@ namespace :import do
 
 ##############################################################################################
 
-
 task :plan_values_3 => :environment do
     product_plan = ProductPlan.find_by_product_plan_name("Marathon_Advance")
     product_plan.plan_values.delete_all
@@ -2184,7 +2199,4 @@ task :plan_values_3 => :environment do
    end
   end  
 
-  
-  
 end  
-  
