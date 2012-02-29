@@ -38,11 +38,11 @@ task :t_modules => :environment do
     end
     
     ["Distance_Graph_Running", "Speed_Graph_Running", "Time_Graph_Running"].each do |graph|
-      graph = t_categories_1.graph.create(:name => graph)
+      graph = t_categories_1.graphs.create(:name => graph)
     end
     
     ["Distance_Graph_Cycling", "Speed_Graph_Cycling", "Time_Graph_Cycling"].each do |graph|
-      graph = t_categories_2.graph.create(:name => graph)
+      graph = t_categories_2.graphs.create(:name => graph)
     end
     
     
