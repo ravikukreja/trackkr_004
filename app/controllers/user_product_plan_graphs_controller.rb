@@ -48,12 +48,12 @@ class UserProductPlanGraphsController < ApplicationController
   # POST /user_product_plan_graphs.xml
   def create
     status = false
-    UserProductPlanGraph.find_all_by_user_product_plan_id(params[:user_product_plan_id].to_i).each do |existing|
+    UserProductPlanGraph.find_all_by_user_product_plan_id(session[:user_product_plan_id].to_i).each do |existing|
           existing.destroy
 	      end
     params[:new].each do |key,value|
       if Graph.exists?(value[:graph_id])
-        value.merge!(:user_product_plan_id=>params[:user_product_plan_id].to_i)
+        value.merge!(:user_product_plan_id=>session[:user_product_plan_id].to_i)
       #  if (exist_data = UserProductPlanGraph.find_by_user_product_plan_id_and_graph_id(params[:user_product_plan_id].to_i,value[:graph_id]))
        #   status = exist_data.update_attributes(value)
       #  else
