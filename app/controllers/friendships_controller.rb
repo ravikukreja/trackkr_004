@@ -76,7 +76,7 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
 
     respond_to do |format|
-      format.html { redirect_to(friendships_url) }
+      format.html { redirect_to(dashboards_url) }
       format.xml  { head :ok }
     end
   end

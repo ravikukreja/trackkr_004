@@ -76,14 +76,14 @@ body {
 <ul>	
 	<% for friendship in @friendships%>
 	<li>
-		<%if friendship.status =="Accepted"%>
-		<%= link_to friendship.friend.username, users_path%>
-		<%elsif friendship.status =="Pending"%>
+	<%if friendship.status =="Accepted"%>
+		<%= link_to User.find(friendship.friend_id).username, users_path%>
+	<%elsif friendship.status =="Pending"%>
 		<%= friendship.friend.username%>
-		<%elsif friendship.status =="Rejected"%>
+	<%elsif friendship.status =="Rejected"%>
 		<%= friendship.friend.id%>
-		<%end%>
-		<%= link_to "Remove", friendship, :method => :delete %>
+	<%end%>
+		<%= link_to "Remove", friendship, :method => :delete, :confirm => 'Are you sure'%>
 		</li>
 	<%end%>
 </ul>
