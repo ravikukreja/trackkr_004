@@ -50,11 +50,17 @@ class UserProductPlansController < ApplicationController
     @existing_user_product_plan = current_user.user_product_plans.find_by_product_id(params[:product_id])
     #@plan_values = PlanValue.find_by_product_plan_id(params[:product_plan_id])
     @user_product_plan = current_user.user_product_plans.new(params[:user_product_plan])
+    @day_count = PlanValue.find_all_by_product_plan_id(params[:product_plan_id]).last.day
     date = "#{params['plan']['date(1i)']}/#{params['plan']['date(2i)']}/#{params['plan']['date(3i)']}"
     if params[:start_end] == "start"
+      #time = @user_product_plan.start_date
       @user_product_plan.start_date = date
-      t = date.to_i + 1350000000
-      @user_product_plan.end_date = Time.at(t)
+      #total_time = (@day_count * 86400)
+      #t = date.to_i + (date.to_i + total_time).to_i
+    
+      @user_product_plan.end_date = @user_product_plan.start_date + @day_count
+      #(t + @day_count)
+      #Time.at(t)
     elsif params[:start_end] == "end"
       @user_product_plan.end_date = date
       @user_product_plan.start_date = 2.month.ago
