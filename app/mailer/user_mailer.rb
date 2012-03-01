@@ -3,8 +3,8 @@ class UserMailer < ActionMailer::Base
   
   def invite_to_product(frd_obj,content)
     @frd_user = frd_obj
-    @content = content + ' Activate the product: ' + friend_url(:id=>frd_obj.authenticity_token,:host=>'trackkr.com')  
-    mail(:to => "#{@frd_user.friend.username} <#{@frd_user.friend.email}>", :subject => "Please visit this Product #{frd_obj.product.name} in Trackkr" )
+    @content = content + ' Activate the product: ' + friendship_url(:id=>frd_obj.authenticity_token,:host=>'trackkr.com')  
+    mail(:to => "#{@frd_user.friendship.username} <#{@frd_user.friendship.email}>", :subject => "Please visit this Product #{frd_obj.product.name} in Trackkr" )
   end
   
   def invite_to_trackkr(user_email,product,content)

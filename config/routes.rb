@@ -66,8 +66,8 @@ end
   get "add_to_cart/:product_id" => "user_products#add_to_cart",:as=>"add_to_cart"
   get "add_to_cart/:product_id/friend/:friend_id" => "user_products#add_to_cart",:as=>"add_to_cart_with_frd"  
   
-  get "user_search" => "friends#search", :as => "user_search"
-  get "send_invite" => "friends#send_invite",:as =>"send_invite"
+  get "user_search" => "friendships#search", :as => "user_search"
+  get "send_invite" => "friendships#send_invite",:as =>"send_invite"
   resources :users
 
 end
