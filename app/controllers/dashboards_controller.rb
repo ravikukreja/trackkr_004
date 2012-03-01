@@ -16,7 +16,7 @@ class DashboardsController < ApplicationController
     @user_product_plan = UserProductPlan.find(session[:user_product_plan_id])
     @user_product_plan_datas = UserProductPlanData.by_days(14).unfilled_actual_data.find_all_by_user_product_plan_id(session[:user_product_plan_id])
     @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)
-    @friendships = current_user.friendships.by_product(session[:product_id])
+    @friendships = Friendship.find_all_by_user_id_and_product_id(current_user.id,session[:product_id])
     @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
     
     respond_to do |format|

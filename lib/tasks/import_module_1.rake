@@ -6211,6 +6211,17 @@ task :plan_values_12 => :environment do
 end 
 end
 #################################################################################
+
+ task :friend_data =>  :environment do
+   Friendship.delete_all
+   Friendship.create(:user_id => '7', :friend_id => '8', :product_id => '44', :status => 'Accepted')
+   Friendship.create(:user_id => '7', :friend_id => '9', :product_id => '44', :status => 'Accepted')
+   Friendship.create(:user_id => '7', :friend_id => '10', :product_id => '43', :status => 'Accepted')
+   Friendship.create(:user_id => '8', :friend_id => '7', :product_id => '43', :status => 'Accepted')
+   Friendship.create(:user_id => '9', :friend_id => '7', :product_id => '43', :status => 'Accepted')
+   Friendship.create(:user_id => '10', :friend_id => '7', :product_id => '43', :status => 'Accepted')
+ end
+      
 end
 
 
