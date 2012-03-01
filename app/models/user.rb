@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :through => :friendships
   before_create { generate_token(:auth_token) }
-  validates_presence_of :username, :email, :password
+  #validates_presence_of :username, :email, :password
   validates_uniqueness_of :username, :email
 
   
