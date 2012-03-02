@@ -18,7 +18,7 @@ class DashboardsController < ApplicationController
     @user_product_plan_datas_actual_distance= @user_product_plan_datas.find(:actual_distance)
     @friendships = Friendship.find_all_by_user_id_and_product_id(current_user.id,session[:product_id])
     @inverse_friendships = current_user.inverse_friendships.find_all_by_product_id_and_friend_id(session[:product_id], current_user)
-    
+    @graphs = Graph.find_all_by_t_category_id(session[:t_category])
     respond_to do |format|
       #UserMailer.share(@user).deliver
       format.html # index.html.erb

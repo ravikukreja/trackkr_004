@@ -50,16 +50,23 @@ body {
 			<% @graph_select_range = 3.month.ago %>
 		 <%end%>
 		 
-		<% if user_product_plan_graph.graph_id ==1 %>
+	
+	      
+		<% if user_product_plan_graph.graph_id == @graphs.first.id %>
 			<%= render 'dashboards/highchart1',:user_product_plan_graph => user_product_plan_graph %>
-		<% elsif user_product_plan_graph.graph_id ==2 %>
+			  
+		<% elsif user_product_plan_graph.graph_id == @graphs.second.id  %>
 			<%= render 'dashboards/highchart2',:user_product_plan_graph => user_product_plan_graph  %>
-		<% elsif user_product_plan_graph.graph_id ==3 %>
+			  
+		<% elsif user_product_plan_graph.graph_id ==@graphs.third.id  %>
 			<%= render 'dashboards/highchart3',:user_product_plan_graph => user_product_plan_graph %>
-		<% elsif user_product_plan_graph.graph_id ==4 %>
-			<%= render 'dashboards/highchart4',:user_product_plan_graph => user_product_plan_graph %>
+			 
+		<% elsif user_product_plan_graph.graph_id ==@graphs.fourth.id  %>
+			<%= render 'dashboards/highchart3',:user_product_plan_graph => user_product_plan_graph %>
+			 	 
 		<%end%>
-
+	
+    
 </div>	
 	
 <% end %>
