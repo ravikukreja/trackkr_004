@@ -6214,12 +6214,12 @@ end
 
  task :friend_data =>  :environment do
    Friendship.delete_all
-   Friendship.create(:user_id => '7', :friend_id => '8', :product_id => '44', :status => 'Accepted')
-   Friendship.create(:user_id => '7', :friend_id => '9', :product_id => '44', :status => 'Accepted')
-   Friendship.create(:user_id => '7', :friend_id => '10', :product_id => '43', :status => 'Accepted')
-   Friendship.create(:user_id => '8', :friend_id => '7', :product_id => '43', :status => 'Accepted')
-   Friendship.create(:user_id => '9', :friend_id => '7', :product_id => '43', :status => 'Accepted')
-   Friendship.create(:user_id => '10', :friend_id => '7', :product_id => '43', :status => 'Accepted')
+   Friendship.create(:user_id => '7', :friend_id => '3', :product_id => '34', :status => 'Accepted')
+   Friendship.create(:user_id => '7', :friend_id => '5', :product_id => '33', :status => 'Accepted')
+   Friendship.create(:user_id => '7', :friend_id => '4', :product_id => '35', :status => 'Accepted')
+   Friendship.create(:user_id => '3', :friend_id => '7', :product_id => '33', :status => 'Accepted')
+   Friendship.create(:user_id => '4', :friend_id => '7', :product_id => '36', :status => 'Accepted')
+   Friendship.create(:user_id => '6', :friend_id => '7', :product_id => '35', :status => 'Accepted')
  end
       
 end
